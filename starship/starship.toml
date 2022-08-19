@@ -1,0 +1,33 @@
+format = """
+[](#D7FF00)\
+$time\
+[](bg:#444444 fg:#D7FF00)\
+[  ](bg:#444444 fg:#D70A53)\
+[](fg:#444444 bg:#1C1C1C)\
+$git_branch\
+$directory\
+[ ](fg:#1C1C1C)\
+"""
+
+add_newline = false
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#D7FF00 fg:#00005F"
+format = "[[$time]($style)]($style)"
+
+[username]
+show_always = true
+style_user = "bg:#444444 fg:#E7E7E7"
+style_root = "bg:#444444 fg:#E7E7E7"
+format = "[ $user ]($style)"
+
+[git_branch]
+style = "bg:#1C1C1C fg:#5FFFAF"
+format = "[ $symbol$branch(:$remote_branch) ]($style)"
+
+[directory]
+style = "bg:#1C1C1C fg:#5FFFAF"
+format = "[ $path ]($style)"
+truncation_length = 1
