@@ -37,6 +37,7 @@ tree.setup {
 	},
 	view = {
 		adaptive_size = true,
+		hide_root_folder = true,
 		width = 30,
 		side = "left",
 		signcolumn = "yes",
@@ -72,7 +73,7 @@ tree.setup {
 					staged = "",
 					unmerged = "",
 					renamed = "➜",
-					untracked = "",
+					untracked = "+",
 					deleted = "",
 					ignored = "◌",
 				}
