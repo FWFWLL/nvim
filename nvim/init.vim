@@ -67,45 +67,34 @@ hi CursorLineNr ctermfg=1
 hi Pmenu ctermfg=15 ctermbg=233
 hi VertSplit ctermfg=15 ctermbg=233
 
-" nvim-cmp abbr
+" nvim-cmp
 hi CmpItemAbbr ctermfg=7
 hi CmpItemAbbrMatch ctermfg=1
 hi CmpItemAbbrMatchFuzzy ctermfg=11
-
-" nvim-cmp source
 hi CmpItemMenu ctermfg=7
-
-" nvim-cmp kind
 hi CmpItemKindDefault ctermfg=7
-
-" Blue
 hi CmpItemKindVariable ctermfg=14
 hi CmpItemKindInterface ctermfg=14
 hi CmpItemKindText ctermfg=14
 hi CmpItemKindField ctermfg=14
-
-" Yellow
 hi CmpItemKindClass ctermfg=11
 hi CmpItemKindConstructor ctermfg=11
 hi CmpItemKindModule ctermfg=11
 hi CmpItemKindStruct ctermfg=11
 hi CmpItemKindEnum ctermfg=11
 hi CmpItemKindEnumMember ctermfg=11
-
-" Pink
 hi CmpItemKindFunction ctermfg=9
 hi CmpItemKindMethod ctermfg=9
-
-" Purple
 hi CmpItemKindSnippet ctermfg=13
-
-" White
 hi CmpItemKindKeyword ctermfg=15
 hi CmpItemKindProperty ctermfg=15
 hi CmpItemKindUnit ctermfg=15
 hi CmpItemKindConstant ctermfg=15
 hi CmpItemKindReference ctermfg=15
 hi CmpItemKindOperator ctermfg=15
+
+" nvim-tree
+hi NvimTreeOpenedFile ctermfg=1
 
 " Telescope
 hi TelescopeMatching ctermfg=11
