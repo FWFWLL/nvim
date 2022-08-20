@@ -6,6 +6,7 @@ Plug 'xiyaowong/nvim-transparent' " Transparent background
 Plug 'ryanoasis/vim-devicons' " File type icons
 Plug 'lukas-reineke/indent-blankline.nvim' " Whitespace guides/lines
 Plug 'ap/vim-css-color' " CSS color preview
+Plug 'akinsho/bufferline.nvim' " Buffer line
 
 " Colorschemes
 Plug 'tomasr/molokai' " Molokai colorscheme
@@ -59,11 +60,9 @@ EOF
 " Colorscheme
 colorscheme molokai
 
-" Line number bar
+" Colorscheme overrides
 hi LineNr ctermfg=15
 hi CursorLineNr ctermfg=1
-
-" Floating window
 hi Pmenu ctermfg=15 ctermbg=233
 hi VertSplit ctermfg=15 ctermbg=233
 
@@ -102,6 +101,40 @@ hi TelescopePromptPrefix ctermfg=9
 hi TelescopeBorder ctermfg=15
 hi TelescopeSelection ctermfg=9
 
+" Buffer line
+hi BufferLineFill ctermbg=234
+hi BufferLineBackground ctermfg=85 ctermbg=234
+hi BufferLineDevIconDefault ctermbg=234
+hi BufferLineCloseButton ctermfg=7 ctermbg=234
+hi BufferLineCloseButtonSelected ctermfg=15
+hi BufferLineCloseButtonVisible ctermfg=15
+hi BufferLineModified ctermfg=7 ctermbg=234
+hi BufferLineModifiedSelected ctermfg=15
+hi BufferLineModifiedVisible ctermfg=15
+hi BufferLineBufferSelected ctermfg=1
+hi BufferLineBufferVisible ctermfg=1
+hi BufferLineIndicatorSelected ctermfg=1
+hi BufferLineSeparator ctermfg=234 ctermbg=234
+hi BufferLineSeparatorSelected ctermfg=234 ctermbg=234
+hi BufferLineTabClose ctermfg=15 ctermbg=234
+hi BufferLineTabCloseSelected ctermfg=15 ctermbg=234
+hi BufferLineError ctermfg=85 ctermbg=234
+hi BufferLineErrorSelected ctermfg=1
+hi BufferLineErrorDiagnostic ctermfg=1
+hi BufferLineErrorDiagnosticSelected ctermfg=1
+hi BufferLineHint ctermfg=85 ctermbg=234
+hi BufferLineHintSelected ctermfg=1
+hi BufferLineHintDiagnostic ctermfg=250
+hi BufferLineHintDiagnosticSelected ctermfg=250
+hi BufferLineInfo ctermfg=85 ctermbg=234
+hi BufferLineInfoSelected ctermfg=1
+hi BufferLineInfoDiagnostic ctermfg=4
+hi BufferLineInfoDiagnosticSelected ctermfg=4
+hi BufferLineWarning ctermfg=85 ctermbg=234
+hi BufferLineWarningSelected ctermfg=1
+hi BufferLineWarningDiagnostic ctermfg=3
+hi BufferLineWarningDiagnosticSelected ctermfg=3
+
 " Gitsigns
 hi GitSignsAdd ctermfg=2
 hi GitSignsAddInline ctermfg=64
@@ -123,5 +156,3 @@ let g:indent_blankline_char = '⁞'
 
 " vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = "unique_tail"

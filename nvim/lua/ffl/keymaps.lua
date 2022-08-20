@@ -22,6 +22,10 @@ keymap("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>f", "<Cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({previewer = false}))<CR>", opts)
 keymap("n", "<C-t>", "<Cmd>Telescope live_grep<CR>", opts)
 
+-- Buffer Line
+keymap("n", "<leader>b<Right>", "<Cmd>BufferLineMoveNext<CR>", opts)
+keymap("n", "<leader>b<Left>", "<Cmd>BufferLineMovePrev<CR>", opts)
+
 -- Resize with arrows
 keymap("n", "<C-Up>", "<Cmd>resize +2<CR>", opts)
 keymap("n", "<C-Down>", "<Cmd>resize -2<CR>", opts)
