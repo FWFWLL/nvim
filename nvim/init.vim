@@ -18,6 +18,7 @@ Plug 'numToStr/Comment.nvim' " Easily comment stuff
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' } " Treesitter based syntax highlighting
 Plug 'JoosepAlviste/nvim-ts-context-commentstring' " Context aware commenting
+Plug 'tikhomirov/vim-glsl' " Syntax highlighting for GLSL
 
 " File tree/explorer
 Plug 'kyazdani42/nvim-web-devicons' " Devicons for nvim-tree
