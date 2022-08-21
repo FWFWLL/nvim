@@ -4,27 +4,7 @@ if not status_ok then
 end
 
 treesitter_config.setup {
-	ensure_installed = {
-		"astro",
-		"c",
-		"cpp",
-		"css",
-		"fish",
-		"haskell",
-		"html",
-		"java",
-		"javascript",
-		"json",
-		"lua",
-		"make",
-		"python",
-		"regex",
-		"rust",
-		"toml",
-		"tsx",
-		"typescript",
-		"vim",
-	},
+	ensure_installed = "all",
 	sync_install = false,
 	ignore_install = {},
 	autopairs = {
