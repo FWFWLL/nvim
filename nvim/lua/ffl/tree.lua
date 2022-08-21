@@ -22,7 +22,7 @@ local tree_cb = tree_config.nvim_tree_callback
 tree.setup {
 	create_in_closed_folder = true,
 	update_focused_file = {
-		enable = true,
+		enable = false,
 		update_cwd = true,
 	},
 	diagnostics = {
