@@ -79,5 +79,8 @@ tree.setup {
 				}
 			}
 		}
+	},
+	filters = {
+		custom = {"^.git$"},
 	}
 }
