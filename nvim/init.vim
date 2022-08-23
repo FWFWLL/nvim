@@ -67,6 +67,9 @@ hi CursorLineNr ctermfg=1
 hi Pmenu ctermfg=15 ctermbg=233
 hi VertSplit ctermfg=15 ctermbg=233
 
+" Document highlighting
+hi LspReferenceText ctermbg=236
+
 " nvim-cmp
 hi CmpItemAbbr ctermfg=7
 hi CmpItemAbbrMatch ctermfg=1
@@ -82,6 +85,7 @@ hi CmpItemKindConstructor ctermfg=11
 hi CmpItemKindModule ctermfg=11
 hi CmpItemKindStruct ctermfg=11
 hi CmpItemKindEnum ctermfg=11
+hi CmpItemKindTypeParameter ctermfg=11
 hi CmpItemKindEnumMember ctermfg=11
 hi CmpItemKindFunction ctermfg=9
 hi CmpItemKindMethod ctermfg=9
