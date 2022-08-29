@@ -11,20 +11,13 @@ end
 local crates_status_ok, crates = pcall(require, "crates")
 if not crates_status_ok then
 	return
+else crates.setup {}
 end
-
-crates.setup {}
 
 local npm_status_ok, npm = pcall(require, "cmp-npm")
 if not npm_status_ok then
 	return
-end
-
-npm.setup {}
-
-local check_backspace = function()
-	local col = vim.fn.col "." - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+else npm.setup {}
 end
 
 local kind_icons = {
@@ -70,8 +63,13 @@ cmp.setup {
 		},
 	},
 	mapping = cmp.mapping.preset.insert {
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+		["<C-k>"] = cmp.mapping(function()
+			if luasnip.expandable() then luasnip.expand()
+			elseif luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
+		end, {"i", "s"}),
+		["<C-j>"] = cmp.mapping(function()
+			if luasnip.jumpable(-1) then luasnip.jump(-1) end
+		end, {"i", "s"}),
 		["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
@@ -79,21 +77,14 @@ cmp.setup {
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		},
-		["<CR>"] = cmp.mapping.confirm {
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		},
+		["<CR>"] = cmp.mapping.confirm {select = false},
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then cmp.select_next_item()
-			elseif luasnip.expandable() then luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then luasnip.expand_or_jump()
-			elseif check_backspace() then fallback()
 			else fallback()
 			end
 		end, {"i", "s"}),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then luasnip.jump(-1)
 			else fallback()
 			end
 		end, {"i", "s"}),
@@ -120,8 +111,8 @@ cmp.setup {
 		{name = "luasnip"},
 		{name = "crates"},
 		{name = "npm", keyword_length = 4},
-		{name = "buffer"},
 		{name = "path"},
+		{name = "buffer", keyword_length = 3},
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
