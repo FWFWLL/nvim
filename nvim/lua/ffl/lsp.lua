@@ -81,6 +81,13 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "]d", "<Cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "[d", "<Cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 
+	buf_set_keymap("n", "<leader>r", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
+	buf_set_keymap("n", "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+
+	if client.name == "rust_analyzer" then
+		buf_set_keymap("n", "<leader>ca", "<Cmd>RustCodeAction<CR>", opts)
+	end
+
 	-- Format on save
 	-- if client.resolved_capabilities.document_formatting then
 	--	vim.api.nvim_exec(
