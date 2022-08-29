@@ -13,6 +13,7 @@ Plug 'tomasr/molokai' " Molokai colorscheme
 
 " Formatting
 Plug 'windwp/nvim-autopairs' " Autopairs, integrates with cmp and treesitter
+Plug 'windwp/nvim-ts-autotag' " Autopairs for html tags
 Plug 'numToStr/Comment.nvim' " Easily comment stuff
 
 " Treesitter
