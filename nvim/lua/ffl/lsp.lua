@@ -124,6 +124,7 @@ local servers = {
 	"taplo",
 	"tsserver",
 	"vimls",
+	"volar",
 }
 
 for _, lsp in ipairs(servers) do
