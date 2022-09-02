@@ -8,11 +8,18 @@ transparent.setup {
 	extra_groups = {
 		"Pmenu",
 		"VertSplit",
+		"Error",
 		"DiffAdd",
+		"DiffChange",
 		"DiffDelete",
+		"GitSignsAdd",
 		"GitSignsAddInline",
 		"GitSignsAddLnInline",
+		"GitSignsChange",
+		"GitSignsChangeInline",
+		"GitSignsChangeLnInline",
+		"GitSignsDelete",
 		"GitSignsDeleteInline",
 		"GitSignsDeleteLnInline",
-	}
+	},
 }
