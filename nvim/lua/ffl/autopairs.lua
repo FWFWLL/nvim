@@ -8,7 +8,7 @@ autopairs.setup {
 	ts_config = {},
 	disable_filetype = {
 		"TelescopePrompt",
-		"spectre_panel"
+		"spectre_panel",
 	},
 	fast_wrap = {
 		map = "<M-e>",
@@ -19,13 +19,14 @@ autopairs.setup {
 			'"',
 			"'",
 		},
-		pattern = [=[[%'%"%)%>%]%)%}%,]]=],
+		pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+		offset = 0,
 		end_key = "$",
-		keys = "qwertyuiopzxcvbnmasdfghjkl",
+		keys = "wqeqrtyuiopzxcvbnmasdfghjkl",
 		check_comma = true,
 		highlight = "PmenuSel",
 		highlight_grey = "LineNr",
-	}
+	},
 }
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")

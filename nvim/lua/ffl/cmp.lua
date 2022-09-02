@@ -8,76 +8,81 @@ if not luasnip_status_ok then
 	return
 end
 
-local crates_status_ok, crates = pcall(require, "crates")
-if not crates_status_ok then
-	return
-else crates.setup {}
-end
+local compare = require("cmp.config.compare")
 
-local npm_status_ok, npm = pcall(require, "cmp-npm")
-if not npm_status_ok then
-	return
-else npm.setup {}
-end
+local icons = require("ffl.icons")
 
-local kind_icons = {
-	Text = "",
-	Method = "m",
-	Function = "",
-	Constructor = "",
-	Field = "",
-	Variable = "",
-	Class = "",
-	Interface = "",
-	Module = "",
-	Property = "",
-	Unit = "",
-	Value = "",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "",
-	Event = "",
-	Operator = "",
-	TypeParameter = "",
-}
+require("luasnip.loaders.from_vscode").lazy_load()
+
+vim.g.cmp_active = true
 
 cmp.setup {
+	enabled = function()
+		local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+
+		if buftype == "prompt" then
+			return false
+		end
+
+		return vim.g.cmp_active
+	end,
+	preselect = cmp.PreselectMode.None,
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body)
+			luasnip.lsp_expand(args.body) -- For `luasnip` users.
 		end,
-	},
-	window = {
-		completion = {
-			border = "rounded",
-		},
-		documentation = {
-			border = "rounded",
-		},
 	},
 	mapping = cmp.mapping.preset.insert {
 		["<C-k>"] = cmp.mapping(function()
-			if luasnip.expandable() then luasnip.expand()
-			elseif luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
+			if cmp.visible() then cmp.select_next_item()
+			elseif luasnip.jumpable(1) then luasnip.jump(1)
+			elseif luasnip.expand_or_jumpable() then luasnip.expand_or_jump()
+			end
 		end, {"i", "s"}),
 		["<C-j>"] = cmp.mapping(function()
-			if luasnip.jumpable(-1) then luasnip.jump(-1) end
+			if cmp.visible() then cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then luasnip.jump(-1)
+			end
 		end, {"i", "s"}),
-		["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
+		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
+		["<m-o>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
+
+		-- Multiple ways to close
+		-- ["<ESC>"] = cmp.mapping {
+		-- 	i = cmp.mapping.abort(),
+		-- 	c = cmp.mapping.close(),
+		-- },
 		["<C-e>"] = cmp.mapping {
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		},
+		["<C-c>"] = cmp.mapping {
+			i = cmp.mapping.abort(),
+			c = cmp.mapping.close(),
+		},
+		["<m-j>"] = cmp.mapping {
+			i = cmp.mapping.abort(),
+			c = cmp.mapping.close(),
+		},
+		["<m-k>"] = cmp.mapping {
+			i = cmp.mapping.abort(),
+			c = cmp.mapping.close(),
+		},
+		["<m-c>"] = cmp.mapping {
+			i = cmp.mapping.abort(),
+			c = cmp.mapping.close(),
+		},
+		["<S-CR>"] = cmp.mapping {
+			i = cmp.mapping.abort(),
+			c = cmp.mapping.close(),
+		},
+
+		-- Accept currently selected item. If none selected, `select` first item.
+		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<CR>"] = cmp.mapping.confirm {select = false},
+		-- ["<Right>"] = cmp.mapping.confirm {select = true},
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then cmp.select_next_item()
 			else fallback()
@@ -90,36 +95,86 @@ cmp.setup {
 		end, {"i", "s"}),
 	},
 	formatting = {
-		fields = {"abbr", "kind", "menu"},
+		fields = {"kind", "abbr", "menu"},
 		format = function(entry, vim_item)
-			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+			-- Kind icons
+			vim_item.kind = icons.kind[vim_item.kind]
+
+			if entry.source.name == "emoji" then
+				vim_item.kind = icons.misc.Smiley
+				vim_item.kind_hl_group = "CmpItemKindEmoji"
+			end
+
+			if entry.source.name == "crates" then
+				vim_item.kind = icons.misc.Package
+				vim_item.kind_hl_group = "CmpItemKindCrate"
+			end
+
+			-- NOTE: order matters
 			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				nvim_lua = "[LUA]",
-				luasnip = "[SNIPPET]",
-				buffer = "[FILE]",
-				path = "[PATH]",
-				crates = "[CRATES]",
-				npm = "[NPM]"
+				nvim_lsp = "",
+				nvim_lua = "",
+				luasnip = "",
+				buffer = "",
+				path = "",
+				emoji = "",
 			})[entry.source.name]
+
 			return vim_item
 		end,
 	},
 	sources = {
-		{name = "nvim_lsp"},
-		{name = "nvim_lua"},
-		{name = "luasnip"},
-		{name = "crates"},
-		{name = "npm", keyword_length = 4},
-		{name = "path"},
-		{name = "buffer", keyword_length = 3},
+		{name = "crates", group_index = 1},
+		{
+			name = "nvim_lsp",
+			group_index = 2,
+			filter = function(entry, ctx)
+				local kind = require(cmp.types.lsp).CompletionItemKind[entry:get_kind()]
+				if kind == "Snippet" and ctx.prev_context.filtype == "java" then
+					return true
+				end
+
+				if kind == "Text" then
+					return true
+				end
+			end,
+		},
+		{name = "nvim_lua", group_index = 2},
+		{name = "luasnip", group_index = 2},
+		{name = "buffer", group_index = 2},
+		{name = "path", group_index = 2},
+		{name = "emoji", group_index = 2},
+	},
+	sorting = {
+		priority_weight = 2,
+		comparators = {
+			compare.offset,
+			compare.exact,
+			-- compare.scopes,
+			compare.score,
+			compare.recently_used,
+			compare.locality,
+			-- compare.kind,
+			compare.sort_text,
+			compare.length,
+			compare.order,
+		},
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
+	window = {
+		documentation = {
+			border = "rounded",
+			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None"
+		},
+		completion = {
+			border = "rounded",
+			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None"
+		},
+	},
 	experimental = {
 		ghost_text = true,
-		native_menu = false,
-	}
+	},
 }
