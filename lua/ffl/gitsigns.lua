@@ -3,7 +3,29 @@ if not status_ok then
 	return
 end
 
+local function on_attach(bufnr)
+	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
+	local opts = {noremap = true, silent = true}
+
+	-- Navigation
+	buf_set_keymap("n", "]c", "&diff ? ']c' : '<CMD>Gitsigns next_hunk<CR>'", {expr = true})
+	buf_set_keymap("n", "[c", "&diff ? '[c' : '<CMD>Gitsigns prev_hunk<CR>'", {expr = true})
+
+	-- Actions
+	buf_set_keymap("n", "<leader>hs", "<CMD>Gitsigns stage_hunk<CR>", opts)
+	buf_set_keymap("v", "<leader>hs", "<CMD>Gitsigns stage_hunk<CR>", opts)
+	buf_set_keymap("n", "<leader>hS", "<Cmd>Gitsigns stage_buffer<CR>", opts)
+	buf_set_keymap("n", "<leader>hr", "<Cmd>Gitsigns reset_hunk<CR>", opts)
+	buf_set_keymap("v", "<leader>hr", "<Cmd>Gitsigns reset_hunk<CR>", opts)
+	buf_set_keymap("n", "<leader>hu", "<Cmd>Gitsigns undo_stage_hunk<CR>", opts)
+	buf_set_keymap("n", "<leader>hp", "<Cmd>Gitsigns preview_hunk<CR>", opts)
+	buf_set_keymap("n", "<leader>hb", "<Cmd>lua require('gitsigns').blame_line({full=true})<CR>", opts)
+	buf_set_keymap("n", "<leader>td", "<Cmd>Gitsigns toggle_deleted<CR>", opts)
+end
+
 gitsigns.setup {
+	on_attach = on_attach,
 	signs = {
 		add = {
 			hl = "GitSignsAdd",
