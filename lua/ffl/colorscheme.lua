@@ -8,46 +8,44 @@ end
 
 local colors = {
 	bg = "#1C1C1C",
-	aquamarine = "#54DA97",
+	aquamarine = "#54DA97", -- Personal favorite
 	black = "#111111",
 	gray = "#777777",
 	white = "#EEEEEE",
 	red = "#F92672",
 	blue = "#66D9EF",
-	carmine = "#FF0064",
+	carmine = "#FF0064", -- Personal favorite
 	yellow = "#FFF26D",
 	lime = "#D7FF00",
 	navy = "#00005F",
 	lavender = "#AF87FF",
-	cmp = {
-		emoji = "#FDE030",
-		crate = "#F64D00",
-	},
-	git = {
-		add = "#A6E22E",
-		change = "#66D9EF",
-		delete = "#F92672",
-	},
+	emoji = "#FDE030",
+	crate = "#F64D00",
+	add = "#A6E22E",
+	change = "#66D9EF",
+	delete = "#960050",
 }
 
 -- Helper function for setting highlight groups
-local function set_hl(hl_group, hl_args) vim.api.nvim_set_hl(0, hl_group, hl_args) end
+local function set_hl(...) vim.api.nvim_set_hl(0, ...) end
 
+-- Custom Highlighting --
 -- Neovim
+set_hl("Title", {fg = colors.aquamarine})
 set_hl("LineNr", {fg = colors.white})
-set_hl("CursorLineNr", {fg = colors.carmine})
+set_hl("CursorLineNr", {fg = colors.aquamarine})
 set_hl("CursorLine", {bg = colors.bg})
 set_hl("TabLine", {bg = colors.bg})
 set_hl("VertSplit", {bg = colors.bg})
 set_hl("StatusLine", {fg = colors.bg})
+set_hl("DiffAdd", {fg = colors.add})
+set_hl("DiffChange", {fg = colors.change})
+set_hl("DiffDelete", {fg = colors.delete})
 
 -- Nvim-cmp --
--- Abbr
 set_hl("CmpItemAbbr", {fg = colors.white})
 set_hl("CmpItemAbbrMatch", {fg = colors.carmine})
 set_hl("CmpItemAbbrMatchFuzzy", {fg = colors.red})
-
--- Kind
 set_hl("CmpItemKindDefault", {fg = colors.gray})
 set_hl("CmpItemKindVariable", {fg = colors.blue})
 set_hl("CmpItemKindInterface", {fg = colors.blue})
@@ -69,21 +67,22 @@ set_hl("CmpItemKindUnit", {fg = colors.white})
 set_hl("CmpItemKindConstant", {fg = colors.white})
 set_hl("CmpItemKindReference", {fg = colors.white})
 set_hl("CmpItemKindOperator", {fg = colors.white})
-set_hl("CmpItemKindEmoji", {fg = colors.cmp.emoji})
-set_hl("CmpItemKindCrate", {fg = colors.cmp.crate})
+set_hl("CmpItemKindEmoji", {fg = colors.emoji})
+set_hl("CmpItemKindCrate", {fg = colors.crate})
 
 -- Nvim-tree
+set_hl("Directory", {fg = colors.carmine})
 set_hl("NvimTreeOpenedFile", {fg = colors.aquamarine})
 
 -- Telescope
 set_hl("TelescopeMatching", {fg = colors.carmine})
 set_hl("TelescopePromptPrefix", {fg = colors.carmine})
-
--- Gitsigns
-set_hl("GitSignsAdd", {fg = colors.git.add})
-set_hl("GitSignsChange", {fg = colors.git.change})
-set_hl("GitSignsDelete", {fg = colors.git.delete})
+set_hl("TelescopeSelection", {fg = colors.aquamarine})
+set_hl("TelescopeSelectionCaret", {fg = colors.carmine})
 
 -- Alpha
 set_hl("DashboardHeader", {fg = colors.carmine})
 set_hl("DashboardFooter", {fg = colors.aquamarine})
+
+-- Indentline
+set_hl("IndentBlanklineContextChar", {fg = colors.aquamarine})
