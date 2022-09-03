@@ -39,46 +39,6 @@ local diagnostics = {
 	padding = 1,
 }
 
--- Show buffer indenting
-local spaces = {
-	function()
-		local buf_ft = vim.bo.filetype
-
-		local ui_filetypes = {
-			"help",
-			"packer",
-			"neogitstatus",
-			"NvimTree",
-			"Trouble",
-			"lir",
-			"Outline",
-			"spectre_panel",
-			"toggleterm",
-			"DressingSelect",
-			"TelescopePrompt",
-			"lspinfo",
-			"lsp-installer",
-			"mason",
-			"",
-		}
-
-		local space = ""
-
-		if contains(ui_filetypes, buf_ft) then
-			space = " "
-		end
-
-		local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
-
-		if shiftwidth == nil then
-			return ""
-		end
-
-		return "  " .. shiftwidth .. space .. " "
-	end,
-	padding = 0,
-}
-
 -- Display active LSP
 local language_server = {
 	function()
@@ -155,7 +115,7 @@ lualine.setup {
 		lualine_a = {"mode", diagnostics},
 		lualine_b = {},
 		lualine_c = {"branch", "filename"},
-		lualine_x = {language_server, spaces, "filetype"},
+		lualine_x = {language_server, "filetype"},
 		lualine_y = {},
 		lualine_z = {"location", "progress"},
 	},
