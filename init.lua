@@ -1,6 +1,7 @@
 require("ffl.options")
 require("ffl.keymaps")
 require("ffl.plugins")
+require("ffl.autocommands")
 require("ffl.colorscheme")
 require("ffl.transparent")
 require("ffl.colorizer")
