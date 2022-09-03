@@ -117,10 +117,10 @@ lualine.setup {
 		lualine_c = {"branch", "filename"},
 		lualine_x = {language_server, "filetype"},
 		lualine_y = {},
-		lualine_z = {"location", "progress"},
+		lualine_z = {"location"},
 	},
 	inactive_sections = {
-		lualine_a = {},
+		lualine_a = {diagnostics},
 		lualine_b = {},
 		lualine_c = {"filename"},
 		lualine_x = {"filetype"},
