@@ -8,6 +8,8 @@ local tree_cb = require("nvim-tree.config").nvim_tree_callback
 local icons = require("ffl.icons")
 
 nvim_tree.setup {
+	sync_root_with_cwd = true,
+	respect_buf_cwd = true,
 	create_in_closed_folder = true,
 	hijack_directories = {
 		enable = false,
@@ -75,6 +77,7 @@ nvim_tree.setup {
 	},
 	update_focused_file = {
 		enable = true,
+		update_root = true,
 		update_cwd = true,
 		ignore_list = {},
 	},
