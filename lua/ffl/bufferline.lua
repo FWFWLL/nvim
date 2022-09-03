@@ -29,7 +29,7 @@ bufferline.setup {
 		},
 		buffer_close_icon = "",
 		modified_icon = "●",
-		close_icon = "",
+		close_icon = "",
 		left_trunc_marker = "",
 		right_trunc_marker = "",
 		max_name_length = 18,
@@ -53,6 +53,7 @@ bufferline.setup {
 				separator = true,
 			}
 		},
+		color_icons = true,
 		show_buffer_icons = true,
 		show_buffer_close_icons = true,
 		show_close_icons = false,
