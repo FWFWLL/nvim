@@ -10,9 +10,6 @@ local colors = {
 	aquamarine = "#54DA97",
 	gray = "#777777",
 	white = "#EEEEEE",
-	red = "#F92672",
-	missing_fg = "#000000",
-	missing_bg = "#FF00DC",
 }
 
 local icons = require("ffl.icons")
@@ -24,9 +21,7 @@ bufferline.setup {
 		right_mouse_command = "Bdelete! %d",
 		left_mouse_command = "buffer %d",
 		middle_mouse_command = nil,
-		indicator = {
-			style = "none",
-		},
+		indicator = {style = "none"},
 		buffer_close_icon = "",
 		modified_icon = "●",
 		close_icon = "",
