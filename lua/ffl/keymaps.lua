@@ -10,15 +10,6 @@ keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Modes
--- normal_mode		 = "n"
--- insert_mode		 = "i"
--- visual_mode		 = "v"
--- visual_block_mode = "x"
--- select_mode       = "s"
--- term_mode		 = "t"
--- command_mode		 = "c"
-
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
