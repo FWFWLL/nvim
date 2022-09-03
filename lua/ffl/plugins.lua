@@ -146,4 +146,7 @@ return packer.startup(function(use)
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
+
+	-- Source packer_compiled.lua
+	vim.cmd "source $HOME/.config/nvim/plugin/packer_compiled.lua"
 end)
