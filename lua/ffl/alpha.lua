@@ -5,9 +5,9 @@ end
 
 local dashboard = require("alpha.themes.dashboard")
 
-local function button(sc, txt, keybind, keybind_opts)
-	local b = dashboard.button(sc, txt, keybind, keybind_opts)
-	b.opts.hl_shortcut = "Macro"
+local function button(sc, txt, cmd)
+	local b = dashboard.button(sc, txt, cmd)
+	b.opts.hl_shortcut = "CursorLineNr"
 	return b
 end
 
