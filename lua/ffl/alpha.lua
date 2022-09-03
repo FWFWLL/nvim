@@ -35,7 +35,15 @@ dashboard.section.buttons.val = {
 }
 
 local function footer()
-	return "ffl@vivaldi.net"
+	---@diagnostic disable-next-line: undefined-global
+	local total_plugins = #vim.tbl_keys(packer_plugins)
+
+	local v = vim.version()
+	local version = " v" .. v.major .. "." .. v.minor .. "." .. v.patch
+
+	local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
+
+	return datetime .. "   " .. total_plugins .. " plugins  " .. version
 end
 
 dashboard.section.footer.val = footer()
