@@ -1,2 +1,3 @@
-# dotfiles
-Personal dotfiles for WSL2 Debian
+# Neovim Configuration
+My personal Neovim configuration.
+Heavily inspired by [this config](https://github.com/ChristianChiarulli/nvim).
