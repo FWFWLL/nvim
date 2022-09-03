@@ -3,14 +3,6 @@ if not status_ok then
 	return
 end
 
-local colors = {
-	black = "#1C1C1C",
-	white = "#EEEEEE",
-	green = "#54DA97",
-	yellow = "#D7FF00",
-	blue = "#00005F",
-}
-
 local icons = require("ffl.icons")
 
 local function contains(t, value)
@@ -88,12 +80,12 @@ lualine.setup {
 		theme = {
 			normal = {
 				a = {
-					fg = colors.blue,
-					bg = colors.yellow,
+					fg = "#00005F",
+					bg = "#D7FF00",
 				},
 				c = {
-					fg = colors.green,
-					bg = colors.black,
+					fg = "#54DA97",
+					bg = "#1C1C1C",
 				},
 			},
 		},
