@@ -24,14 +24,14 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {
-	button("f", icons.documents.Files .. "  Find file", "<CMD>Telescope find_files<CR>"),
-	button("e", icons.ui.NewFile .. "  New file", "<CMD>ene <BAR> startinsert<CR>"),
-	button("p", icons.git.Repo .. "  Find project", "<CMD>lua require('telescope').extensions.projects.projects()<CR>"),
-	button("r", icons.ui.History .. "  Recent files", "<CMD>Telescope oldfiles<CR>"),
-	button("t", icons.ui.List .. "  Find text", "<CMD>Telescope live_grep<CR>"),
-	button("c", icons.ui.Gear .. "  Config", "<CMD>e ~/.config/nvim/init.lua<CR>"),
-	button("u", icons.ui.CloudDownload .. "  Update", "<CMD>PackerSync<CR>"),
-	button("q", icons.ui.SignOut .. "  Quit", "<CMD>qa<CR>"),
+	button("f", icons.documents.Files .. " " .. icons.ui.ChevronRight .. " Find file", "<CMD>Telescope find_files<CR>"),
+	button("e", icons.ui.NewFile .. " " .. icons.ui.ChevronRight .. " New file", "<CMD>ene <BAR> startinsert<CR>"),
+	button("p", icons.git.Repo .. " " .. icons.ui.ChevronRight .. " Find project", "<CMD>lua require('telescope').extensions.projects.projects()<CR>"),
+	button("r", icons.ui.History .. " " .. icons.ui.ChevronRight .. " Recent files", "<CMD>Telescope oldfiles<CR>"),
+	button("t", icons.ui.List .. " " .. icons.ui.ChevronRight .. " Find text", "<CMD>Telescope live_grep<CR>"),
+	button("c", icons.ui.Gear .. " " .. icons.ui.ChevronRight .. " Config", "<CMD>e ~/.config/nvim/init.lua<CR>"),
+	button("u", icons.ui.CloudDownload .. " " .. icons.ui.ChevronRight .. " Update", "<CMD>PackerSync<CR>"),
+	button("q", icons.ui.SignOut .. " " .. icons.ui.ChevronRight .. " Quit", "<CMD>qa<CR>"),
 }
 
 local function footer()
