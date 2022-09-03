@@ -37,4 +37,3 @@ local cfg = {
 }
 
 signature.setup(cfg)
--- signature.on_attach(cfg)
