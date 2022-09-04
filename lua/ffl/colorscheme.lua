@@ -31,6 +31,7 @@ local function set_hl(...) vim.api.nvim_set_hl(0, ...) end
 
 -- Custom Highlighting --
 -- Neovim
+set_hl("Normal", {fg = colors.white})
 set_hl("Title", {fg = colors.aquamarine})
 set_hl("LineNr", {fg = colors.white})
 set_hl("CursorLineNr", {fg = colors.aquamarine})
@@ -41,11 +42,28 @@ set_hl("StatusLine", {fg = colors.bg})
 set_hl("DiffAdd", {fg = colors.add})
 set_hl("DiffChange", {fg = colors.change})
 set_hl("DiffDelete", {fg = colors.delete})
+set_hl("NormalFloat", {fg = colors.white})
+set_hl("Pmenu", {fg = colors.white})
+
+-- LSP --
+set_hl("LspInfoBorder", {fg = colors.white})
+set_hl("LspInfoTitle", {fg = colors.carmine})
+set_hl("LspInfoFiletype", {fg = colors.aquamarine})
+
+-- Mason --
+set_hl("MasonHeader", {fg = colors.navy, bg = colors.lime})
+set_hl("MasonHeaderSecondary", {fg = colors.navy, bg = colors.lime})
+set_hl("MasonHeading", {fg = colors.carmine})
+set_hl("MasonHighlight", {fg = colors.aquamarine})
+set_hl("MasonHighlightBlock", {fg = colors.navy, bg = colors.lime})
+set_hl("MasonHighlightBlockBold", {fg = colors.aquamarine, bg = colors.bg})
+set_hl("MasonMutedBlock", {fg = colors.gray, bg = colors.bg})
 
 -- Nvim-cmp --
 set_hl("CmpItemAbbr", {fg = colors.white})
 set_hl("CmpItemAbbrMatch", {fg = colors.carmine})
 set_hl("CmpItemAbbrMatchFuzzy", {fg = colors.red})
+set_hl("CmpItemKind", {fg = colors.gray})
 set_hl("CmpItemKindDefault", {fg = colors.gray})
 set_hl("CmpItemKindVariable", {fg = colors.blue})
 set_hl("CmpItemKindInterface", {fg = colors.blue})
@@ -73,6 +91,7 @@ set_hl("CmpItemKindCrate", {fg = colors.crate})
 -- Nvim-tree
 set_hl("Directory", {fg = colors.carmine})
 set_hl("NvimTreeOpenedFile", {fg = colors.aquamarine})
+set_hl("NvimTreeGitStaged", {fg = colors.blue})
 
 -- Telescope
 set_hl("TelescopeMatching", {fg = colors.carmine})
