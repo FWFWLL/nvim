@@ -56,7 +56,7 @@ return packer.startup(function(use)
 	-- use "williamboman/nvim-lsp-installer" -- Simple to use language server installer
 	use "williamboman/mason.nvim"
 	use "williamboman/mason-lspconfig.nvim"
-	-- use "jose-elias-alvarez/null-ls.nvim"
+	use "jose-elias-alvarez/null-ls.nvim"
 	use "ray-x/lsp_signature.nvim"
 	use "b0o/SchemaStore.nvim"
 	use "RRethy/vim-illuminate"
@@ -133,6 +133,9 @@ return packer.startup(function(use)
 	-- Editing Support
 	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 	use "windwp/nvim-ts-autotag" -- Autopairs for html tags
+
+	-- Java
+	use "mfussenegger/nvim-jdtls"
 
 	-- Rust
 	use "christianchiarulli/rust-tools.nvim"

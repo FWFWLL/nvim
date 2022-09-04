@@ -14,6 +14,7 @@ local servers = {
 	"clangd",
 	"cssls",
 	"html",
+	"jdtls",
 	"jsonls",
 	"pyright",
 	"rust-analyzer",
@@ -58,6 +59,10 @@ for _, server in pairs(servers) do
 	}
 
 	server = vim.split(server, "@")[1]
+
+	if server == "jdtls" then
+		goto continue
+	end
 
 	if server == "jsonls" then
 		local jsonls_opts = require("ffl.lsp.settings.jsonls")
