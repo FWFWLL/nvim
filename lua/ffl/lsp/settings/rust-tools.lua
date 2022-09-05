@@ -1,18 +1,6 @@
 return {
 	tools = {
-		on_initialized = function()
-			vim.api.nvim_create_autocmd({"bufWritePost", "BufEnter", "CursorHold", "InsertLeave"}, {
-				pattern = {"*.rs"},
-				callback = function()
-					vim.lsp.codelens.refresh()
-				end,
-			})
-		end,
-		auto = false,
 		inlay_hints = {
-			only_current_line = false,
-			auto = false,
-			only_current_line_autocmd = "CursorHold",
 			show_parameter_hints = false,
 			show_variable_name = false,
 			parameter_hints_prefix = " ",
@@ -44,12 +32,6 @@ return {
 					buildScripts = {
 						enable = true,
 					},
-				},
-				lens = {
-					enable = true,
-				},
-				procMacro = {
-					enable = true,
 				},
 				checkOnSave = {
 					command = "clippy",
