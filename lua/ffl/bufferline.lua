@@ -1,5 +1,3 @@
----@diagnostic disable: assign-type-mismatch
-
 local status_ok, bufferline = pcall(require, "bufferline")
 if not status_ok then
 	return
@@ -80,6 +78,14 @@ bufferline.setup {
 			bold = true,
 			italic = true,
 		},
+		diagnostic = {bg = colors.bg},
+		diagnostic_visible = {bg = colors.bg},
+		diagnostic_selected = {
+			bg = colors.bg,
+			bold = true,
+			italic = true,
+		},
+		hint = {fg = colors.gray, bg = colors.bg},
 		hint_visible = {fg = colors.gray, bg = colors.bg},
 		hint_selected = {
 			fg = colors.aquamarine,
@@ -87,6 +93,14 @@ bufferline.setup {
 			bold = true,
 			italic = true,
 		},
+		hint_diagnostic = {bg = colors.bg},
+		hint_diagnostic_visible = {bg = colors.bg},
+		hint_diagnostic_selected = {
+			bg = colors.bg,
+			bold = true,
+			italic = true,
+		},
+		info = {fg = colors.gray, bg = colors.bg},
 		info_visible = {fg = colors.gray, bg = colors.bg},
 		info_selected = {
 			fg = colors.aquamarine,
@@ -94,6 +108,14 @@ bufferline.setup {
 			bold = true,
 			italic = true,
 		},
+		info_diagnostic = {bg = colors.bg},
+		info_diagnostic_visible = {bg = colors.bg},
+		info_diagnostic_selected = {
+			bg = colors.bg,
+			bold = true,
+			italic = true,
+		},
+		warning = {fg = colors.gray, bg = colors.bg},
 		warning_visible = {fg = colors.gray, bg = colors.bg},
 		warning_selected = {
 			fg = colors.aquamarine,
@@ -101,9 +123,24 @@ bufferline.setup {
 			bold = true,
 			italic = true,
 		},
+		warning_diagnostic = {bg = colors.bg},
+		warning_diagnostic_visible = {bg = colors.bg},
+		warning_diagnostic_selected = {
+			bg = colors.bg,
+			bold = true,
+			italic = true,
+		},
+		error = {fg = colors.gray, bg = colors.bg},
 		error_visible = {fg = colors.gray, bg = colors.bg},
 		error_selected = {
 			fg = colors.aquamarine,
+			bg = colors.bg,
+			bold = true,
+			italic = true,
+		},
+		error_diagnostic = {bg = colors.bg},
+		error_diagnostic_visible = {bg = colors.bg},
+		error_diagnostic_selected = {
 			bg = colors.bg,
 			bold = true,
 			italic = true,
