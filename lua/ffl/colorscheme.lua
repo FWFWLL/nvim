@@ -45,6 +45,14 @@ set_hl("DiffDelete", {fg = colors.delete})
 set_hl("NormalFloat", {fg = colors.white})
 set_hl("Pmenu", {fg = colors.white})
 
+-- Packer --
+set_hl("packerBreakingChange", {fg = colors.delete})
+set_hl("packerStatusSuccess", {fg = colors.aquamarine})
+set_hl("packerStatusFail", {fg = colors.delete})
+set_hl("packerPackageName", {fg = colors.white})
+set_hl("packerStatusSuccess", {fg = colors.carmine})
+set_hl("packerOutput", {fg = colors.aquamarine})
+
 -- LSP --
 set_hl("LspInfoBorder", {fg = colors.white})
 set_hl("LspInfoTitle", {fg = colors.carmine})
