@@ -15,6 +15,18 @@ local function contains(t, value)
 	return false
 end
 
+local hide_in_width_lowest = function()
+	return vim.o.columns > 51
+end
+
+local hide_in_width_low = function()
+	return vim.o.columns > 60
+end
+
+local hide_in_width_high = function()
+	return vim.o.columns > 80
+end
+
 -- Show diagnostics count
 local diagnostics = {
 	"diagnostics",
@@ -29,6 +41,13 @@ local diagnostics = {
 	update_in_insert = true,
 	always_visible = true,
 	padding = 1,
+	cond = hide_in_width_lowest,
+}
+
+-- Show current Git branch
+local branch = {
+	"branch",
+	cond = hide_in_width_low,
 }
 
 -- Display active LSP
@@ -71,6 +90,7 @@ local language_server = {
 		return msg
 	end,
 	icon = "LSP:",
+	cond = hide_in_width_high,
 }
 
 lualine.setup {
@@ -106,7 +126,7 @@ lualine.setup {
 	sections = {
 		lualine_a = {"mode", diagnostics},
 		lualine_b = {},
-		lualine_c = {"branch", "filename"},
+		lualine_c = {branch, "filename"},
 		lualine_x = {language_server, "filetype"},
 		lualine_y = {},
 		lualine_z = {"location"},
