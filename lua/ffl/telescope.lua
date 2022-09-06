@@ -9,8 +9,8 @@ local icons = require("ffl.icons")
 
 telescope.setup {
 	defaults = {
-		prompt_prefix = " " .. icons.ui.Telescope .. "  ",
-		selection_caret = " ",
+		prompt_prefix = icons.ui.ChevronRight .. "  ",
+		selection_caret = icons.ui.ChevronRight .. " ",
 		path_display = {"smart"},
 		file_ignore_patterns = {
 			".git/",
