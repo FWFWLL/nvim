@@ -127,6 +127,9 @@ return packer.startup(function(use)
 	-- Project
 	use "ahmedkhalf/project.nvim"
 
+	-- Session
+	use "olimorris/persisted.nvim"
+
 	-- Git
 	use "lewis6991/gitsigns.nvim"
 
@@ -143,7 +146,7 @@ return packer.startup(function(use)
 
 	-- Unsorted
 	use "xiyaowong/nvim-transparent" -- Transparent background
-	use "norcalli/nvim-colorizer.lua" -- Hex-color highlighter
+	-- use "norcalli/nvim-colorizer.lua" -- Hex-color highlighter
 
 	-- Automatically set up configuration after cloning packer.nvim
 	if PACKER_BOOTSTRAP then
@@ -151,5 +154,5 @@ return packer.startup(function(use)
 	end
 
 	-- Source packer_compiled.lua
-	vim.cmd "source $HOME/.config/nvim/plugin/packer_compiled.lua"
+	vim.cmd("source $HOME/.config/nvim/plugin/packer_compiled.lua")
 end)
