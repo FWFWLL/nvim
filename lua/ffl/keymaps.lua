@@ -58,6 +58,7 @@ keymap("n", "<leader>f", "<CMD>Telescope find_files<CR>", opts)
 keymap("n", "<leader>r", "<CMD>Telescope oldfiles<CR>", opts)
 keymap("n", "<leader>t", "<CMD>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>p", "<CMD>Telescope projects<CR>", opts)
+keymap("n", "<leader>s", "<CMD>Telescope persisted<CR>", opts)
 
 -- Bufferline
 keymap("n", "<M-1>", "<CMD>BufferLineGoToBuffer 1<CR>")
