@@ -49,7 +49,6 @@ return packer.startup(function(use)
 	-- Foundation
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
 	-- use "nvim-lua/popup.nvim" -- Popup API for Neovim
-	use "christianchiarulli/lua-dev.nvim"
 
 	-- LSP
 	use "neovim/nvim-lspconfig" -- Enable native LSP
@@ -139,6 +138,9 @@ return packer.startup(function(use)
 
 	-- Java
 	use "mfussenegger/nvim-jdtls"
+
+	-- Lua
+	use "christianchiarulli/lua-dev.nvim"
 
 	-- Rust
 	use "christianchiarulli/rust-tools.nvim"
