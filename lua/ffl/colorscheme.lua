@@ -44,6 +44,7 @@ set_hl("DiffChange", {fg = colors.change})
 set_hl("DiffDelete", {fg = colors.delete})
 set_hl("NormalFloat", {fg = colors.white})
 set_hl("Pmenu", {fg = colors.white})
+set_hl("PmenuThumb", {bg = colors.lime})
 
 -- Packer --
 set_hl("packerBreakingChange", {fg = colors.delete})
@@ -114,3 +115,8 @@ set_hl("DashboardFooter", {fg = colors.aquamarine})
 
 -- Indentline
 set_hl("IndentBlanklineContextChar", {fg = colors.aquamarine})
+
+-- GitSigns
+set_hl("GitSignsAdd", {fg = colors.add})
+set_hl("GitSignsChange", {fg = colors.change})
+set_hl("GitSignsDelete", {fg = colors.delete})
