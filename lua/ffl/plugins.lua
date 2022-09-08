@@ -83,6 +83,7 @@ return packer.startup(function(use)
 
 	-- Fuzzy Finder/Telescope
 	use "nvim-telescope/telescope.nvim"
+	use "nvim-telescope/telescope-ui-select.nvim"
 
 	-- Colorschemes
 	use "tomasr/molokai" -- Molokai theme
