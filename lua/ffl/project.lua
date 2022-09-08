@@ -14,6 +14,7 @@ project.setup {
 		"makefile",
 		"package.json",
 		"*.sln",
+		"*.csproj",
 	},
 	show_hidden = false,
 	silent_chdir = true,

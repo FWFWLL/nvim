@@ -16,6 +16,7 @@ local servers = {
 	"html",
 	"jdtls",
 	"jsonls",
+	"omnisharp",
 	"pyright",
 	"rust-analyzer",
 	"sumneko_lua",
