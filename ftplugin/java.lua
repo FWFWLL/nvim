@@ -31,7 +31,7 @@ DEFAULT_CONFIG = server.document_config.default_config
 
 local config = {
 	on_attach = require("ffl.lsp.handlers").on_attach,
-	capabilites = require("ffl.lsp.handerls").capabilites,
+	capabilites = require("ffl.lsp.handlers").capabilites,
 	cmd = DEFAULT_CONFIG.cmd,
 	root_dir = DEFAULT_CONFIG.root_dir(),
 }
