@@ -13,11 +13,7 @@ persisted.setup {
 	autosave = true,
 	autoload = false,
 	on_autoload_no_session = nil,
-	allowed_dirs = {
-		"~/.config",
-		"~/Dev",
-		"/mnt/c/Users/fuwaf/Dev",
-	},
+	allowed_dirs = nil,
 	ignored_dirs = nil,
 	before_save = nil,
 	after_save = nil,
