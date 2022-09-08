@@ -13,6 +13,7 @@ end
 local servers = {
 	"clangd",
 	"cssls",
+	"hls",
 	"html",
 	"jdtls",
 	"jsonls",
