@@ -12,7 +12,7 @@ local compare = require("cmp.config.compare")
 
 local icons = require("ffl.icons")
 
-require("luasnip.loaders.from_vscode").lazy_load()
+-- require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.g.cmp_active = true
 
