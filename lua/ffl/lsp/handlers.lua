@@ -10,8 +10,6 @@ end
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
-local clangd_capabilities
-
 M.setup = function()
 	local icons = require("ffl.icons")
 	local signs = {
