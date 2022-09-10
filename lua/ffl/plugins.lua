@@ -75,11 +75,11 @@ return packer.startup(function(use)
 	use "L3MON4D3/LuaSnip" -- Snippet engine
 	use "rafamadriz/friendly-snippets" -- Snippets collection
 
-	-- Syntax/Treesitter
+	-- Syntax
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 	-- use "p00f/nvim-ts-rainbow"
 	-- use "nvim-treesitter/playground"
-	-- use "kylechui/nvim-surround"
+	use "kylechui/nvim-surround"
 
 	-- Fuzzy Finder/Telescope
 	use "nvim-telescope/telescope.nvim"
