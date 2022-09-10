@@ -105,8 +105,14 @@ cmp.setup {
 
 			if entry.source.name == "crates" then
 				vim_item.kind = icons.misc.Package
-				vim_item.kind_hl_group = "CmpItemKindCrate"
+				vim_item.kind_hl_group = "CmpItemKindCrates"
 			end
+
+			if entry.source.name == "npm" then
+				vim_item.kind = icons.misc.Package
+				vim_item.kind_hl_group = "CmpItemKindNPM"
+			end
+
 
 			-- NOTE: order matters
 			vim_item.menu = ({
@@ -116,6 +122,7 @@ cmp.setup {
 				buffer = "",
 				path = "",
 				emoji = "",
+				npm = "",
 			})[entry.source.name]
 
 			return vim_item
@@ -142,6 +149,7 @@ cmp.setup {
 		{name = "buffer", group_index = 2},
 		{name = "path", group_index = 2},
 		{name = "emoji", group_index = 2},
+		{name = "npm", group_index = 2},
 	},
 	sorting = {
 		priority_weight = 2,

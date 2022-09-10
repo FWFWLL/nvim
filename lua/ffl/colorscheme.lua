@@ -96,7 +96,8 @@ set_hl("CmpItemKindConstant", {fg = colors.white})
 set_hl("CmpItemKindReference", {fg = colors.white})
 set_hl("CmpItemKindOperator", {fg = colors.white})
 set_hl("CmpItemKindEmoji", {fg = colors.emoji})
-set_hl("CmpItemKindCrate", {fg = colors.crate})
+set_hl("CmpItemKindCrates", {fg = colors.crate})
+set_hl("CmpItemKindNPM", {fg = colors.carmine})
 
 -- Nvim-tree
 set_hl("Directory", {fg = colors.carmine})

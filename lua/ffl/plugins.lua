@@ -67,9 +67,16 @@ return packer.startup(function(use)
 	-- use "hrsh7th/cmp-cmdline" -- Nvim-cmp source for command line suggestions
 	use "hrsh7th/cmp-nvim-lsp" -- Nvim-cmp source for native LSP
 	use "hrsh7th/cmp-emoji" -- Nvim-cmp source for emoji
-	use "hrsh7th/cmp-nvim-lua" -- Nvim-cmp source for Neovim's Lua API
-	use "saadparwaiz1/cmp_luasnip" -- Nvim-cmp source for luasnip
-	-- use "David-Kunz/cmp-npm" -- Nvim-cmp source for npm packages
+	use "hrsh7th/cmp-nvim-lua" -- Nvim-cmp source for the Neovim Lua API
+	use "saadparwaiz1/cmp_luasnip" -- Nvim-cmp source for luasnip completion
+	use "david-kunz/cmp-npm" -- nvim-cmp source for npm
+
+	-- Syntax
+	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- Neovim Treesitter configuration and abstraction layer
+	use "kylechui/nvim-surround" -- Add/Change/Delete surround delimiter pairs
+
+	-- Terminal Integration
+	use "akinsho/toggleterm.nvim" -- Easily manage multiple terminal windows
 
 	-- Snippet
 	use "L3MON4D3/LuaSnip" -- Snippet engine
