@@ -45,60 +45,53 @@ return packer.startup(function(use)
 	-- Plugin Manager
 	use "wbthomason/packer.nvim" -- Have packer manage itself
 
-	-- Foundation
-	use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
-	-- use "nvim-lua/popup.nvim" -- Popup API for Neovim
-
 	-- LSP
-	use "neovim/nvim-lspconfig" -- Enable native LSP
-	-- use "williamboman/nvim-lsp-installer" -- Simple to use language server installer
-	use "williamboman/mason.nvim"
-	use "williamboman/mason-lspconfig.nvim"
-	use "jose-elias-alvarez/null-ls.nvim"
-	use "ray-x/lsp_signature.nvim"
-	use "b0o/SchemaStore.nvim"
-	use "RRethy/vim-illuminate"
-	-- use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+	use "neovim/nvim-lspconfig" -- Quickstart configuration for the Neovim LSP client
+	use "williamboman/mason.nvim" -- Easily install and manage LSP servers, DAP servers, linters and formatters
+	use "williamboman/mason-lspconfig.nvim" -- Bridge mason.nvim with nvim-lspconfig
+	use "jose-elias-alvarez/null-ls.nvim" -- Inject LSP diagnostics, code actions and more via Lua
+	use "ray-x/lsp_signature.nvim" -- LSP signature hint when you type
+	use "b0o/SchemaStore.nvim" -- Provide access to the SchemaStore catalog
+	use "RRethy/vim-illuminate" -- Highlight the word under the cursor
+	use "christianchiarulli/rust-tools.nvim" -- Tools for better development in Rust
+	use "mfussenegger/nvim-jdtls" -- Extensions for the built-in LSP for jdt.ls
 
 	-- Completion
 	use "hrsh7th/nvim-cmp" -- Completion engine
 	use "hrsh7th/cmp-buffer" -- Nvim-cmp source for buffer words
-	use "hrsh7th/cmp-path" -- Nvim-cmp for paths of files an folders
-	-- use "hrsh7th/cmp-cmdline" -- Nvim-cmp source for command line suggestions
+	use "hrsh7th/cmp-path" -- Nvim-cmp for filesystem paths
 	use "hrsh7th/cmp-nvim-lsp" -- Nvim-cmp source for native LSP
 	use "hrsh7th/cmp-emoji" -- Nvim-cmp source for emoji
-	use "hrsh7th/cmp-nvim-lua" -- Nvim-cmp source for the Neovim Lua API
-	use "saadparwaiz1/cmp_luasnip" -- Nvim-cmp source for luasnip completion
-	use "david-kunz/cmp-npm" -- nvim-cmp source for npm
+	use "hrsh7th/cmp-nvim-lua" -- nvim-cmp source for the neovim lua api
+	use "saadparwaiz1/cmp_luasnip" -- nvim-cmp source for luasnip completion
+	use "david-kunz/cmp-npm" -- nvim-cmp source for NPM
 
-	-- Syntax
-	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- Neovim Treesitter configuration and abstraction layer
-	use "kylechui/nvim-surround" -- Add/Change/Delete surround delimiter pairs
+	-- syntax
+	use {"nvim-treesitter/nvim-treesitter", run = ":tsupdate"} -- neovim treesitter configuration and abstraction layer
+	use "kylechui/nvim-surround" -- add/change/delete surround delimiter pairs
 
-	-- Terminal Integration
-	use "akinsho/toggleterm.nvim" -- Easily manage multiple terminal windows
+	-- terminal integration
+	use "akinsho/toggleterm.nvim" -- easily manage multiple terminal windows
 
 	-- Snippet
-	use "L3MON4D3/LuaSnip" -- Snippet engine
+	use "L3MON4D3/LuaSnip" -- Snippets in Lua
 	use "rafamadriz/friendly-snippets" -- Snippets collection
 
-	-- Syntax
-	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
-	-- use "p00f/nvim-ts-rainbow"
-	-- use "nvim-treesitter/playground"
-	use "kylechui/nvim-surround"
+	-- Fuzzy Finder
+	use "nvim-telescope/telescope.nvim" -- Highly extendable fuzzy finder
+	use "nvim-telescope/telescope-ui-select.nvim" -- Set vim.ui.select to telescope
 
-	-- Fuzzy Finder/Telescope
-	use "nvim-telescope/telescope.nvim"
-	use "nvim-telescope/telescope-ui-select.nvim"
+	-- Color
+	use "xiyaowong/nvim-transparent" -- Transparent background
+	use "norcalli/nvim-colorizer.lua" -- Hex-color highlighter
+	use "sunjon/shade.nvim" -- Dim inactive windows
 
 	-- Colorschemes
 	use "tomasr/molokai" -- Molokai theme
-	-- use "folke/tokyonight.nvim" -- TokyoNight theme from VS Code
 
 	-- Utility
-	use "moll/vim-bbye"
-	use "lewis6991/impatient.nvim"
+	use "moll/vim-bbye" -- Better buffer closing
+	use "lewis6991/impatient.nvim" -- Speeds up loading Neovim
 
 	-- Icons
 	use "kyazdani42/nvim-web-devicons" -- Devicons for nvim-tree
@@ -107,6 +100,10 @@ return packer.startup(function(use)
 	-- use "mfussenegger/nvim-dap"
 	-- use "rcarriga/nvim-dap-ui"
 	-- use "Pocco81/DAPInstall.nvim"
+
+	-- Neovim Lua Development
+	use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
+	use "christianchiarulli/lua-dev.nvim"
 
 	-- Tabline
 	use "akinsho/bufferline.nvim"
@@ -127,14 +124,14 @@ return packer.startup(function(use)
 	use "NumToStr/Comment.nvim" -- Smart and powerful commenting
 	use "JoosepAlviste/nvim-ts-context-commentstring" -- Treesitter context aware commenting
 
-	-- Terminal
-	use "akinsho/toggleterm.nvim"
-
 	-- Project
 	use "ahmedkhalf/project.nvim"
 
 	-- Session
 	use "olimorris/persisted.nvim"
+
+	-- Dependency Management
+	use "saecki/crates.nvim" -- Nvim-cmp source for crates.io dependencies
 
 	-- Git
 	use "lewis6991/gitsigns.nvim"
@@ -142,20 +139,6 @@ return packer.startup(function(use)
 	-- Editing Support
 	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
 	use "windwp/nvim-ts-autotag" -- Autopairs for html tags
-
-	-- Java
-	use "mfussenegger/nvim-jdtls"
-
-	-- Lua
-	use "christianchiarulli/lua-dev.nvim"
-
-	-- Rust
-	use "christianchiarulli/rust-tools.nvim"
-	use "saecki/crates.nvim" -- Nvim-cmp source for crates.io dependencies
-
-	-- Unsorted
-	use "xiyaowong/nvim-transparent" -- Transparent background
-	-- use "norcalli/nvim-colorizer.lua" -- Hex-color highlighter
 
 	-- Automatically set up configuration after cloning packer.nvim
 	if PACKER_BOOTSTRAP then
