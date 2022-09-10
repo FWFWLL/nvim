@@ -70,12 +70,7 @@ local function lsp_keymaps(bufnr)
 	buf_set_keymap("n", "[d", "<Cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 end
 
-M.on_attach = function(client, bufnr)
-	if client.name == "clangd" then
-		client.resolved_capabilities.document_formatting = false
-		client.offset_encoding = "utf-16"
-	end
-
+M.on_attach = function(_, bufnr)
 	lsp_keymaps(bufnr)
 end
 
