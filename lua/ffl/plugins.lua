@@ -84,7 +84,6 @@ return packer.startup(function(use)
 	-- Color
 	use "xiyaowong/nvim-transparent" -- Transparent background
 	use "norcalli/nvim-colorizer.lua" -- Hex-color highlighter
-	use "sunjon/shade.nvim" -- Dim inactive windows
 
 	-- Colorschemes
 	use "tomasr/molokai" -- Molokai theme
