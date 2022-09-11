@@ -92,6 +92,7 @@ return packer.startup(function(use)
 	use "lewis6991/impatient.nvim" -- Speeds up loading Neovim
 	use "stevearc/dressing.nvim" -- Improve built-in `vim.ui` interfaces
 	use "rcarriga/nvim-notify" -- Fancy notifications
+	use "saifulapm/chartoggle.nvim" -- Toggle `,` and `;` at the end of line
 
 	-- Icons
 	use "kyazdani42/nvim-web-devicons" -- Devicons for nvim-tree
