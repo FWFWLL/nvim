@@ -91,6 +91,7 @@ return packer.startup(function(use)
 	use "moll/vim-bbye" -- Better buffer closing
 	use "lewis6991/impatient.nvim" -- Speeds up loading Neovim
 	use "stevearc/dressing.nvim" -- Improve built-in `vim.ui` interfaces
+	use "rcarriga/nvim-notify" -- Fancy notifications
 
 	-- Icons
 	use "kyazdani42/nvim-web-devicons" -- Devicons for nvim-tree
