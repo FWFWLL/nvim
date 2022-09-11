@@ -45,6 +45,7 @@ set_hl("DiffDelete", {fg = colors.delete})
 set_hl("NormalFloat", {fg = colors.white})
 set_hl("Pmenu", {fg = colors.white})
 set_hl("PmenuThumb", {bg = colors.lime})
+set_hl("FloatTitle", {fg = colors.carmine})
 
 -- Packer --
 set_hl("packerBreakingChange", {fg = colors.delete})
@@ -109,6 +110,9 @@ set_hl("TelescopeMatching", {fg = colors.carmine})
 set_hl("TelescopePromptPrefix", {fg = colors.carmine})
 set_hl("TelescopeSelection", {fg = colors.aquamarine})
 set_hl("TelescopeSelectionCaret", {fg = colors.carmine})
+set_hl("TelescopePromptTitle", {fg = colors.carmine})
+set_hl("TelescopePreviewTitle", {fg = colors.carmine})
+set_hl("TelescopeResultsTitle", {fg = colors.carmine})
 
 -- Alpha
 set_hl("DashboardHeader", {fg = colors.carmine})
