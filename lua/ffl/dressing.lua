@@ -1,0 +1,44 @@
+local status_ok, dressing = pcall(require, "dressing")
+if not status_ok then
+	return
+end
+
+dressing.setup {
+	input = {
+		enabled = true,
+		default_prompt = "Input:",
+		prompt_align = "left",
+		insert_only = true,
+		anchor = "SW",
+		border = "rounded",
+		relative = "cursor",
+		prefer_width = 40,
+		width = nil,
+		max_width = {140, 0.9},
+		min_width = {20, 0.2},
+		winblend = 0,
+		winhighlight = "",
+		get_config = nil,
+	},
+	select = {
+		enabled = true,
+		backend = {"builtin", "telescope"},
+		trim_prompt = true,
+		telescope = nil,
+		builtin = {
+			anchor = "NW",
+			border = "rounded",
+			relative = "editor",
+			winblend = 0,
+			winhighlight = "",
+			width = nil,
+			max_width = {140, 0.8},
+			min_width = {40, 0.2},
+			height = nil,
+			max_height = 0.9,
+			min_height = {10, 0.2}
+		},
+		format_item_override = {},
+		get_config = nil,
+	},
+}
