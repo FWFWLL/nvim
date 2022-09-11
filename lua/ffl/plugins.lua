@@ -67,7 +67,7 @@ return packer.startup(function(use)
 	use "david-kunz/cmp-npm" -- nvim-cmp source for NPM
 
 	-- syntax
-	use {"nvim-treesitter/nvim-treesitter", run = ":tsupdate"} -- neovim treesitter configuration and abstraction layer
+	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- neovim treesitter configuration and abstraction layer
 	use "kylechui/nvim-surround" -- add/change/delete surround delimiter pairs
 
 	-- terminal integration
@@ -79,7 +79,6 @@ return packer.startup(function(use)
 
 	-- Fuzzy Finder
 	use "nvim-telescope/telescope.nvim" -- Highly extendable fuzzy finder
-	use "nvim-telescope/telescope-ui-select.nvim" -- Set vim.ui.select to telescope
 
 	-- Color
 	use "xiyaowong/nvim-transparent" -- Transparent background

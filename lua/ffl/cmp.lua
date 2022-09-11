@@ -8,11 +8,27 @@ if not luasnip_status_ok then
 	return
 end
 
+local buffer_fts = {
+	"markdown",
+	"toml",
+	"yaml",
+	"json",
+}
+
+local function contains(t, value)
+	for _, v in pairs(t) do
+		if v == value then
+			return true
+		end
+	end
+	return false
+end
+
 local compare = require("cmp.config.compare")
 
 local icons = require("ffl.icons")
 
--- require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.g.cmp_active = true
 
@@ -33,12 +49,12 @@ cmp.setup {
 		end,
 	},
 	mapping = cmp.mapping.preset.insert {
-		["<C-Right>"] = cmp.mapping(function()
+		["<S-Right>"] = cmp.mapping(function()
 			if luasnip.jumpable(1) then luasnip.jump(1)
 			elseif luasnip.expand_or_jumpable() then luasnip.expand_or_jump()
 			end
 		end, {"i", "s"}),
-		["<C-Left>"] = cmp.mapping(function()
+		["<S-Left>"] = cmp.mapping(function()
 			if luasnip.jumpable(-1) then luasnip.jump(-1)
 			end
 		end, {"i", "s"}),
@@ -47,11 +63,6 @@ cmp.setup {
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
 		["<m-o>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
 
-		-- Multiple ways to close
-		-- ["<ESC>"] = cmp.mapping {
-		-- 	i = cmp.mapping.abort(),
-		-- 	c = cmp.mapping.close(),
-		-- },
 		["<C-e>"] = cmp.mapping {
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
@@ -69,10 +80,6 @@ cmp.setup {
 			c = cmp.mapping.close(),
 		},
 		["<m-c>"] = cmp.mapping {
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		},
-		["<S-CR>"] = cmp.mapping {
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		},
@@ -113,8 +120,7 @@ cmp.setup {
 				vim_item.kind_hl_group = "CmpItemKindNPM"
 			end
 
-
-			-- NOTE: order matters
+			-- NOTE: Order matters
 			vim_item.menu = ({
 				nvim_lsp = "",
 				nvim_lua = "",
@@ -134,8 +140,8 @@ cmp.setup {
 			name = "nvim_lsp",
 			group_index = 2,
 			filter = function(entry, ctx)
-				local kind = require(cmp.types.lsp).CompletionItemKind[entry:get_kind()]
-				if kind == "Snippet" and ctx.prev_context.filtype == "java" then
+				local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
+				if kind == "Snippet" and ctx.prev_context.filetype == "java" then
 					return true
 				end
 
@@ -146,10 +152,18 @@ cmp.setup {
 		},
 		{name = "nvim_lua", group_index = 2},
 		{name = "luasnip", group_index = 2},
-		{name = "buffer", group_index = 2},
+		{
+			name = "buffer",
+			group_index = 2,
+			filter = function(_, ctx)
+				if not contains(buffer_fts, ctx.prev_context.filetype) then
+					return true
+				end
+			end,
+		},
 		{name = "path", group_index = 2},
 		{name = "emoji", group_index = 2},
-		{name = "npm", group_index = 2},
+		{name = "npm", group_index = 2, keyword_length = 4},
 	},
 	sorting = {
 		priority_weight = 2,
