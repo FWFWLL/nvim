@@ -52,7 +52,6 @@ return packer.startup(function(use)
 	use "jose-elias-alvarez/null-ls.nvim" -- Inject LSP diagnostics, code actions and more via Lua
 	use "ray-x/lsp_signature.nvim" -- LSP signature hint when you type
 	use "b0o/SchemaStore.nvim" -- Provide access to the SchemaStore catalog
-	use "RRethy/vim-illuminate" -- Highlight the word under the cursor
 	use "christianchiarulli/rust-tools.nvim" -- Tools for better development in Rust
 	use "mfussenegger/nvim-jdtls" -- Extensions for the built-in LSP for jdt.ls
 
@@ -96,25 +95,23 @@ return packer.startup(function(use)
 	use "sitiom/nvim-numbertoggle" -- Automatically toggle between relative and absolute line numbers
 
 	-- Icons
-	use "kyazdani42/nvim-web-devicons" -- Devicons for nvim-tree
-
-	-- Debugging
-	-- use "mfussenegger/nvim-dap"
-	-- use "rcarriga/nvim-dap-ui"
-	-- use "Pocco81/DAPInstall.nvim"
+	use "kyazdani42/nvim-web-devicons" -- Devicons for Neovim
 
 	-- Neovim Lua Development
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
-	use "christianchiarulli/lua-dev.nvim"
+	use "christianchiarulli/lua-dev.nvim" -- Neovim Lua API development environment
 
 	-- Tabline
-	use "akinsho/bufferline.nvim"
+	use "akinsho/bufferline.nvim" -- Snazzy buffer line for Neovim
 
 	-- Statusline
-	use "nvim-lualine/lualine.nvim"
+	use "nvim-lualine/lualine.nvim" -- Easy to configure Neovim statusline
+
+	-- Cursorline
+	use "RRethy/vim-illuminate" -- Highlight the word under the cursor
 
 	-- Startup
-	use "goolord/alpha-nvim"
+	use "goolord/alpha-nvim" -- Highly customizable greeter for Neovim
 
 	-- Indent
 	use "lukas-reineke/indent-blankline.nvim" -- Whitespace guides/lines
@@ -122,25 +119,25 @@ return packer.startup(function(use)
 	-- File Explorer
 	use "kyazdani42/nvim-tree.lua" -- File tree explorer
 
-	-- Comment
-	use "NumToStr/Comment.nvim" -- Smart and powerful commenting
-	use "JoosepAlviste/nvim-ts-context-commentstring" -- Treesitter context aware commenting
-
-	-- Project
-	use "ahmedkhalf/project.nvim"
-
-	-- Session
-	use "olimorris/persisted.nvim"
-
 	-- Dependency Management
 	use "saecki/crates.nvim" -- Nvim-cmp source for crates.io dependencies
 
 	-- Git
-	use "lewis6991/gitsigns.nvim"
+	use "lewis6991/gitsigns.nvim" -- Git integration: signs, hunk actions, blame etc.
+
+	-- Comment
+	use "NumToStr/Comment.nvim" -- Smart and powerful commenting
+
+	-- Project
+	use "ahmedkhalf/project.nvim" -- All in one project manager
 
 	-- Editing Support
 	use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-	use "windwp/nvim-ts-autotag" -- Autopairs for html tags
+	use "windwp/nvim-ts-autotag" -- Autopairs for html, xml, jsx tags
+	use "JoosepAlviste/nvim-ts-context-commentstring" -- Treesitter context aware commenting
+
+	-- Session
+	use "olimorris/persisted.nvim" -- Simple sessions manager
 
 	-- Automatically set up configuration after cloning packer.nvim
 	if PACKER_BOOTSTRAP then
