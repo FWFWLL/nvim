@@ -42,6 +42,9 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.cmd [[set iskeyword+=-]]
 
 vim.opt.fillchars = vim.opt.fillchars + 'eob: '
