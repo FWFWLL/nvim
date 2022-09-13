@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	use "williamboman/mason-lspconfig.nvim" -- Bridge mason.nvim with nvim-lspconfig
 	use "jose-elias-alvarez/null-ls.nvim" -- Inject LSP diagnostics, code actions and more via Lua
 	use "ray-x/lsp_signature.nvim" -- LSP signature hint when you type
+	use "simrat39/symbols-outline.nvim" -- Tree like view for symbols in Neovim
 	use "b0o/SchemaStore.nvim" -- Provide access to the SchemaStore catalog
 	use "christianchiarulli/rust-tools.nvim" -- Tools for better development in Rust
 	use "mfussenegger/nvim-jdtls" -- Extensions for the built-in LSP for jdt.ls

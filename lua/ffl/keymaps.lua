@@ -1,7 +1,5 @@
 local opts = {noremap = true, silent = true}
 
--- local term_opts = {silent = true}
-
 -- Shorten function name
 local keymap = vim.keymap.set
 
@@ -70,3 +68,6 @@ keymap("n", "<M-6>", "<CMD>BufferLineGoToBuffer 6<CR>")
 keymap("n", "<M-7>", "<CMD>BufferLineGoToBuffer 7<CR>")
 keymap("n", "<M-8>", "<CMD>BufferLineGoToBuffer 8<CR>")
 keymap("n", "<M-9>", "<CMD>BufferLineGoToBuffer 9<CR>")
+
+-- Symbols-Outline
+keymap("n", "<leader>o", "<CMD>SymbolsOutline<CR>")

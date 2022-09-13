@@ -44,7 +44,13 @@ bufferline.setup {
 				text = "File Explorer",
 				text_align = "center",
 				separator = true,
-			}
+			},
+			{
+				filetype = "Outline",
+				text = "Symbols Outline",
+				text_align = "center",
+				separator = true,
+			},
 		},
 		color_icons = true,
 		show_buffer_icons = true,

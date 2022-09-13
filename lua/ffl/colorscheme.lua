@@ -2,7 +2,7 @@ local colorscheme = "molokai"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-	vim.notify("colorscheme " .. colorscheme .. " not found!")
+	vim.notify("Colorscheme " .. colorscheme .. " not found!")
 	return
 end
 
@@ -39,6 +39,7 @@ set_hl("CursorLine", {bg = colors.bg})
 set_hl("TabLine", {bg = colors.bg})
 set_hl("VertSplit", {bg = colors.bg})
 set_hl("StatusLine", {fg = colors.bg})
+set_hl("StatusLineNC", {fg = colors.lime})
 set_hl("DiffAdd", {fg = colors.add})
 set_hl("DiffChange", {fg = colors.change})
 set_hl("DiffDelete", {fg = colors.delete})
@@ -113,6 +114,9 @@ set_hl("TelescopeSelectionCaret", {fg = colors.carmine})
 set_hl("TelescopePromptTitle", {fg = colors.carmine})
 set_hl("TelescopePreviewTitle", {fg = colors.carmine})
 set_hl("TelescopeResultsTitle", {fg = colors.carmine})
+
+-- Symbols-Outline
+set_hl("FocusedSymbol", {fg = colors.aquamarine})
 
 -- Alpha
 set_hl("DashboardHeader", {fg = colors.carmine})

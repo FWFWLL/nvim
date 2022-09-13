@@ -114,7 +114,8 @@ lualine.setup {
 		disabled_filetypes = {
 			"alpha",
 			"dashboard",
-			"NvimTree"
+			"NvimTree",
+			"Outline",
 		},
 		always_divide_middle = true,
 		refresh = {
