@@ -83,6 +83,7 @@ for _, server in pairs(servers) do
 		local rust_opts = require("ffl.lsp.settings.rust-tools")
 
 		rust_tools.setup(rust_opts)
+
 		goto continue
 	end
 
@@ -100,6 +101,7 @@ for _, server in pairs(servers) do
 		}
 
 		lspconfig.sumneko_lua.setup(lua_opts)
+
 		goto continue
 	end
 

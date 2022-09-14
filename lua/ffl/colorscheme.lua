@@ -62,6 +62,10 @@ set_hl("LspInfoBorder", {fg = colors.white})
 set_hl("LspInfoTitle", {fg = colors.carmine})
 set_hl("LspInfoFiletype", {fg = colors.aquamarine})
 
+-- Fidget
+set_hl("FidgetTitle", {fg = colors.aquamarine})
+set_hl("FidgetTask", {fg = colors.white})
+
 -- Mason --
 set_hl("MasonHeader", {fg = colors.navy, bg = colors.lime})
 set_hl("MasonHeaderSecondary", {fg = colors.navy, bg = colors.lime})
