@@ -68,6 +68,8 @@ keymap("n", "<M-6>", "<CMD>BufferLineGoToBuffer 6<CR>")
 keymap("n", "<M-7>", "<CMD>BufferLineGoToBuffer 7<CR>")
 keymap("n", "<M-8>", "<CMD>BufferLineGoToBuffer 8<CR>")
 keymap("n", "<M-9>", "<CMD>BufferLineGoToBuffer 9<CR>")
+keymap("n", "<leader>b<Left>", "<CMD>BufferLineMovePrev<CR>")
+keymap("n", "<leader>b<Right>", "<CMD>BufferLineMoveNext<CR>")
 
 -- Symbols-Outline
 keymap("n", "<leader>o", "<CMD>SymbolsOutline<CR>")
