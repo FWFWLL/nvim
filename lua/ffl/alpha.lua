@@ -11,6 +11,9 @@ local function button(sc, txt, cmd)
 	return b
 end
 
+-- Source packer_compiled.lua
+vim.cmd("source $HOME/.config/nvim/plugin/packer_compiled.lua")
+
 local icons = require("ffl.icons")
 
 dashboard.section.header.val = {

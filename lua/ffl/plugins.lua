@@ -40,7 +40,6 @@ packer.init {
 	},
 }
 
--- Install plugins here
 return packer.startup(function(use)
 	-- Plugin Manager
 	use "wbthomason/packer.nvim" -- Have packer manage itself
@@ -143,9 +142,6 @@ return packer.startup(function(use)
 
 	-- Automatically set up configuration after cloning packer.nvim
 	if PACKER_BOOTSTRAP then
-		require("packer").sync()
+		packer.sync()
 	end
-
-	-- Source packer_compiled.lua
-	vim.cmd("source $HOME/.config/nvim/plugin/packer_compiled.lua")
 end)

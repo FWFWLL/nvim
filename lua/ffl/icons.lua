@@ -38,7 +38,7 @@ return {
 		Files = "",
 		Folder = "",
 		OpenFolder = "",
-		},
+	},
 	git = {
 		Add = "",
 		Mod = "",
@@ -48,7 +48,7 @@ return {
 		Diff = "",
 		Repo = "",
 		Octoface = "",
-		},
+	},
 	ui = {
 		ArrowClosed = "",
 		ArrowOpen = "",
