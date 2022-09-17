@@ -21,7 +21,7 @@ local function on_attach(bufnr)
 	buf_set_keymap("n", "<leader>hu", "<Cmd>Gitsigns undo_stage_hunk<CR>", opts)
 	buf_set_keymap("n", "<leader>hp", "<Cmd>Gitsigns preview_hunk<CR>", opts)
 	buf_set_keymap("n", "<leader>hb", "<Cmd>lua require('gitsigns').blame_line({full=true})<CR>", opts)
-	buf_set_keymap("n", "<leader>td", "<Cmd>Gitsigns toggle_deleted<CR>", opts)
+	buf_set_keymap("n", "<leader>hd", "<Cmd>Gitsigns toggle_deleted<CR>", opts)
 end
 
 gitsigns.setup {
