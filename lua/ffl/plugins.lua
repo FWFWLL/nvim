@@ -67,8 +67,9 @@ return packer.startup(function(use)
 	use "david-kunz/cmp-npm" -- nvim-cmp source for NPM
 
 	-- syntax
-	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- neovim treesitter configuration and abstraction layer
-	use "kylechui/nvim-surround" -- add/change/delete surround delimiter pairs
+	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- Neovim treesitter configuration and abstraction layer
+	use "kylechui/nvim-surround" -- Add/change/delete surround delimiter pairs
+	use "beyondmarc/hlsl.vim" -- Syntax highlighting got HLSL
 
 	-- terminal integration
 	use "akinsho/toggleterm.nvim" -- easily manage multiple terminal windows
