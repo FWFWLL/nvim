@@ -62,8 +62,8 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-path" -- Nvim-cmp for filesystem paths
 	use "hrsh7th/cmp-nvim-lsp" -- Nvim-cmp source for native LSP
 	use "hrsh7th/cmp-emoji" -- Nvim-cmp source for emoji
-	use "hrsh7th/cmp-nvim-lua" -- Nvim-cmp source for the neovim lua api
-	use "saadparwaiz1/cmp_luasnip" -- Nvim-cmp source for luasnip completion
+	use "hrsh7th/cmp-nvim-lua" -- nvim-cmp source for the neovim lua api
+	use "saadparwaiz1/cmp_luasnip" -- nvim-cmp source for luasnip completion
 	use "david-kunz/cmp-npm" -- nvim-cmp source for NPM
 
 	-- syntax
@@ -72,7 +72,7 @@ return packer.startup(function(use)
 	use "beyondmarc/hlsl.vim" -- Syntax highlighting got HLSL
 
 	-- terminal integration
-	use "akinsho/toggleterm.nvim" -- Easily manage multiple terminal windows
+	use "akinsho/toggleterm.nvim" -- easily manage multiple terminal windows
 
 	-- Snippet
 	use "L3MON4D3/LuaSnip" -- Snippets in Lua
@@ -90,7 +90,6 @@ return packer.startup(function(use)
 
 	-- Utility
 	use "moll/vim-bbye" -- Better buffer closing
-	use "tpope/vim-repeat" -- Enable repeating plugins maps with `.`
 	use "lewis6991/impatient.nvim" -- Speeds up loading Neovim
 	use "stevearc/dressing.nvim" -- Improve built-in `vim.ui` interfaces
 	use "rcarriga/nvim-notify" -- Fancy notifications
@@ -130,9 +129,6 @@ return packer.startup(function(use)
 
 	-- Comment
 	use "NumToStr/Comment.nvim" -- Smart and powerful commenting
-
-	-- Motion
-	use "ggandor/leap.nvim" -- General-purpose motion plugin for Neovim
 
 	-- Project
 	use "ahmedkhalf/project.nvim" -- All in one project manager

@@ -126,9 +126,6 @@ set_hl("FocusedSymbol", {fg = colors.aquamarine})
 set_hl("DashboardHeader", {fg = colors.carmine})
 set_hl("DashboardFooter", {fg = colors.aquamarine})
 
--- Leap
-set_hl("LeapLabelPrimary", {fg = colors.black, bg = colors.aquamarine})
-
 -- Indentline
 set_hl("IndentBlanklineContextChar", {fg = colors.aquamarine})
 
