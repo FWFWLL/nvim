@@ -5,15 +5,15 @@ end
 
 local icons = require("ffl.icons")
 
-local function contains(t, value)
-	for _, v in pairs(t) do
-		if v == value then
-			return true
-		end
-	end
+-- local function contains(t, value)
+-- 	for _, v in pairs(t) do
+-- 		if v == value then
+-- 			return true
+-- 		end
+-- 	end
 
-	return false
-end
+-- 	return false
+-- end
 
 local hide_in_width_lowest = function()
 	return vim.o.columns > 51
@@ -23,9 +23,9 @@ local hide_in_width_low = function()
 	return vim.o.columns > 60
 end
 
-local hide_in_width_high = function()
-	return vim.o.columns > 80
-end
+-- local hide_in_width_high = function()
+-- 	return vim.o.columns > 80
+-- end
 
 -- Show diagnostics count
 local diagnostics = {
@@ -51,47 +51,47 @@ local branch = {
 }
 
 -- Display active LSP
-local language_server = {
-	function()
-		local msg = "No Active LSP"
+-- local language_server = {
+-- 	function()
+-- 		local msg = "No Active LSP"
 
-		local buf_ft = vim.bo.filetype
-		local ui_filetypes = {
-			"help",
-			"packer",
-			"neogitstatus",
-			"NvimTree",
-			"Trouble",
-			"lir",
-			"Outline",
-			"spectre_panel",
-			"toggleterm",
-			"DressingSelect",
-			"TelescopePrompt",
-			"lspinfo",
-			"lsp-installer",
-			"mason",
-			"",
-		}
+-- 		local buf_ft = vim.bo.filetype
+-- 		local ui_filetypes = {
+-- 			"help",
+-- 			"packer",
+-- 			"neogitstatus",
+-- 			"NvimTree",
+-- 			"Trouble",
+-- 			"lir",
+-- 			"Outline",
+-- 			"spectre_panel",
+-- 			"toggleterm",
+-- 			"DressingSelect",
+-- 			"TelescopePrompt",
+-- 			"lspinfo",
+-- 			"lsp-installer",
+-- 			"mason",
+-- 			"",
+-- 		}
 
-		if contains(ui_filetypes, buf_ft) then
-			return ""
-		end
+-- 		if contains(ui_filetypes, buf_ft) then
+-- 			return ""
+-- 		end
 
-		local clients = vim.lsp.get_active_clients()
-		if next(clients) == nil then
-			return msg
-		end
+-- 		local clients = vim.lsp.get_active_clients()
+-- 		if next(clients) == nil then
+-- 			return msg
+-- 		end
 
-		for _, client in ipairs(clients) do
-			return client.name
-		end
+-- 		for _, client in ipairs(clients) do
+-- 			return client.name
+-- 		end
 
-		return msg
-	end,
-	icon = "LSP:",
-	cond = hide_in_width_high,
-}
+-- 		return msg
+-- 	end,
+-- 	icon = "LSP:",
+-- 	cond = hide_in_width_high,
+-- }
 
 lualine.setup {
 	options = {
@@ -128,7 +128,7 @@ lualine.setup {
 		lualine_a = {"mode", diagnostics},
 		lualine_b = {},
 		lualine_c = {branch, "filename"},
-		lualine_x = {language_server, "filetype"},
+		lualine_x = {"filetype"},
 		lualine_y = {},
 		lualine_z = {"location"},
 	},
