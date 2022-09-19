@@ -80,6 +80,7 @@ return packer.startup(function(use)
 
 	-- Fuzzy Finder
 	use "nvim-telescope/telescope.nvim" -- Highly extendable fuzzy finder
+	use "nvim-telescope/telescope-file-browser.nvim" -- File browser extension for telescope.nvim
 
 	-- Color
 	use "xiyaowong/nvim-transparent" -- Transparent background

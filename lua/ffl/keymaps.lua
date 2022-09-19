@@ -52,24 +52,28 @@ keymap("n", "<F8>", "<CMD>set ts=4 sts=4 et <BAR> retab! <BAR> set ts=4 sts=4 no
 keymap("n", "<leader>e", "<CMD>NvimTreeToggle<CR>", opts)
 
 -- Telescope
-keymap("n", "<leader>f", "<CMD>Telescope find_files<CR>", opts)
+keymap("n", "<leader>ff", "<CMD>Telescope find_files<CR>", opts)
+keymap("n", "<leader>fb", "<CMD>Telescope file_browser<CR>", opts)
 keymap("n", "<leader>r", "<CMD>Telescope oldfiles<CR>", opts)
 keymap("n", "<leader>t", "<CMD>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>p", "<CMD>Telescope projects<CR>", opts)
 keymap("n", "<leader>s", "<CMD>Telescope persisted<CR>", opts)
 
 -- Bufferline
-keymap("n", "<M-1>", "<CMD>BufferLineGoToBuffer 1<CR>")
-keymap("n", "<M-2>", "<CMD>BufferLineGoToBuffer 2<CR>")
-keymap("n", "<M-3>", "<CMD>BufferLineGoToBuffer 3<CR>")
-keymap("n", "<M-4>", "<CMD>BufferLineGoToBuffer 4<CR>")
-keymap("n", "<M-5>", "<CMD>BufferLineGoToBuffer 5<CR>")
-keymap("n", "<M-6>", "<CMD>BufferLineGoToBuffer 6<CR>")
-keymap("n", "<M-7>", "<CMD>BufferLineGoToBuffer 7<CR>")
-keymap("n", "<M-8>", "<CMD>BufferLineGoToBuffer 8<CR>")
-keymap("n", "<M-9>", "<CMD>BufferLineGoToBuffer 9<CR>")
-keymap("n", "<leader>b<Left>", "<CMD>BufferLineMovePrev<CR>")
-keymap("n", "<leader>b<Right>", "<CMD>BufferLineMoveNext<CR>")
+keymap("n", "<M-1>", "<CMD>BufferLineGoToBuffer 1<CR>", opts)
+keymap("n", "<M-2>", "<CMD>BufferLineGoToBuffer 2<CR>", opts)
+keymap("n", "<M-3>", "<CMD>BufferLineGoToBuffer 3<CR>", opts)
+keymap("n", "<M-4>", "<CMD>BufferLineGoToBuffer 4<CR>", opts)
+keymap("n", "<M-5>", "<CMD>BufferLineGoToBuffer 5<CR>", opts)
+keymap("n", "<M-6>", "<CMD>BufferLineGoToBuffer 6<CR>", opts)
+keymap("n", "<M-7>", "<CMD>BufferLineGoToBuffer 7<CR>", opts)
+keymap("n", "<M-8>", "<CMD>BufferLineGoToBuffer 8<CR>", opts)
+keymap("n", "<M-9>", "<CMD>BufferLineGoToBuffer 9<CR>", opts)
+keymap("n", "<leader>b<Left>", "<CMD>BufferLineMovePrev<CR>", opts)
+keymap("n", "<leader>b<Right>", "<CMD>BufferLineMoveNext<CR>", opts)
 
 -- Symbols-Outline
-keymap("n", "<leader>o", "<CMD>SymbolsOutline<CR>")
+keymap("n", "<leader>o", "<CMD>SymbolsOutline<CR>", opts)
+
+-- Leap
+keymap("n", "s", "<CMD>lua require('leap').leap {target_windows = {vim.fn.win_getid()}}<CR>", opts)

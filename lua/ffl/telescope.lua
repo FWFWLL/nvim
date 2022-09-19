@@ -122,7 +122,6 @@ telescope.setup {
 		},
 		find_files = {
 			theme = "dropdown",
-			previewer = false,
 		},
 		buffers = {
 			theme = "dropdown",
@@ -153,4 +152,13 @@ telescope.setup {
 			initial_mode = "normal",
 		},
 	},
+	extensions = {
+		file_browser = {
+			theme = "dropdown",
+			hijack_netrw = false,
+		},
+	},
 }
+
+local file_browser = telescope.load_extension("file_browser")
+require("telescope.builtin").file_browser = file_browser.file_browser
