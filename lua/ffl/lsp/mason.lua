@@ -10,22 +10,23 @@ if not mason_lspconfig_status_ok then
 	return
 end
 
+-- Ordering matters for language_server component in lualine.nvim
 local servers = {
 	"clangd",
-	"cssls",
-	"hls",
-	"html",
-	"jdtls",
+	"volar",
+	"tsserver",
 	"jsonls",
+	"html",
+	"cssls",
+	"tailwindcss",
+	"hls",
+	"jdtls",
 	"omnisharp",
 	"pyright",
 	"rust-analyzer",
-	"sumneko_lua",
-	"tailwindcss",
 	"taplo",
-	"tsserver",
+	"sumneko_lua",
 	"vimls",
-	"volar",
 }
 
 local settings = {
