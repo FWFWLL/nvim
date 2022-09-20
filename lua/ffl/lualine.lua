@@ -95,7 +95,7 @@ local language_server = {
 		local unique_client_names = vim.fn.uniq(buf_client_names)
 		return table.concat(unique_client_names, ", ")
 	end,
-	icon = "LSP:",
+	icon = icons.ui.Gears,
 	cond = hide_in_width_high,
 }
 

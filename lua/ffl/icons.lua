@@ -68,6 +68,7 @@ return {
 		Code = "",
 		Telescope = "",
 		Gear = "",
+		Gears = "",
 		Package = "",
 		List = "",
 		SignIn = "",
