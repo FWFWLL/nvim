@@ -24,7 +24,6 @@ nvim_tree.setup {
 	filters = {
 		custom = {"^.git$"},
 	},
-	update_cwd = true,
 	renderer = {
 		add_trailing = true,
 		group_empty = false,
@@ -79,8 +78,7 @@ nvim_tree.setup {
 	},
 	update_focused_file = {
 		enable = true,
-		update_root = true,
-		update_cwd = false,
+		update_root = false,
 		ignore_list = {},
 	},
 	git = {
