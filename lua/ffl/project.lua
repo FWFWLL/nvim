@@ -11,7 +11,7 @@ project.setup {
 	patterns = {
 		".git",
 		"Cargo.toml",
-		"makefile",
+		"compile_flags",
 		"package.json",
 		"*.sln",
 		"*.csproj",
