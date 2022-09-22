@@ -66,12 +66,15 @@ return packer.startup(function(use)
 	use "saadparwaiz1/cmp_luasnip" -- Nvim-cmp source for luasnip completion
 	use "david-kunz/cmp-npm" -- nvim-cmp source for NPM
 
-	-- syntax
+	-- Markdown
+	use {"iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end} -- Markdown preview for Neovim
+
+	-- Syntax
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- Neovim treesitter configuration and abstraction layer
 	use "kylechui/nvim-surround" -- Add/change/delete surround delimiter pairs
 	use "beyondmarc/hlsl.vim" -- Syntax highlighting got HLSL
 
-	-- terminal integration
+	-- Terminal integration
 	use "akinsho/toggleterm.nvim" -- Easily manage multiple terminal windows
 
 	-- Snippet
