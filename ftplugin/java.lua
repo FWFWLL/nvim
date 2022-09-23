@@ -26,14 +26,92 @@ if not server_status_ok then
 	return
 end
 
+local extendedClientCapabilities = jdtls.extendedClientCapabilities
+extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+
+JAVA_DAP_ACTIVE = true
+
+local bundles = {}
+
+if JAVA_DAP_ACTIVE then
+	---@diagnostic disable-next-line: missing-parameter
+	bundles = vim.fn.glob("/home/ffl/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+end
+
 ---@diagnostic disable-next-line: need-check-nil
-DEFAULT_CONFIG = server.document_config.default_config
+local default_config = server.document_config.default_config
 
 local config = {
 	on_attach = require("ffl.lsp.handlers").on_attach,
 	capabilites = require("ffl.lsp.handlers").capabilites,
-	cmd = DEFAULT_CONFIG.cmd,
-	root_dir = DEFAULT_CONFIG.root_dir(),
+	cmd = default_config.cmd,
+	root_dir = default_config.root_dir(),
+	settings = {
+		java = {
+			eclipse = {
+				downloadSources = true,
+			},
+			configuration = {
+				updateBuildConfiguration = "interactive",
+			},
+			maven = {
+				downloadSources = true,
+			},
+			implementationsCodeLens = {
+				enabled = true,
+			},
+			referencesCodeLens = {
+				enabled = false,
+			},
+			references = {
+				includeDecompiledSources = true,
+			},
+			inlayHints = {
+				parameterNames = {
+					enabled = "all",
+				},
+			},
+			format = {
+				enabled = false,
+			},
+		},
+		signatureHelp = {
+			enabled = true,
+		},
+		completion = {
+			favoriteStaticMember = {
+				"org.hamcrest.MatcherAssert.assertThat",
+				"org.hamcrest.Matchers.*",
+				"org.hamcrest.CoreMatchers.*",
+				"org.junit.jupiter.api.Assertions.*",
+				"java.util.Objects.requireNonNull",
+				"java.util.Objects.requireNonNullElse",
+				"org.mockito.Mockito.*",
+			},
+		},
+		contentProvider = {
+			preferred = "fernflower",
+		},
+		extendedClientCapabilities = extendedClientCapabilities,
+		sources = {
+			organizeImports = {
+				starThreshold = 9999,
+				staticStarThreshold = 9999,
+			},
+		},
+		codeGeneration = {
+			toString = {
+				template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+			},
+			useBlocks = true,
+		},
+	},
+	flags = {
+		allow_incremental_sync = true,
+	},
+	init_options = {
+		bundles = bundles,
+	},
 }
 
 jdtls.start_or_attach(config)

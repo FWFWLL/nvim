@@ -51,6 +51,12 @@ bufferline.setup {
 				text_align = "center",
 				separator = true,
 			},
+			{
+				filetype = "dapui_scopes",
+				text = "DapUI",
+				text_align = "center",
+				separator = true,
+			},
 		},
 		color_icons = true,
 		show_buffer_icons = true,

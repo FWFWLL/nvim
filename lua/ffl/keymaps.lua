@@ -59,6 +59,17 @@ keymap("n", "<leader>t", "<CMD>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>p", "<CMD>Telescope projects<CR>", opts)
 keymap("n", "<leader>s", "<CMD>Telescope persisted<CR>", opts)
 
+-- Nvim-dap
+keymap("n", "<leader>db", "<CMD>lua require('dap').toggle_breakpoint()<CR>")
+keymap("n", "<leader>dc", "<CMD>lua require('dap').continue()<CR>")
+keymap("n", "<leader>dI", "<CMD>lua require('dap').step_into()<CR>")
+keymap("n", "<leader>do", "<CMD>lua require('dap').step_over()<CR>")
+keymap("n", "<leader>dO", "<CMD>lua require('dap').step_out()<CR>")
+keymap("n", "<leader>dr", "<CMD>lua require('dap').repl.open()<CR>")
+keymap("n", "<leader>dl", "<CMD>lua require('dap').run_last()<CR>")
+keymap("n", "<leader>du", "<CMD>lua require('dapui').toggle()<CR>")
+keymap("n", "<leader>dx", "<CMD>lua require('dap').terminate()<CR>")
+
 -- Bufferline
 keymap("n", "<M-1>", "<CMD>BufferLineGoToBuffer 1<CR>", opts)
 keymap("n", "<M-2>", "<CMD>BufferLineGoToBuffer 2<CR>", opts)
