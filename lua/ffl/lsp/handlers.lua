@@ -71,8 +71,17 @@ local function lsp_keymaps(bufnr)
 	buf_set_keymap("n", "[d", "<Cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 end
 
-M.on_attach = function(_, bufnr)
+M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
+
+	if client.name == "jdtls" then
+		vim.lsp.codelens.refresh()
+
+		if JAVA_DAP_ACTIVE then
+			require("jdtls").setup_dap({hotcodereplace = "auto"})
+			require("jdtls.dap").setup_dap_main_class_configs()
+		end
+	end
 end
 
 return M

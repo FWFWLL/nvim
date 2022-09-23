@@ -104,6 +104,11 @@ return packer.startup(function(use)
 	-- Icons
 	use "kyazdani42/nvim-web-devicons" -- Devicons for Neovim
 
+	-- Debugging
+	use "mfussenegger/nvim-dap" -- Debug Adapter Protocol client implementation for Neovim
+	use "rcarriga/nvim-dap-ui" -- A UI for nvim-dap
+	use "theHamsta/nvim-dap-virtual-text" -- Virtual text support for nvim-dap
+
 	-- Neovim Lua Development
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
 	use "christianchiarulli/lua-dev.nvim" -- Neovim Lua API development environment
