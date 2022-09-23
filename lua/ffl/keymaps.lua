@@ -22,8 +22,8 @@ keymap("n", "<C-Left>", "<CMD>vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", "<CMD>vertical resize +2<CR>", opts)
 
 -- Buffer navigation
-keymap("n", "<S-l>", "<CMD>BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", "<CMD>BufferLineCyclePrev<CR>", opts)
+keymap("n", "<C-S-Left>", "<CMD>BufferLineCyclePrev<CR>", opts)
+keymap("n", "<C-S-Right>", "<CMD>BufferLineCycleNext<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
