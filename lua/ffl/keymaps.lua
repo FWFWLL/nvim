@@ -73,7 +73,7 @@ keymap("n", "<leader>b<Left>", "<CMD>BufferLineMovePrev<CR>", opts)
 keymap("n", "<leader>b<Right>", "<CMD>BufferLineMoveNext<CR>", opts)
 
 -- Symbols-Outline
-keymap("n", "<leader>o", "<CMD>SymbolsOutline<CR>", opts)
+-- keymap("n", "<leader>o", "<CMD>SymbolsOutline<CR>", opts)
 
 -- Leap
 keymap("n", "s", "<CMD>lua require('leap').leap {target_windows = {vim.fn.win_getid()}}<CR>", opts)
