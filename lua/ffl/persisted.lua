@@ -8,7 +8,7 @@ vim.o.sessionoptions = "buffers,curdir,folds,winpos,winsize,terminal"
 persisted.setup {
 	save_dir = vim.fn.stdpath("data") .. "/sessions/",
 	command = "VimLeavePre",
-	use_git_branch = false,
+	use_git_branch = true,
 	branch_separator = "_",
 	autosave = true,
 	autoload = false,
