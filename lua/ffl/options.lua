@@ -45,6 +45,8 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.g.arduino_dir = "/usr/share/arduino/"
+
 vim.cmd [[set iskeyword+=-]]
 
 vim.opt.fillchars = vim.opt.fillchars + 'eob: '

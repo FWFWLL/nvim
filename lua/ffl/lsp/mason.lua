@@ -12,6 +12,7 @@ end
 
 -- Ordering matters for language_server component in lualine.nvim
 local servers = {
+	"arduino_language_server",
 	"clangd",
 	"volar",
 	"tsserver",
@@ -60,6 +61,11 @@ for _, server in pairs(servers) do
 	}
 
 	server = vim.split(server, "@")[1]
+
+	if server == "arduino_language_server" then
+		local arduino_language_server_opts = require("ffl.lsp.settings.arduino_language_server")
+		opts = vim.tbl_deep_extend("force", arduino_language_server_opts, opts)
+	end
 
 	if server == "jdtls" then
 		goto continue
