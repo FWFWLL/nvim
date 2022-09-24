@@ -154,9 +154,6 @@ return packer.startup(function(use)
 	-- Session
 	use "olimorris/persisted.nvim" -- Simple sessions manager
 
-	-- Arduino
-	use "stevearc/vim-arduino" -- Compiling and uploading arduino sketches
-
 	-- Automatically set up configuration after cloning packer.nvim
 	if PACKER_BOOTSTRAP then
 		packer.sync()
