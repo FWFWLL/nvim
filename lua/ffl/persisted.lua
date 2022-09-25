@@ -19,9 +19,18 @@ persisted.setup {
 	after_save = nil,
 	after_source = nil,
 	telescope = {
-		before_source = nil,
-		after_source = nil,
-	}
+		before_source = function()
+			vim.api.nvim_input("<ESC><CMD>%bd<CR>")
+		end,
+		after_source = function(session)
+			vim.defer_fn(function()
+				local notify_status_ok, notify = pcall(require, "notify")
+				if notify_status_ok then notify("Loaded session " .. session.name, vim.log.levels.INFO, {title = "Persisted.nvim"})
+				else print("Loaded session " .. session.name)
+				end
+			end, 0)
+		end,
+	},
 }
 
 local telescope_status_ok, telescope = pcall(require, "telescope")
