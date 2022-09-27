@@ -99,6 +99,12 @@ local language_server = {
 	cond = hide_in_width_high,
 }
 
+local clock = {
+	function()
+		return os.date("%H") .. ":" .. os.date("%M")
+	end,
+}
+
 lualine.setup {
 	options = {
 		icons_enabled = true,
@@ -136,7 +142,7 @@ lualine.setup {
 		lualine_c = {branch, "filename"},
 		lualine_x = {"filetype", language_server},
 		lualine_y = {},
-		lualine_z = {"location"},
+		lualine_z = {clock},
 	},
 	inactive_sections = {
 		lualine_a = {diagnostics},
@@ -144,7 +150,7 @@ lualine.setup {
 		lualine_c = {"filename"},
 		lualine_x = {"filetype"},
 		lualine_y = {},
-		lualine_z = {"location"},
+		lualine_z = {clock},
 	},
 	tabline = {},
 	winbar = {},
