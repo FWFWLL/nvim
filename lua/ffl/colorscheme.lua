@@ -47,6 +47,9 @@ set_hl("NormalFloat", {fg = colors.white})
 set_hl("Pmenu", {fg = colors.white})
 set_hl("PmenuThumb", {bg = colors.lime})
 set_hl("FloatTitle", {fg = colors.carmine})
+set_hl("Search", {fg = colors.black, bg = colors.aquamarine})
+set_hl("IncSearch", {fg = colors.black, bg = colors.aquamarine})
+set_hl("Substitute", {fg = colors.white, bg = colors.carmine})
 
 -- Packer --
 set_hl("packerBreakingChange", {fg = colors.delete})
