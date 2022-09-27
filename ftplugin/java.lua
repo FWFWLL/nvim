@@ -1,3 +1,5 @@
+---@diagnostic disable: missing-parameter
+
 local status_ok, jdtls = pcall(require, "jdtls")
 if not status_ok then
 	return
@@ -34,8 +36,9 @@ JAVA_DAP_ACTIVE = true
 local bundles = {}
 
 if JAVA_DAP_ACTIVE then
-	---@diagnostic disable-next-line: missing-parameter
-	bundles = vim.fn.glob("/home/ffl/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+	local home = os.getenv("HOME")
+	vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.40.0.jar"), "\n"))
+	vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java/vscode-java-test/server/*.jar"), "\n"))
 end
 
 ---@diagnostic disable-next-line: need-check-nil
