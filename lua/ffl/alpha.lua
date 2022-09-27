@@ -28,6 +28,7 @@ dashboard.section.header.val = {
 
 dashboard.section.buttons.val = {
 	button("f", icons.documents.Files .. " " .. icons.ui.ChevronRight .. " Find File", "<CMD>Telescope find_files<CR>"),
+	button("b", icons.ui.Project .. " " .. icons.ui.ChevronRight .. " Browse Files", "<CMD>Telescope file_browser<CR>"),
 	button("e", icons.ui.NewFile .. " " .. icons.ui.ChevronRight .. " New File", "<CMD>ene <BAR> startinsert<CR>"),
 	button("p", icons.git.Repo .. " " .. icons.ui.ChevronRight .. " Find Project", "<CMD>lua require('telescope').extensions.projects.projects()<CR>"),
 	button("r", icons.ui.History .. " " .. icons.ui.ChevronRight .. " Recent Files", "<CMD>Telescope oldfiles<CR>"),
