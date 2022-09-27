@@ -5,7 +5,11 @@ end
 
 autopairs.setup {
 	check_ts = true,
-	ts_config = {},
+	ts_config = {
+		lua = {"string", "source"},
+		javascript = {"string", "template_string"},
+		java = false,
+	},
 	disable_filetype = {
 		"TelescopePrompt",
 		"spectre_panel",
@@ -22,7 +26,7 @@ autopairs.setup {
 		pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
 		offset = 0,
 		end_key = "$",
-		keys = "wqeqrtyuiopzxcvbnmasdfghjkl",
+		keys = "qwertyuiopzxcvbnmasdfghjkl",
 		check_comma = true,
 		highlight = "PmenuSel",
 		highlight_grey = "LineNr",

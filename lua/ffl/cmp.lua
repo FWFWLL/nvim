@@ -163,7 +163,7 @@ cmp.setup {
 		},
 		{name = "path", group_index = 2},
 		{name = "emoji", group_index = 2},
-		{name = "npm", group_index = 2, keyword_length = 4},
+		{name = "npm", group_index = 2},
 	},
 	sorting = {
 		priority_weight = 2,

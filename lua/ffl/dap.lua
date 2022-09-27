@@ -86,6 +86,4 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close {}
 end
 
-dap_virtual_text.setup {
-
-}
+dap_virtual_text.setup {}
