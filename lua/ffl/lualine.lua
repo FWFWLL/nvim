@@ -155,5 +155,5 @@ lualine.setup {
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = {"nvim-dap-ui"},
+	extensions = {"nvim-dap-ui", "toggleterm"},
 }
