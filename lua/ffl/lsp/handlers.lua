@@ -53,7 +53,7 @@ M.setup = function()
 	})
 end
 
-local function lsp_keymaps(bufnr)
+local function lsp_keymaps(client, bufnr)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
 	local opts = {noremap = true, silent = true}
@@ -69,10 +69,15 @@ local function lsp_keymaps(bufnr)
 	buf_set_keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	buf_set_keymap("n", "]d", "<Cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "[d", "<Cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+
+	-- Clangd
+	if client.name == "clangd" then
+		buf_set_keymap("n", "go", "<CMD>ClangdSwitchSourceHeader<CR>", opts)
+	end
 end
 
 M.on_attach = function(client, bufnr)
-	lsp_keymaps(bufnr)
+	lsp_keymaps(client, bufnr)
 
 	if client.name == "jdtls" then
 		vim.lsp.codelens.refresh()
