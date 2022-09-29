@@ -72,7 +72,8 @@ return packer.startup(function(use)
 	-- Syntax
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- Neovim treesitter configuration and abstraction layer
 	use "kylechui/nvim-surround" -- Add/change/delete surround delimiter pairs
-	use "beyondmarc/hlsl.vim" -- Syntax highlighting got HLSL
+	use "tikhomirov/vim-glsl" -- Syntax highlighting for GLSL
+	use "beyondmarc/hlsl.vim" -- Syntax highlighting for HLSL
 
 	-- Terminal integration
 	use "akinsho/toggleterm.nvim" -- Easily manage multiple terminal windows
