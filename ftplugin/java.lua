@@ -37,8 +37,8 @@ local bundles = {}
 
 if JAVA_DAP_ACTIVE then
 	local home = os.getenv("HOME")
-	vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.40.0.jar"), "\n"))
-	vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java/vscode-java-test/server/*.jar"), "\n"))
+	vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"), "\n"))
+	vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/mason/packages/java-test/extension/server/*.jar"), "\n"))
 end
 
 ---@diagnostic disable-next-line: need-check-nil
