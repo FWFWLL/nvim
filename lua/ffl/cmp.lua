@@ -113,13 +113,14 @@ cmp.setup {
 
 			-- NOTE: Order matters
 			vim_item.menu = ({
-				nvim_lsp = "",
-				nvim_lua = "",
-				luasnip = "",
-				buffer = "",
-				path = "",
-				emoji = "",
-				npm = "",
+				nvim_lsp = "(LSP)",
+				nvim_lua = "(LUA)",
+				luasnip = "(SNIPPET)",
+				buffer = "(FILE)",
+				path = "(PATH)",
+				emoji = "(EMOJI)",
+				npm = "(NPM)",
+				crate = "(CRATE)",
 			})[entry.source.name]
 
 			return vim_item
@@ -132,6 +133,7 @@ cmp.setup {
 			group_index = 2,
 			filter = function(entry, ctx)
 				local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
+
 				if kind == "Snippet" and ctx.prev_context.filetype == "java" then
 					return true
 				end
