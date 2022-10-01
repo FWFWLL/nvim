@@ -40,6 +40,9 @@ keymap("s", "p", "p", opts)
 -- Allow tabbing when super-tabbing
 keymap("s", "<Tab>", "<DEL>i", opts)
 
+-- Terminal --
+keymap("t", "<ESC><ESC>", [[<C-\><C-n>]], opts)
+
 -- Custom --
 -- I hate trailing whitespaces
 keymap("n", "<F6>", "<CMD>let _s=@/ <BAR> %s/\\s\\+$//e <BAR> let @/=_s<CR>", opts)
@@ -79,9 +82,6 @@ keymap("n", "<M-4>", "<CMD>BufferLineGoToBuffer 4<CR>", opts)
 keymap("n", "<M-5>", "<CMD>BufferLineGoToBuffer 5<CR>", opts)
 keymap("n", "<leader>b<Left>", "<CMD>BufferLineMovePrev<CR>", opts)
 keymap("n", "<leader>b<Right>", "<CMD>BufferLineMoveNext<CR>", opts)
-
--- Symbols-Outline
--- keymap("n", "<leader>o", "<CMD>SymbolsOutline<CR>", opts)
 
 -- Leap
 keymap("n", "s", "<CMD>lua require('leap').leap {target_windows = {vim.fn.win_getid()}}<CR>", opts)
