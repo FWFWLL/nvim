@@ -114,11 +114,14 @@ return packer.startup(function(use)
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
 	use "christianchiarulli/lua-dev.nvim" -- Neovim Lua API development environment
 
+	-- Statusline
+	use "nvim-lualine/lualine.nvim" -- Easy to configure Neovim statusline
+
 	-- Tabline
 	use "akinsho/bufferline.nvim" -- Snazzy buffer line for Neovim
 
-	-- Statusline
-	use "nvim-lualine/lualine.nvim" -- Easy to configure Neovim statusline
+	-- Winbar and Statusline component
+	use "SmiteshP/nvim-navic" -- Use LSP to show current code context
 
 	-- Cursorline
 	use "RRethy/vim-illuminate" -- Highlight the word under the cursor

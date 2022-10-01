@@ -53,6 +53,19 @@ M.setup = function()
 	})
 end
 
+local function attach_navic(client, bufnr)
+	local status_ok, navic = pcall(require, "nvim-navic")
+	if not status_ok then
+		return
+	end
+
+	vim.g.navic_silence = true
+
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
+	end
+end
+
 local function lsp_keymaps(client, bufnr)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
@@ -78,6 +91,7 @@ end
 
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(client, bufnr)
+	attach_navic(client, bufnr)
 
 	if client.name == "jdtls" then
 		vim.lsp.codelens.refresh()

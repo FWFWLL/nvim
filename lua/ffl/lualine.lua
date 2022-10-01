@@ -5,16 +5,20 @@ end
 
 local icons = require("ffl.icons")
 
-local hide_in_width_lowest = function()
-	return vim.o.columns > 51
+local hide_in_width_55 = function()
+	return vim.o.columns > 55
 end
 
-local hide_in_width_low = function()
+local hide_in_width_60 = function()
 	return vim.o.columns > 60
 end
 
-local hide_in_width_high = function()
+local hide_in_width_80 = function()
 	return vim.o.columns > 80
+end
+
+local hide_in_width_100 = function()
+	return vim.o.columns > 100
 end
 
 -- Show diagnostics count
@@ -31,13 +35,30 @@ local diagnostics = {
 	update_in_insert = true,
 	always_visible = true,
 	padding = 1,
-	cond = hide_in_width_lowest,
+	cond = hide_in_width_55,
 }
 
 -- Show current Git branch
 local branch = {
 	"branch",
-	cond = hide_in_width_low,
+	cond = hide_in_width_60,
+}
+
+local navic_status_ok, navic = pcall(require, "nvim-navic")
+if not navic_status_ok then
+	return
+end
+
+local navic_cond = function()
+	return navic.is_available() and hide_in_width_100()
+end
+
+-- Show current navic code context
+local navic = {
+	function()
+		return navic.get_location()
+	end,
+	cond = navic_cond,
 }
 
 -- Display active LSP
@@ -45,7 +66,6 @@ local language_server = {
 	function()
 		local msg = "Inactive"
 
-		local buf_ft = vim.bo.filetype
 		local ui_filetypes = {
 			"help",
 			"packer",
@@ -64,7 +84,7 @@ local language_server = {
 			"",
 		}
 
-		if vim.tbl_contains(ui_filetypes, buf_ft) then
+		if vim.tbl_contains(ui_filetypes, vim.bo.filetype) then
 			return ""
 		end
 
@@ -85,7 +105,7 @@ local language_server = {
 		return table.concat(unique_client_names, ", ")
 	end,
 	icon = icons.ui.Gears,
-	cond = hide_in_width_high,
+	cond = hide_in_width_80,
 }
 
 local clock = {
@@ -128,7 +148,7 @@ lualine.setup {
 	sections = {
 		lualine_a = {"mode", diagnostics},
 		lualine_b = {},
-		lualine_c = {branch, "filename"},
+		lualine_c = {branch, "filename", navic},
 		lualine_x = {"filetype", language_server},
 		lualine_y = {},
 		lualine_z = {clock},
