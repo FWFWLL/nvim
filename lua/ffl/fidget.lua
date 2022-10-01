@@ -5,7 +5,7 @@ end
 
 fidget.setup {
 	text = {
-		spinner = "circle_quarters",
+		spinner = "dots",
 		done = "✓",
 		commenced = "Started",
 		completed = "Completed",
