@@ -78,8 +78,7 @@ local language_server = {
 			return ""
 		end
 
-		---@diagnostic disable-next-line: missing-parameter
-		local buf_clients = vim.lsp.buf_get_clients()
+		local buf_clients = vim.lsp.get_active_clients({bufnr = vim.api.nvim_get_current_buf()})
 		if next(buf_clients) == nil then
 			return msg
 		end
