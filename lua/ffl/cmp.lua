@@ -15,15 +15,6 @@ local buffer_fts = {
 	"json",
 }
 
-local function contains(t, value)
-	for _, v in pairs(t) do
-		if v == value then
-			return true
-		end
-	end
-	return false
-end
-
 local compare = require("cmp.config.compare")
 
 local icons = require("ffl.icons")
@@ -156,7 +147,7 @@ cmp.setup {
 			name = "buffer",
 			group_index = 2,
 			filter = function(_, ctx)
-				if not contains(buffer_fts, ctx.prev_context.filetype) then
+				if not vim.tbl_contains(buffer_fts, ctx.prev_context.filetype) then
 					return true
 				end
 			end,

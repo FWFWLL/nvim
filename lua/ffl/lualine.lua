@@ -5,16 +5,6 @@ end
 
 local icons = require("ffl.icons")
 
-local function contains(t, value)
-	for _, v in pairs(t) do
-		if v == value then
-			return true
-		end
-	end
-
-	return false
-end
-
 local hide_in_width_lowest = function()
 	return vim.o.columns > 51
 end
@@ -74,7 +64,7 @@ local language_server = {
 			"",
 		}
 
-		if contains(ui_filetypes, buf_ft) then
+		if vim.tbl_contains(ui_filetypes, buf_ft) then
 			return ""
 		end
 
