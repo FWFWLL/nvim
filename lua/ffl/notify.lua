@@ -6,10 +6,10 @@ end
 local icons = require("ffl.icons")
 
 notify.setup {
-	stages = "fade_in_slide_out",
+	stages = "slide",
 	on_open = nil,
 	on_close = nil,
-	render = "default",
+	render = "minimal",
 	background_colour = "#1C1C1C",
 	minimum_width = 10,
 	icons = {
@@ -22,3 +22,10 @@ notify.setup {
 }
 
 vim.notify = notify
+
+local telescope_status_ok, telescope = pcall(require, "telescope")
+if not telescope_status_ok then
+	return
+end
+
+telescope.load_extension("notify")
