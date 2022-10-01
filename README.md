@@ -8,3 +8,5 @@ Heavily inspired by [this config](https://github.com/ChristianChiarulli/nvim).
 `bufferline.nvim` buffer order isn't saved/loaded by `persisted.nvim`
 
 `arduino_language_server` after a while, just stops running
+
+Error on exit whenever `fidget.nvim` is on screen
