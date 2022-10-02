@@ -17,10 +17,6 @@ local hide_in_width_80 = function()
 	return vim.o.columns > 80
 end
 
-local hide_in_width_100 = function()
-	return vim.o.columns > 100
-end
-
 -- Show diagnostics count
 local diagnostics = {
 	"diagnostics",
@@ -42,23 +38,6 @@ local diagnostics = {
 local branch = {
 	"branch",
 	cond = hide_in_width_60,
-}
-
-local navic_status_ok, navic = pcall(require, "nvim-navic")
-if not navic_status_ok then
-	return
-end
-
-local navic_cond = function()
-	return navic.is_available() and hide_in_width_100()
-end
-
--- Show current navic code context
-local navic = {
-	function()
-		return navic.get_location()
-	end,
-	cond = navic_cond,
 }
 
 -- Display active LSP
@@ -148,7 +127,7 @@ lualine.setup {
 	sections = {
 		lualine_a = {"mode", diagnostics},
 		lualine_b = {},
-		lualine_c = {branch, "filename", navic},
+		lualine_c = {branch},
 		lualine_x = {"filetype", language_server},
 		lualine_y = {},
 		lualine_z = {clock},
