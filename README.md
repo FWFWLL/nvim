@@ -11,6 +11,8 @@ Heavily inspired by [this config](https://github.com/ChristianChiarulli/nvim).
 
 Error on exit whenever `fidget.nvim` is on screen
 
+`nvim-numbertoggle` causes a slight flicker when opening splits
+
 ## TODO
 - [ ] Set up higlighting for `nvim-navic`
 - [ ] Aggregate all icons to `ffl.icons`
