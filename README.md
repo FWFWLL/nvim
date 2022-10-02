@@ -10,3 +10,9 @@ Heavily inspired by [this config](https://github.com/ChristianChiarulli/nvim).
 `arduino_language_server` after a while, just stops running
 
 Error on exit whenever `fidget.nvim` is on screen
+
+## TODO
+- [ ] Set up higlighting for `nvim-navic`
+- [ ] Aggregate all icons to `ffl.icons`
+- [ ] Make `alpha` appear after closing every buffer
+- [ ] Aggregate common functions into `ffl.functions`
