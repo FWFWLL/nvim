@@ -3,13 +3,7 @@ if not status_ok then
 	return
 end
 
-local colors = {
-	bg = "#1C1C1C",
-	aquamarine = "#54DA97",
-	gray = "#777777",
-	white = "#EEEEEE",
-}
-
+local colors = require("ffl.colors")
 local icons = require("ffl.icons")
 
 bufferline.setup {
@@ -20,11 +14,11 @@ bufferline.setup {
 		left_mouse_command = "buffer %d",
 		middle_mouse_command = nil,
 		indicator = {style = "none"},
-		buffer_close_icon = "",
-		modified_icon = "●",
+		buffer_close_icon = icons.ui.close,
+		modified_icon = icons.ui.Circle,
 		close_icon = "",
-		left_trunc_marker = "",
-		right_trunc_marker = "",
+		left_trunc_marker = icons.ui.CircleLeft,
+		right_trunc_marker = icons.ui.CircleRight,
 		max_name_length = 18,
 		max_prefix_length = 18,
 		tab_size = 18,
@@ -42,12 +36,6 @@ bufferline.setup {
 			{
 				filetype = "NvimTree",
 				text = "File Explorer",
-				text_align = "center",
-				separator = true,
-			},
-			{
-				filetype = "Outline",
-				text = "Symbols Outline",
 				text_align = "center",
 				separator = true,
 			},
@@ -70,14 +58,14 @@ bufferline.setup {
 		sort_by = "insert_at_end",
 	},
 	highlights = {
-		fill = {fg = colors.white, bg = colors.bg},
+		fill = {fg = colors.fg, bg = colors.bg},
 		background = {fg = colors.gray, bg = colors.bg},
 		tab = {fg = colors.gray, bg = colors.bg},
 		tab_selected = {fg = colors.aquamarine, bg = colors.bg},
-		tab_close = {fg = colors.white, bg = colors.bg},
-		close_button = {fg = colors.white, bg = colors.bg},
-		close_button_visible= {fg = colors.white, bg = colors.bg},
-		close_button_selected = {fg = colors.white, bg = colors.bg},
+		tab_close = {fg = colors.fg, bg = colors.bg},
+		close_button = {fg = colors.fg, bg = colors.bg},
+		close_button_visible= {fg = colors.fg, bg = colors.bg},
+		close_button_selected = {fg = colors.fg, bg = colors.bg},
 		buffer_visible = {
 			fg = colors.gray,
 			bg = colors.bg,
@@ -157,9 +145,9 @@ bufferline.setup {
 			bold = true,
 			italic = true,
 		},
-		modified = {fg = colors.white, bg = colors.bg},
-		modified_visible = {fg = colors.white, bg = colors.bg},
-		modified_selected = {fg = colors.white, bg = colors.bg},
+		modified = {fg = colors.fg, bg = colors.bg},
+		modified_visible = {fg = colors.fg, bg = colors.bg},
+		modified_selected = {fg = colors.fg, bg = colors.bg},
 		separator = {fg = colors.bg, bg = colors.bg},
 		separator_visible = {fg = colors.bg, bg = colors.bg},
 		separator_selected = {fg = colors.bg, bg = colors.bg},

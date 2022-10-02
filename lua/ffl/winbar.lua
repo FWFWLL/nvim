@@ -2,6 +2,7 @@
 
 local M = {}
 
+local colors = require("ffl.colors")
 local icons = require("ffl.icons")
 local f = require("ffl.functions")
 
@@ -44,7 +45,7 @@ M.get_filename = function()
 		-- If `NavicText` does not exist, create it
 		local hl_found, navic_text = pcall(vim.api.nvim_get_hl_by_name, "NavicText", true)
 		if not hl_found then
-			f.set_hl("NavicText", {fg = "#EEEEEE", bg = "#1C1C1C"})
+			f.set_hl("NavicText", {fg = colors.fg, bg = colors.bg})
 		end
 
 		-- Setup highlighting

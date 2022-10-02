@@ -3,6 +3,7 @@ if not status_ok then
 	return
 end
 
+local colors = require("ffl.colors")
 local icons = require("ffl.icons")
 
 local hide_in_width_55 = function()
@@ -100,12 +101,12 @@ lualine.setup {
 		theme = {
 			normal = {
 				a = {
-					fg = "#00005F",
-					bg = "#D7FF00",
+					fg = colors.navy,
+					bg = colors.lime,
 				},
 				c = {
-					fg = "#54DA97",
-					bg = "#1C1C1C",
+					fg = colors.aquamarine,
+					bg = colors.bg,
 				},
 			},
 		},

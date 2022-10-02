@@ -10,7 +10,6 @@ notify.setup {
 	on_open = nil,
 	on_close = nil,
 	render = "minimal",
-	background_colour = "#1C1C1C",
 	minimum_width = 10,
 	icons = {
 		ERROR = icons.diagnostics.Error,

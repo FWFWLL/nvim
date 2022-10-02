@@ -44,11 +44,11 @@ local function footer()
 	local total_plugins = #vim.tbl_keys(packer_plugins)
 
 	local v = vim.version()
-	local version = " v" .. v.major .. "." .. v.minor .. "." .. v.patch
+	local version = icons.diagnostics.Hint .. " " .. "v" .. v.major .. "." .. v.minor .. "." .. v.patch
 
-	local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
+	local datetime = os.date(icons.ui.Calendar .. " %d-%m-%Y  " .. icons.misc.Watch .. " %H:%M:%S")
 
-	return datetime .. "   " .. total_plugins .. " plugins  " .. version
+	return datetime .. "  " .. icons.misc.Flask .. " " .. total_plugins .. " plugins  " .. version
 end
 
 dashboard.section.footer.val = footer()

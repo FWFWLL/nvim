@@ -15,6 +15,7 @@ Error on exit whenever `fidget.nvim` is on screen
 
 ## TODO
 - [ ] Set up higlighting for `nvim-navic`
-- [ ] Aggregate all icons to `ffl.icons`
+- [x] Aggregate all icons to `ffl.icons`
 - [ ] Make `alpha` appear after closing every buffer
-- [ ] Aggregate common functions into `ffl.functions`
+- [x] Aggregate common functions into `ffl.functions`
+- [x] Aggregate all colors to `ffl.colors`

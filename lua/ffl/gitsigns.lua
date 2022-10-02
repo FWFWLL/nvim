@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+local icons = require("ffl.icons")
+
 local function on_attach(bufnr)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
@@ -29,31 +31,31 @@ gitsigns.setup {
 	signs = {
 		add = {
 			hl = "GitSignsAdd",
-			text = "▎",
+			text = icons.gitsigns.Add,
 			numhl = "GitSignsAddNr",
 			linehl = "GitSignsAddLn",
 		},
 		change = {
 			hl = "GitSignsChange",
-			text = "▎",
+			text = icons.gitsigns.Change,
 			numhl = "GitSignsChangeNr",
 			linehl = "GitSignsChangeLn"
 		},
 		delete = {
 			hl = "GitSignsDelete",
-			text = "契",
+			text = icons.gitsigns.Delete,
 			numhl = "GitSignsDeleteNr",
 			linehl = "GitSignsDeleteLn"
 		},
 		topdelete = {
 			hl = "GitSignsDelete",
-			text = "契",
+			text = icons.gitsigns.TopDelete,
 			numhl = "GitSignsDeleteNr",
 			linehl = "GitSignsDeleteLn"
 		},
 		changedelete = {
 			hl = "GitSignsChange",
-			text = "▎",
+			text = icons.gitsigns.ChangeDelete,
 			numhl = "GitSignsChangeNr",
 			linehl = "GitSignsChangeLn"
 		},
