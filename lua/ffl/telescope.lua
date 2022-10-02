@@ -125,8 +125,10 @@ telescope.setup {
 		},
 		buffers = {
 			theme = "dropdown",
-			previewer = false,
 			initial_mode = "normal",
+			ignore_current_buffer = true,
+			sort_lastused = true,
+			sort_mru = true,
 		},
 		planets = {
 			show_pluto = true,

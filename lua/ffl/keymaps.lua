@@ -62,6 +62,7 @@ keymap("n", "<leader>t", "<CMD>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>p", "<CMD>Telescope projects<CR>", opts)
 keymap("n", "<leader>s", "<CMD>Telescope persisted<CR>", opts)
 keymap("n", "<leader>n", "<CMD>lua require('telescope').extensions.notify.notify(require('telescope.themes').get_dropdown({}))<CR>", opts)
+keymap("n", "<leader>bb", "<CMD>Telescope buffers<CR>", opts)
 
 -- Nvim-dap
 keymap("n", "<leader>db", "<CMD>lua require('dap').toggle_breakpoint()<CR>")
