@@ -14,14 +14,15 @@ fidget.setup {
 		bottom = true,
 		right = true,
 	},
+	timer = {
+		spinner_rate = 125,
+		fidget_decay = 2000,
+		task_decay = 1000,
+	},
 	window = {
 		relative = "win",
 		blend = 0,
 		zindex = nil,
+		border = "rounded",
 	},
-	timer = {
-		spinner_rate = 100,
-		fidget_decay = 2000,
-		task_decay = 1000,
-	}
 }
