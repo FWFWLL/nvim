@@ -38,8 +38,8 @@ set_hl("CursorLineNr", {fg = colors.aquamarine})
 set_hl("CursorLine", {bg = colors.bg})
 set_hl("TabLine", {bg = colors.bg})
 set_hl("VertSplit", {bg = colors.bg})
-set_hl("StatusLine", {fg = colors.lime, bg = colors.lime})
-set_hl("StatusLineNC", {fg = colors.lime, bg = colors.lime})
+set_hl("StatusLine", {fg = colors.navy, bg = colors.lime})   -- Do not set `StatusLine` and `StatusLineNC` to the same values
+set_hl("StatusLineNC", {fg = colors.lime, bg = colors.lime}) -- Don't
 set_hl("DiffAdd", {fg = colors.add})
 set_hl("DiffChange", {fg = colors.change})
 set_hl("DiffDelete", {fg = colors.delete})
