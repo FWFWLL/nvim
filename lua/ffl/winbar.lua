@@ -9,6 +9,7 @@ M.winbar_filetype_exclude = {
 	"help",
 	"startify",
 	"dashboard",
+	"gitcommit",
 	"packer",
 	"NvimTree",
 	"alpha",
