@@ -105,7 +105,10 @@ M.get_winbar = function()
 
 	-- Display buffer modified icon
 	if not f.empty(value) and f.get_buf_option("mod") then
-		local mod = "%#LspCodeLens#" .. icons.ui.Circle .. "%*"
+		-- TODO: Do this in a better way
+		f.set_hl("WinbarModified", {fg = colors.fg, bg = colors.bg})
+
+		local mod = "%#WinbarModified#" .. icons.ui.Circle .. "%*"
 
 		if navic_added then
 			value = value .. " " .. mod
