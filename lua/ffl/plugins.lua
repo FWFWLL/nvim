@@ -54,7 +54,8 @@ return packer.startup(function(use)
 	use "b0o/SchemaStore.nvim" -- Provide access to the SchemaStore catalog
 	use "christianchiarulli/rust-tools.nvim" -- Tools for better development in Rust
 	use "mfussenegger/nvim-jdtls" -- Extensions for the built-in LSP for jdt.ls
-	use "j-hui/fidget.nvim" -- Standalone UI for LSP progress
+	-- use "j-hui/fidget.nvim" -- Standalone UI for LSP progress
+	use {"FWFWLL/fidget.nvim", branch="fix-error-315"} -- Standalone UI for LSP progress
 
 	-- Completion
 	use "hrsh7th/nvim-cmp" -- Completion engine
