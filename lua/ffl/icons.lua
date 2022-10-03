@@ -31,7 +31,7 @@ return {
 		Array = "",
 		Number = "",
 		String = "",
-		Boolean = "蘒",
+		Boolean = "◩",
 		Object = "",
         Null = "ﳠ",
 	},
