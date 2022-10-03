@@ -5,4 +5,9 @@ end
 
 nvim_web_devicons.setup {
 	default = true,
+	override = {
+		["hpp"] = {
+			icon = "",
+		}
+	}
 }
