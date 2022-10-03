@@ -14,7 +14,7 @@ Error on exit whenever `fidget.nvim` is on screen
 `nvim-numbertoggle` causes a slight flicker when opening splits
 
 ## TODO
-- [ ] Set up higlighting for `nvim-navic`
+- [x] Set up higlighting for `nvim-navic`
 - [x] Aggregate all icons to `ffl.icons`
 - [ ] Make `alpha` appear after closing every buffer
 - [x] Aggregate common functions into `ffl.functions`
