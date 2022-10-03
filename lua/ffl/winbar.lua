@@ -32,24 +32,25 @@ M.get_filename = function()
 	local filename = vim.fn.expand("%:t")
 	local extension = vim.fn.expand("%:e")
 
-	-- TODO: How does this behave without `nvim-web-devicons`
 	if not f.empty(filename) then
-		local status_ok, nvim_web_devicons = pcall(require, "nvim-web-devicons")
-		if not status_ok then
-			return
-		end
-
-		local file_icon, file_icon_color = nvim_web_devicons.get_icon_color(filename, extension, {default = true})
-		local hl_group = "WinbarDevIcon" .. f.capitalize(extension)
-
-		-- If `NavicText` does not exist, create it
+		-- If `NavicText` highlight group does not exist, create it
 		local hl_found, navic_text = pcall(vim.api.nvim_get_hl_by_name, "NavicText", true)
 		if not hl_found then
 			f.set_hl("NavicText", {fg = colors.fg, bg = colors.bg})
 		end
 
-		-- Setup highlighting
 		f.set_hl("Winbar", {fg = navic_text.foreground, bg = navic_text.background})
+
+		-- If `nvim-web-devicons` is not installed
+		local status_ok, nvim_web_devicons = pcall(require, "nvim-web-devicons")
+		if not status_ok then
+			return " " .. "%#Winbar#" .. filename .. "%*"
+		end
+
+		-- Setup `nvim-web-devicons`
+		local file_icon, file_icon_color = nvim_web_devicons.get_icon_color(filename, extension, {default = true})
+		local hl_group = "WinbarDevIcon" .. f.capitalize(extension)
+
 		f.set_hl(hl_group, {fg = file_icon_color, bg = navic_text.background})
 
 		-- Set default icon if none was found
