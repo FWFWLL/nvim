@@ -73,29 +73,33 @@ local function lsp_keymaps(client, bufnr)
 
 	-- Mappings
 	buf_set_keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", opts)
-	buf_set_keymap("n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
-	buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-	buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-	buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover({border = 'rounded'})<CR>", opts)
-	buf_set_keymap("n", "<M-a>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-	buf_set_keymap("n", "<M-r>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-	buf_set_keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	buf_set_keymap("n", "]d", "<Cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-	buf_set_keymap("n", "[d", "<Cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+	buf_set_keymap("n", "gD", "<CMD>Telescope lsp_declarations<CR>", opts)
+	buf_set_keymap("n", "gi", "<CMD>Telescope lsp_implementations<CR>", opts)
+	buf_set_keymap("n", "gr", "<CMD>Telescope lsp_references<CR>", opts)
+	buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover({border = 'rounded'})<CR>", opts)
+	buf_set_keymap("n", "<M-a>", "<CMD>lua vim.lsp.buf.code_action()<CR>", opts)
+	buf_set_keymap("n", "<M-r>", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
+	buf_set_keymap("n", "<M-f>", "<CMD>Format<CR>", opts)
+	buf_set_keymap("n", "gl", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
+	buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", opts)
+	buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", opts)
 
 	-- Clangd
 	if client.name == "clangd" then
 		buf_set_keymap("n", "go", "<CMD>ClangdSwitchSourceHeader<CR>", opts)
 	end
+
+	vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]]
 end
 
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(client, bufnr)
 	attach_navic(client, bufnr)
 
-	if client.name == "jdtls" then
-		vim.lsp.codelens.refresh()
+	client.server_capabilities.documentFormattingProvider = false
 
+	-- jdt.ls
+	if client.name == "jdtls" then
 		if JAVA_DAP_ACTIVE then
 			require("jdtls").setup_dap({hotcodereplace = "auto"})
 			require("jdtls.dap").setup_dap_main_class_configs()
