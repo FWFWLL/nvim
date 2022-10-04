@@ -22,6 +22,7 @@ local servers = {
 	"tailwindcss",
 	"hls",
 	"jdtls",
+	"kotlin_language_server",
 	"omnisharp",
 	"pyright",
 	"rust-analyzer",
