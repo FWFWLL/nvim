@@ -17,7 +17,7 @@ navic.setup {
         Field = icons.kind.Field .. " ",
         Constructor = icons.kind.Constructor .. " ",
         Enum = icons.kind.Enum .. " ",
-        Interface = icons.kind.Interface .. "",
+        Interface = icons.kind.Interface .. " ",
         Function = icons.kind.Function .. " ",
         Variable = icons.kind.Variable .. " ",
         Constant = icons.kind.Constant .. " ",
