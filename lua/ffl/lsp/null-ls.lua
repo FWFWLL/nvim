@@ -10,6 +10,21 @@ null_ls.setup {
 	debug = false,
 	sources = {
 		code_actions.eslint,
-		formatting.astyle,
+		formatting.astyle.with {
+			extra_args = {
+				"-A2",
+				"-t4",
+				"-xn",
+				"-C",
+				"-p",
+				"-xg",
+				"-U",
+				"-k1",
+				"-W1",
+				"-z2",
+				"-O",
+				"-o",
+			},
+		},
 	}
 }
