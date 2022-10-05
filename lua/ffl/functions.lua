@@ -25,4 +25,9 @@ function M.capitalize(str)
 	return (str:gsub("^%l", string.upper))
 end
 
+-- Mapping function with default options
+function M.keymap(mode, lhs, rhs)
+	vim.keymap.set(mode, lhs, rhs, {noremap = true, silent = true})
+end
+
 return M

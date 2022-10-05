@@ -1,88 +1,86 @@
-local opts = {noremap = true, silent = true}
-
--- Shorten function name
-local keymap = vim.keymap.set
+local f = require("ffl.functions")
 
 -- Remap space as leader key
-keymap("n", "<Space>", "", opts)
+f.keymap("n", "<Space>", "")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+f.keymap("n", "<C-h>", "<C-w>h")
+f.keymap("n", "<C-j>", "<C-w>j")
+f.keymap("n", "<C-k>", "<C-w>k")
+f.keymap("n", "<C-l>", "<C-w>l")
 
 -- Resize with arrows
-keymap("n", "<C-Up>", "<CMD>resize -2<CR>", opts)
-keymap("n", "<C-Down>", "<CMD>resize +2<CR>", opts)
-keymap("n", "<C-Left>", "<CMD>vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", "<CMD>vertical resize +2<CR>", opts)
+f.keymap("n", "<C-Up>", "<CMD>resize -2<CR>")
+f.keymap("n", "<C-Down>", "<CMD>resize +2<CR>")
+f.keymap("n", "<C-Left>", "<CMD>vertical resize -2<CR>")
+f.keymap("n", "<C-Right>", "<CMD>vertical resize +2<CR>")
 
 -- Buffer navigation
-keymap("n", "<C-S-Left>", "<CMD>BufferLineCyclePrev<CR>", opts)
-keymap("n", "<C-S-Right>", "<CMD>BufferLineCycleNext<CR>", opts)
+f.keymap("n", "<C-S-Left>", "<CMD>BufferLineCyclePrev<CR>")
+f.keymap("n", "<C-S-Right>", "<CMD>BufferLineCycleNext<CR>")
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+f.keymap("v", "<", "<gv")
+f.keymap("v", ">", ">gv")
 
 -- Keep original yank after paste
-keymap("v", "p", '"_dP', opts)
+f.keymap("v", "p", '"_dP')
 
 -- Select --
 -- Stop pasting when super-tabbing
-keymap("s", "p", "p", opts)
+f.keymap("s", "p", "p")
 
 -- Allow tabbing when super-tabbing
-keymap("s", "<Tab>", "<DEL>i", opts)
+f.keymap("s", "<Tab>", "<DEL>i")
 
 -- Terminal --
-keymap("t", "<ESC><ESC>", [[<C-\><C-n>]], opts)
+f.keymap("t", "<ESC><ESC>", [[<C-\><C-n>]])
 
 -- Custom --
 -- I hate trailing whitespaces
-keymap("n", "<F6>", "<CMD>let _s=@/ <BAR> %s/\\s\\+$//e <BAR> let @/=_s<CR>", opts)
+f.keymap("n", "<F6>", "<CMD>let _s=@/ <BAR> %s/\\s\\+$//e <BAR> let @/=_s<CR>")
 
 -- I hate space indenting
-keymap("n", "<F7>", "<CMD>set ts=2 sts=2 noet <BAR> retab! <BAR> set ts=4 sts=4 noet <BAR> retab!<CR>", opts)
-keymap("n", "<F8>", "<CMD>set ts=4 sts=4 et <BAR> retab! <BAR> set ts=4 sts=4 noet <BAR> retab!<CR>", opts)
+f.keymap("n", "<F7>", "<CMD>set ts=2 sts=2 noet <BAR> retab! <BAR> set ts=4 sts=4 noet <BAR> retab!<CR>")
+f.keymap("n", "<F8>", "<CMD>set ts=4 sts=4 et <BAR> retab! <BAR> set ts=4 sts=4 noet <BAR> retab!<CR>")
 
 -- Nvim-tree
-keymap("n", "<leader>e", "<CMD>NvimTreeToggle<CR>", opts)
+f.keymap("n", "<leader>e", "<CMD>NvimTreeToggle<CR>")
 
 -- Telescope
-keymap("n", "<leader>ff", "<CMD>Telescope find_files<CR>", opts)
-keymap("n", "<leader>fb", "<CMD>Telescope file_browser<CR>", opts)
-keymap("n", "<leader>r", "<CMD>Telescope oldfiles<CR>", opts)
-keymap("n", "<leader>t", "<CMD>Telescope live_grep<CR>", opts)
-keymap("n", "<leader>p", "<CMD>Telescope projects<CR>", opts)
-keymap("n", "<leader>s", "<CMD>Telescope persisted<CR>", opts)
-keymap("n", "<leader>n", "<CMD>lua require('telescope').extensions.notify.notify(require('telescope.themes').get_dropdown({}))<CR>", opts)
-keymap("n", "<leader>bb", "<CMD>Telescope buffers<CR>", opts)
+f.keymap("n", "<leader>ff", "<CMD>Telescope find_files<CR>")
+f.keymap("n", "<leader>fb", "<CMD>Telescope file_browser<CR>")
+f.keymap("n", "<leader>r", "<CMD>Telescope oldfiles<CR>")
+f.keymap("n", "<leader>t", "<CMD>Telescope live_grep<CR>")
+f.keymap("n", "<leader>p", "<CMD>Telescope projects<CR>")
+f.keymap("n", "<leader>s", "<CMD>Telescope persisted<CR>")
+f.keymap("n", "<leader>n", "<CMD>lua require('telescope').extensions.notify.notify(require('telescope.themes').get_dropdown({}))<CR>")
+f.keymap("n", "<leader>bb", "<CMD>Telescope buffers<CR>")
 
 -- Nvim-dap
-keymap("n", "<leader>db", "<CMD>lua require('dap').toggle_breakpoint()<CR>")
-keymap("n", "<leader>dc", "<CMD>lua require('dap').continue()<CR>")
-keymap("n", "<leader>dI", "<CMD>lua require('dap').step_into()<CR>")
-keymap("n", "<leader>do", "<CMD>lua require('dap').step_over()<CR>")
-keymap("n", "<leader>dO", "<CMD>lua require('dap').step_out()<CR>")
-keymap("n", "<leader>dr", "<CMD>lua require('dap').repl.open()<CR>")
-keymap("n", "<leader>dl", "<CMD>lua require('dap').run_last()<CR>")
-keymap("n", "<leader>du", "<CMD>lua require('dapui').toggle()<CR>")
-keymap("n", "<leader>dx", "<CMD>lua require('dap').terminate()<CR>")
+f.keymap("n", "<leader>db", "<CMD>lua require('dap').toggle_breakpoint()<CR>")
+f.keymap("n", "<leader>dc", "<CMD>lua require('dap').continue()<CR>")
+f.keymap("n", "<leader>dI", "<CMD>lua require('dap').step_into()<CR>")
+f.keymap("n", "<leader>do", "<CMD>lua require('dap').step_over()<CR>")
+f.keymap("n", "<leader>dO", "<CMD>lua require('dap').step_out()<CR>")
+f.keymap("n", "<leader>dr", "<CMD>lua require('dap').repl.open()<CR>")
+f.keymap("n", "<leader>dl", "<CMD>lua require('dap').run_last()<CR>")
+f.keymap("n", "<leader>du", "<CMD>lua require('dapui').toggle()<CR>")
+f.keymap("n", "<leader>dx", "<CMD>lua require('dap').terminate()<CR>")
 
 -- Bufferline
-keymap("n", "<M-1>", "<CMD>BufferLineGoToBuffer 1<CR>", opts)
-keymap("n", "<M-2>", "<CMD>BufferLineGoToBuffer 2<CR>", opts)
-keymap("n", "<M-3>", "<CMD>BufferLineGoToBuffer 3<CR>", opts)
-keymap("n", "<M-4>", "<CMD>BufferLineGoToBuffer 4<CR>", opts)
-keymap("n", "<M-5>", "<CMD>BufferLineGoToBuffer 5<CR>", opts)
-keymap("n", "<leader>b<Left>", "<CMD>BufferLineMovePrev<CR>", opts)
-keymap("n", "<leader>b<Right>", "<CMD>BufferLineMoveNext<CR>", opts)
+f.keymap("n", "<M-1>", "<CMD>BufferLineGoToBuffer 1<CR>")
+f.keymap("n", "<M-2>", "<CMD>BufferLineGoToBuffer 2<CR>")
+f.keymap("n", "<M-3>", "<CMD>BufferLineGoToBuffer 3<CR>")
+f.keymap("n", "<M-4>", "<CMD>BufferLineGoToBuffer 4<CR>")
+f.keymap("n", "<M-5>", "<CMD>BufferLineGoToBuffer 5<CR>")
+f.keymap("n", "<leader>b<Left>", "<CMD>BufferLineMovePrev<CR>")
+f.keymap("n", "<leader>b<Right>", "<CMD>BufferLineMoveNext<CR>")
+f.keymap("n", "<leader>bp", "<CMD>BufferLinePick<CR>")
 
 -- Leap
-keymap("n", "s", "<CMD>lua require('leap').leap {target_windows = {vim.fn.win_getid()}}<CR>", opts)
+f.keymap("n", "s", "<CMD>lua require('leap').leap {target_windows = {vim.fn.win_getid()}}<CR>")
