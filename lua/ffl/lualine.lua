@@ -32,13 +32,51 @@ local diagnostics = {
 	update_in_insert = true,
 	always_visible = true,
 	padding = 1,
-	cond = hide_in_width_55,
+	cond = function()
+		local ui_filetypes = {
+			"help",
+			"checkhealth",
+			"packer",
+			"NvimTree",
+			"toggleterm",
+			"DressingSelect",
+			"TelescopePrompt",
+			"lspinfo",
+			"mason",
+			"",
+		}
+
+		if vim.tbl_contains(ui_filetypes, vim.bo.filetype) then
+			return false
+		end
+
+		return hide_in_width_55()
+	end,
 }
 
 -- Show current Git branch
 local branch = {
 	"branch",
-	cond = hide_in_width_60,
+	cond = function()
+		local ui_filetypes = {
+			"help",
+			"checkhealth",
+			"packer",
+			"NvimTree",
+			"toggleterm",
+			"DressingSelect",
+			"TelescopePrompt",
+			"lspinfo",
+			"mason",
+			"",
+		}
+
+		if vim.tbl_contains(ui_filetypes, vim.bo.filetype) then
+			return false
+		end
+
+		return hide_in_width_60()
+	end,
 }
 
 -- Display active LSP
@@ -127,9 +165,9 @@ lualine.setup {
 		lualine_z = {clock},
 	},
 	inactive_sections = {
-		lualine_a = {diagnostics},
+		lualine_a = {"filename"},
 		lualine_b = {},
-		lualine_c = {"filename"},
+		lualine_c = {},
 		lualine_x = {"filetype"},
 		lualine_y = {},
 		lualine_z = {clock},
