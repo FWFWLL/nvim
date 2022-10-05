@@ -49,17 +49,11 @@ local language_server = {
 		local ui_filetypes = {
 			"help",
 			"packer",
-			"neogitstatus",
 			"NvimTree",
-			"Trouble",
-			"lir",
-			"Outline",
-			"spectre_panel",
 			"toggleterm",
 			"DressingSelect",
 			"TelescopePrompt",
 			"lspinfo",
-			"lsp-installer",
 			"mason",
 			"",
 		}
@@ -114,9 +108,7 @@ lualine.setup {
 		section_separators = {left = "", right = ""},
 		disabled_filetypes = {
 			"alpha",
-			"dashboard",
 			"NvimTree",
-			"Outline",
 		},
 		always_divide_middle = true,
 		refresh = {
