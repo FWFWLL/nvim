@@ -20,7 +20,20 @@ notify.setup {
 	},
 }
 
-vim.notify = notify
+local filtered_messages = {
+	"warning: multiple different client offset_encodings detected for buffer, this is not supported yet",
+	"LSP[jdtls] received `end` message with no corresponding `begin`",
+}
+
+vim.notify = function(msg, ...)
+	for _, filtered_msg in ipairs(filtered_messages) do
+		if msg == filtered_msg then
+			return
+		end
+	end
+
+	notify(msg, ...)
+end
 
 local telescope_status_ok, telescope = pcall(require, "telescope")
 if not telescope_status_ok then

@@ -30,6 +30,7 @@ end
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+extendedClientCapabilities.progressReportProvider = false
 
 JAVA_DAP_ACTIVE = true
 
