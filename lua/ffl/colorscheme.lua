@@ -31,6 +31,7 @@ f.set_hl("FloatTitle", {fg = colors.carmine})
 f.set_hl("Search", {fg = colors.black, bg = colors.aquamarine})
 f.set_hl("IncSearch", {fg = colors.black, bg = colors.aquamarine})
 f.set_hl("Substitute", {fg = colors.fg, bg = colors.carmine})
+f.set_hl("MatchParen", {fg = colors.bg, bg = colors.aquamarine})
 
 -- Packer --
 f.set_hl("packerBreakingChange", {fg = colors.delete})
