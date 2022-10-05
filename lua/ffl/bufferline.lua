@@ -63,8 +63,8 @@ bufferline.setup {
 		tab = {fg = colors.gray, bg = colors.bg},
 		tab_selected = {fg = colors.aquamarine, bg = colors.bg},
 		tab_close = {fg = colors.fg, bg = colors.bg},
-		close_button = {fg = colors.fg, bg = colors.bg},
-		close_button_visible= {fg = colors.fg, bg = colors.bg},
+		close_button = {fg = colors.gray, bg = colors.bg},
+		close_button_visible= {fg = colors.gray, bg = colors.bg},
 		close_button_selected = {fg = colors.fg, bg = colors.bg},
 		buffer_visible = {
 			fg = colors.gray,
