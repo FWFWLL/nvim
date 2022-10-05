@@ -121,10 +121,23 @@ local language_server = {
 	cond = hide_in_width_80,
 }
 
+-- Show local time
 local clock = {
 	function()
 		return os.date("%H") .. ":" .. os.date("%M")
 	end,
+}
+
+-- Custom NvimTree extension
+local nvim_tree = {
+	sections = {
+		lualine_z = {
+			function ()
+				return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+			end
+		}
+	},
+	filetypes = {"NvimTree"}
 }
 
 lualine.setup {
@@ -147,7 +160,6 @@ lualine.setup {
 		section_separators = {left = "", right = ""},
 		disabled_filetypes = {
 			"alpha",
-			"NvimTree",
 		},
 		always_divide_middle = true,
 		refresh = {
@@ -175,5 +187,5 @@ lualine.setup {
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = {"nvim-dap-ui", "toggleterm"},
+	extensions = {"nvim-dap-ui", "toggleterm", nvim_tree},
 }
