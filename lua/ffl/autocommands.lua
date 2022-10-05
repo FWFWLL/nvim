@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd({"FileType"}, {
 		"Jaq",
 		"qf",
 		"help",
+		"checkhealth",
 		"man",
 		"lspinfo",
 		"spectre_panel",

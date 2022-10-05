@@ -48,6 +48,7 @@ local language_server = {
 
 		local ui_filetypes = {
 			"help",
+			"checkhealth",
 			"packer",
 			"NvimTree",
 			"toggleterm",
