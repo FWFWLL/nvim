@@ -37,12 +37,21 @@ bufferline.setup {
 				filetype = "NvimTree",
 				text = "File Explorer",
 				text_align = "center",
+				highlight = "BufferLineBufferSelected",
 				separator = true,
 			},
 			{
 				filetype = "dapui_scopes",
 				text = "DapUI",
 				text_align = "center",
+				highlight = "BufferLineBufferSelected",
+				separator = true,
+			},
+			{
+				filetype = "toggleterm",
+				text = "Terminal",
+				text_align = "center",
+				highlight = "BufferLineBufferSelected",
 				separator = true,
 			},
 		},
@@ -152,6 +161,7 @@ bufferline.setup {
 		separator_visible = {fg = colors.bg, bg = colors.bg},
 		separator_selected = {fg = colors.bg, bg = colors.bg},
 		indicator_selected = {fg = colors.bg, bg = colors.bg},
-		indicator_visible = {fg = colors.bg, bg = colors.bg}
+		indicator_visible = {fg = colors.bg, bg = colors.bg},
+		offset_separator = {fg = colors.bg, bg = colors.bg},
 	},
 }
