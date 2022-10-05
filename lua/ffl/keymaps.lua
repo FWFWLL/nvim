@@ -22,6 +22,9 @@ f.keymap("n", "<C-Right>", "<CMD>vertical resize +2<CR>")
 f.keymap("n", "<C-S-Left>", "<CMD>BufferLineCyclePrev<CR>")
 f.keymap("n", "<C-S-Right>", "<CMD>BufferLineCycleNext<CR>")
 
+-- Disable Command Line menu
+f.keymap("n", "q:", "")
+
 -- Visual --
 -- Stay in indent mode
 f.keymap("v", "<", "<gv")
