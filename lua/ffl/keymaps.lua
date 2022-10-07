@@ -22,6 +22,9 @@ f.keymap("n", "<C-Right>", "<CMD>vertical resize +2<CR>")
 f.keymap("n", "<C-S-Left>", "<CMD>BufferLineCyclePrev<CR>")
 f.keymap("n", "<C-S-Right>", "<CMD>BufferLineCycleNext<CR>")
 
+-- Yank to clipboard
+f.keymap("n", "<leader>y", "\"+y")
+
 -- Visual --
 -- Stay in indent mode
 f.keymap("v", "<", "<gv")
@@ -29,6 +32,9 @@ f.keymap("v", ">", ">gv")
 
 -- Keep original yank after paste
 f.keymap("v", "p", '"_dP')
+
+-- Yank to clipboard
+f.keymap("n", "<leader>y", "\"+y")
 
 -- Select --
 -- Stop pasting when super-tabbing

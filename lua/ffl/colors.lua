@@ -11,6 +11,7 @@ return {
 	blue = "#66D9EF",
 	yellow = "#FFF26D",
 	lavender = "#AF87FF",
+	orange = "#FD971F",
 	emoji = "#FDE030",
 	crate = "#F64D00",
 	add = "#A6E22E",

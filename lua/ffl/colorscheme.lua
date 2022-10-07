@@ -95,6 +95,8 @@ f.set_hl("CmpItemMenu", {fg = colors.gray})
 f.set_hl("Directory", {fg = colors.carmine})
 f.set_hl("NvimTreeOpenedFile", {fg = colors.aquamarine})
 f.set_hl("NvimTreeGitStaged", {fg = colors.blue})
+f.set_hl("NvimTreeFolderIcon", {fg = colors.gray})
+f.set_hl("NvimTreeIndentMarker", {fg = colors.gray})
 
 -- Telescope
 f.set_hl("TelescopeMatching", {fg = colors.carmine})
