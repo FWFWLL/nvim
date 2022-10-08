@@ -68,6 +68,8 @@ return {
 		ChangeDelete = "契",
 	},
 	ui = {
+		ArrowLeft = "",
+		ArrowRight = "",
 		ArrowClosed = "",
 		ArrowOpen = "",
 		Lock = "",
