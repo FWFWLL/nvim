@@ -128,6 +128,19 @@ local clock = {
 	end,
 }
 
+-- Custom ToggleTerm extension
+local toggleterm = {
+	sections = {
+		lualine_a = {
+			function()
+				return "ToggleTerm #" .. vim.b.toggle_number
+			end,
+		},
+		lualine_z = {clock},
+	},
+	filetypes = {"toggleterm"},
+}
+
 -- Custom NvimTree extension
 local nvim_tree = {
 	sections = {
@@ -187,5 +200,5 @@ lualine.setup {
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = {"nvim-dap-ui", "toggleterm", nvim_tree},
+	extensions = {"nvim-dap-ui", toggleterm, nvim_tree},
 }
