@@ -6,18 +6,25 @@ end
 local icons = require("ffl.icons")
 
 notify.setup {
+	level = vim.log.levels.TRACE,
+	timeout = 2000,
+	max_width = nil,
+	max_height = nil,
 	stages = "slide",
+	background_colour = "Normal",
+	icons = {
+		TRACE = icons.ui.Pencil,
+		DEBUG = icons.ui.Bug,
+		INFO = icons.diagnostics.Information,
+		WARN = icons.diagnostics.Warning,
+		ERROR = icons.diagnostics.Error,
+	},
 	on_open = nil,
 	on_close = nil,
 	render = "minimal",
-	minimum_width = 10,
-	icons = {
-		ERROR = icons.diagnostics.Error,
-		WARN = icons.diagnostics.Warning,
-		INFO = icons.diagnostics.Information,
-		DEBUG = icons.ui.Bug,
-		TRACE = icons.ui.Pencil,
-	},
+	minimum_width = 0,
+	fps = 30,
+	top_down = true,
 }
 
 local filtered_messages = {
