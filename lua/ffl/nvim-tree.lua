@@ -102,5 +102,16 @@ nvim_tree.setup {
 		},
 		number = false,
 		relativenumber = false,
+		float = {
+			enable = true,
+			open_win_config = {
+				relative = "editor",
+				border = "rounded",
+				width = 1,
+				height = vim.o.lines - 6,
+				row = 2, -- Bufferline & Winbar
+				col = 1,
+			},
+		},
 	},
 }
