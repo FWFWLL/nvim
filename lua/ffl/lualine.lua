@@ -174,7 +174,7 @@ local nvim_tree = {
 lualine.setup {
 	options = {
 		icons_enabled = true,
-		globalstatus = false,
+		globalstatus = true,
 		theme = {
 			normal = {
 				a = {
