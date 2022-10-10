@@ -160,13 +160,15 @@ local toggleterm = {
 -- Custom NvimTree extension
 local nvim_tree = {
 	sections = {
-		lualine_z = {
+		lualine_a = {"vim.bo.filetype"},
+		lualine_c = {
 			function ()
-				return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-			end
-		}
+				return vim.fn.fnamemodify(vim.fn.getcwd(), ":~") .. "/"
+			end,
+		},
+		lualine_z = {clock},
 	},
-	filetypes = {"NvimTree"}
+	filetypes = {"NvimTree"},
 }
 
 lualine.setup {
