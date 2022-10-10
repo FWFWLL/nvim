@@ -128,6 +128,22 @@ local clock = {
 	end,
 }
 
+-- Custom nvim-dap-ui extension
+local nvim_dap_ui = {
+	sections = {
+		lualine_a = {{"filename", file_status = false}},
+		lualine_z = {clock},
+	},
+	filetypes = {
+		"dap-repl",
+		"dapui_console",
+		"dapui_scopes",
+		"dapui_breakpoints",
+		"dapui_stacks",
+		"dapui_watches",
+	},
+}
+
 -- Custom ToggleTerm extension
 local toggleterm = {
 	sections = {
@@ -200,5 +216,5 @@ lualine.setup {
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = {"nvim-dap-ui", toggleterm, nvim_tree},
+	extensions = {nvim_dap_ui, toggleterm, nvim_tree},
 }
