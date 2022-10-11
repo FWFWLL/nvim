@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-vim.o.sessionoptions = "buffers,curdir,folds,winpos,winsize,terminal"
+vim.o.sessionoptions = "buffers,curdir,folds,winpos,winsize"
 
 persisted.setup {
 	save_dir = vim.fn.stdpath("data") .. "/sessions/",
@@ -20,13 +20,20 @@ persisted.setup {
 	after_source = nil,
 	telescope = {
 		before_source = function()
-			vim.api.nvim_input("<ESC><CMD>%bd<CR>")
+			local bufdelete_status_ok, _ = pcall(require, "bufdelete")
+			if bufdelete_status_ok then
+				vim.api.nvim_input("<ESC><CMD>bufdo Bdelete<CR>")
+			else
+				vim.api.nvim_input("<ESC><CMD>%bd<CR>")
+			end
 		end,
 		after_source = function(session)
 			vim.defer_fn(function()
 				local notify_status_ok, notify = pcall(require, "notify")
-				if notify_status_ok then notify("Loaded session " .. session.name, vim.log.levels.INFO, {title = "Persisted.nvim"})
-				else print("Loaded session " .. session.name)
+				if notify_status_ok then
+					notify("Loaded session " .. session.name, vim.log.levels.INFO, {title = "persisted.nvim"})
+				else
+					print("Loaded session " .. session.name)
 				end
 			end, 0)
 		end,

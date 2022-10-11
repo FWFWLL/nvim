@@ -9,8 +9,15 @@ local icons = require("ffl.icons")
 bufferline.setup {
 	options = {
 		numbers = "none",
-		close_command = "Bdelete! %d",
-		right_mouse_command = "Bdelete! %d",
+		close_command = function(bufnr)
+			local bufdelete_status_ok, bufdelete = pcall(require, "bufdelete")
+			if not bufdelete_status_ok then
+				return
+			end
+
+			bufdelete.bufdelete(bufnr)
+		end,
+		right_mouse_command = "vertical sbuffer %d",
 		left_mouse_command = "buffer %d",
 		middle_mouse_command = nil,
 		indicator = {style = "none"},
