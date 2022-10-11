@@ -95,7 +95,7 @@ return packer.startup(function(use)
 	use "tomasr/molokai" -- Molokai theme
 
 	-- Utility
-	use "moll/vim-bbye" -- Better buffer closing
+	use "famiu/bufdelete.nvim" -- Delete Neovim buffers without losing your window layout.
 	use "tpope/vim-repeat" -- Enable repeating plugins maps with `.`
 	use "lewis6991/impatient.nvim" -- Speeds up loading Neovim
 	use "stevearc/dressing.nvim" -- Improve built-in `vim.ui` interfaces
