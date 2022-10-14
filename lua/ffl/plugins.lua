@@ -56,6 +56,7 @@ return packer.startup(function(use)
 	use "mfussenegger/nvim-jdtls" -- Extensions for the built-in LSP for jdt.ls
 	-- use "j-hui/fidget.nvim" -- Standalone UI for LSP progress
 	use {"FWFWLL/fidget.nvim", branch="fix-error-315"} -- Standalone UI for LSP progress
+	use("folke/trouble.nvim") -- Pretty diagnostics list
 
 	-- Completion
 	use "hrsh7th/nvim-cmp" -- Completion engine

@@ -144,5 +144,10 @@ return {
 		Unstaged = "",
 		Staged = "",
 		Untracked = "+",
+		Error = "",
+		Warning = "",
+		Hint = "",
+		Information = "",
+		Other = "﫠"
 	},
 }
