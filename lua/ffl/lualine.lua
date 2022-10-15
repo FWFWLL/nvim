@@ -157,6 +157,18 @@ local toggleterm = {
 	filetypes = {"toggleterm"},
 }
 
+-- Custom Trouble extension
+local trouble = {
+	sections = {
+		lualine_a = {
+			"vim.bo.filetype",
+			diagnostics,
+		},
+		lualine_z = {clock},
+	},
+	filetypes = {"Trouble"},
+}
+
 -- Custom NvimTree extension
 local nvim_tree = {
 	sections = {
@@ -218,5 +230,5 @@ lualine.setup {
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = {nvim_dap_ui, toggleterm, nvim_tree},
+	extensions = {nvim_dap_ui, toggleterm, trouble, nvim_tree},
 }
