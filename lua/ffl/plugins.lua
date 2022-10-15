@@ -161,7 +161,7 @@ return packer.startup(function(use)
 	use("olimorris/persisted.nvim") -- Simple sessions manager
 
 	-- Split and Window
-	-- use("luukvbaal/stabilize.nvim") -- Stabilized window content on window open/close events
+	use("luukvbaal/stabilize.nvim") -- Stabilized window content on window open/close events
 
 	-- Automatically set up configuration after cloning packer.nvim
 	if PACKER_BOOTSTRAP then
