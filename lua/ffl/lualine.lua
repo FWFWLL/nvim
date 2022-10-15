@@ -121,6 +121,17 @@ local language_server = {
 	cond = hide_in_width_80,
 }
 
+-- Show `persisted.nvim` status
+local persisted = {
+	function()
+		if vim.g.persisting then
+			return ""
+		else
+			return ""
+		end
+	end
+}
+
 -- Show local time
 local clock = {
 	function()
@@ -217,7 +228,7 @@ lualine.setup {
 		lualine_c = {branch},
 		lualine_x = {"filetype", language_server},
 		lualine_y = {},
-		lualine_z = {clock},
+		lualine_z = {persisted, clock},
 	},
 	inactive_sections = {
 		lualine_a = {"filename"},
