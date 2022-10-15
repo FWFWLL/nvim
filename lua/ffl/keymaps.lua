@@ -78,6 +78,9 @@ f.keymap("n", "<leader>dl", "<CMD>lua require('dap').run_last()<CR>")
 f.keymap("n", "<leader>du", "<CMD>lua require('dapui').toggle()<CR>")
 f.keymap("n", "<leader>dx", "<CMD>lua require('dap').terminate()<CR>")
 
+-- Bufdelete
+f.keymap("n", "<leader>bd", "<CMD>Bdelete<CR>")
+
 -- Bufferline
 f.keymap("n", "<M-1>", "<CMD>BufferLineGoToBuffer 1<CR>")
 f.keymap("n", "<M-2>", "<CMD>BufferLineGoToBuffer 2<CR>")
