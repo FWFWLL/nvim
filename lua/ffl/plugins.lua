@@ -102,7 +102,7 @@ return packer.startup(function(use)
 	use("stevearc/dressing.nvim") -- Improve built-in `vim.ui` interfaces
 	use("rcarriga/nvim-notify") -- Fancy notifications
 	use("saifulapm/chartoggle.nvim") -- Toggle `,` and `;` at the end of line
-	-- use("sitiom/nvim-numbertoggle") -- Automatically toggle between relative and absolute line numbers
+	use("nkakouros-original/numbers.nvim") -- Automatically toggle between relative and absolute line numbers
 
 	-- Icons
 	use("kyazdani42/nvim-web-devicons") -- Devicons for Neovim
