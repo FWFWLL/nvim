@@ -15,6 +15,7 @@ M.winbar_filetype_exclude = {
 	"NvimTree",
 	"alpha",
 	"toggleterm",
+	"Trouble",
 	"DressingSelect",
 	"dap-repl",
 	"dap-terminal",

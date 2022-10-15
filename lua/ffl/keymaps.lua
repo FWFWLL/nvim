@@ -90,3 +90,6 @@ f.keymap("n", "<leader>bp", "<CMD>BufferLinePick<CR>")
 
 -- Leap
 f.keymap("n", "s", "<CMD>lua require('leap').leap {target_windows = {vim.fn.win_getid()}}<CR>")
+
+-- Trouble
+f.keymap("n", "<leader>dd", "<CMD>TroubleToggle<CR>")
