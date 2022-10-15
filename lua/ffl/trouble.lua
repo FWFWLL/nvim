@@ -7,12 +7,15 @@ local icons = require("ffl.icons")
 
 trouble.setup {
 	position = "bottom",
-	height = 10,
+	height = 5,
 	mode = "workspace_diagnostics",
 	fold_open = icons.ui.ArrowOpen,
 	fold_closed = icons.ui.ArrowClosed,
-	auto_open = false,
-	auto_close = false,
+	group = true,
+	padding = false,
+	indent_lines = false,
+	auto_open = true,
+	auto_close = true,
 	auto_preview = true,
 	auto_jump = {"lsp_definitions"},
 	signs = {
@@ -22,5 +25,5 @@ trouble.setup {
 		information = icons.legacy.Information,
 		other = icons.legacy.Other,
 	},
-	use_diagnostic_signs = false,
+	use_diagnostic_signs = true,
 }
