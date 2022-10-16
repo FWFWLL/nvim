@@ -19,6 +19,7 @@ local servers = {
 	"jsonls",
 	"html",
 	"cssls",
+	"cmake",
 	"tailwindcss",
 	"hls",
 	"jdtls",
