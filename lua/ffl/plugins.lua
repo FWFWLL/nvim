@@ -56,7 +56,7 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-jdtls") -- Extensions for the built-in LSP for jdt.ls
 	-- use"j-hui/fidget.nvim" -- Standalone UI for LSP progress
 	use({"FWFWLL/fidget.nvim", branch="fix-error-315"}) -- Standalone UI for LSP progress
-	use("folke/trouble.nvim") -- Pretty diagnostics list
+	-- use("folke/trouble.nvim") -- Pretty diagnostics list
 
 	-- Completion
 	use("hrsh7th/nvim-cmp") -- Completion engine
@@ -102,7 +102,7 @@ return packer.startup(function(use)
 	use("stevearc/dressing.nvim") -- Improve built-in `vim.ui` interfaces
 	use("rcarriga/nvim-notify") -- Fancy notifications
 	use("saifulapm/chartoggle.nvim") -- Toggle `,` and `;` at the end of line
-	use("nkakouros-original/numbers.nvim") -- Automatically toggle between relative and absolute line numbers
+	-- use("nkakouros-original/numbers.nvim") -- Automatically toggle between relative and absolute line numbers
 
 	-- Icons
 	use("kyazdani42/nvim-web-devicons") -- Devicons for Neovim
@@ -123,7 +123,7 @@ return packer.startup(function(use)
 	use("akinsho/bufferline.nvim") -- Snazzy buffer line for Neovim
 
 	-- Winbar and Statusline component
-	use("SmiteshP/nvim-navic") -- useLSP to show current code context
+	-- use("SmiteshP/nvim-navic") -- useLSP to show current code context
 
 	-- Cursorline
 	use("RRethy/vim-illuminate") -- Highlight the word under the cursor
@@ -162,7 +162,7 @@ return packer.startup(function(use)
 	use("olimorris/persisted.nvim") -- Simple sessions manager
 
 	-- Split and Window
-	use("luukvbaal/stabilize.nvim") -- Stabilized window content on window open/close events
+	-- use("luukvbaal/stabilize.nvim") -- Stabilized window content on window open/close events
 
 	-- Automatically set up configuration after cloning packer.nvim
 	if PACKER_BOOTSTRAP then
