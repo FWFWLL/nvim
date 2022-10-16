@@ -171,10 +171,7 @@ local toggleterm = {
 -- Custom Trouble extension
 local trouble = {
 	sections = {
-		lualine_a = {
-			"vim.bo.filetype",
-			diagnostics,
-		},
+		lualine_a = {"vim.bo.filetype"},
 		lualine_z = {clock},
 	},
 	filetypes = {"Trouble"},
