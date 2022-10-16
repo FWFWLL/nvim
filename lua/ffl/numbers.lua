@@ -14,6 +14,7 @@ numbers.setup {
 		"alpha",
 		"toggleterm",
 		"Trouble",
+		"DressingInput",
 		"DressingSelect",
 		"TelescopePrompt",
 		"dap-repl",
