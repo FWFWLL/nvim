@@ -14,8 +14,8 @@ trouble.setup {
 	group = true,
 	padding = false,
 	indent_lines = false,
-	auto_open = true,
-	auto_close = true,
+	auto_open = false,
+	auto_close = false,
 	auto_preview = true,
 	auto_jump = {"lsp_definitions"},
 	signs = {
