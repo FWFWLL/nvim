@@ -26,7 +26,7 @@ local servers = {
 	"kotlin_language_server",
 	"omnisharp",
 	"pyright",
-	"rust-analyzer",
+	"rustanalyzer",
 	"taplo",
 	"sumneko_lua",
 	"vimls",
