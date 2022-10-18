@@ -27,8 +27,8 @@ f.keymap("n", "<leader>y", "\"+y")
 
 -- Visual --
 -- Stay in indent mode
-f.keymap("v", "<", "<gv")
-f.keymap("v", ">", ">gv")
+-- f.keymap("v", "<", "<gv")
+-- f.keymap("v", ">", ">gv")
 
 -- Keep original yank after paste
 f.keymap("v", "p", '"_dP')

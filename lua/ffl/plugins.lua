@@ -157,6 +157,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag") -- Autopairs for html, xml, jsx tags
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- Treesitter context aware commenting
 	use("nacro90/numb.nvim") -- Peek lines in a non-obtrusive way
+	use("gbprod/stay-in-place.nvim") -- Prevent cursor from moving when using shift and filter actions
 
 	-- Session
 	use("olimorris/persisted.nvim") -- Simple sessions manager
