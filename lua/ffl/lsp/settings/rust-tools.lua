@@ -1,10 +1,17 @@
+local icons = require("ffl.icons")
+local lsp_handlers = require("ffl.lsp.handlers")
+
 return {
 	tools = {
+		executor = require("rust-tools/executors").termopen,
+		on_initialized = nil,
+		reload_workspace_from_cargo_toml = true,
 		inlay_hints = {
+			auto = true,
+			only_current_line = false,
 			show_parameter_hints = false,
-			show_variable_name = false,
-			parameter_hints_prefix = " ",
-			other_hints_prefix = " ",
+			parameter_hints_prefix = icons.ui.ArrowLeft .. " ",
+			other_hints_prefix = icons.ui.ArrowRight .. " ",
 			max_len_align = false,
 			max_len_align_padding = 1,
 			right_align = false,
@@ -12,14 +19,13 @@ return {
 			highlight = "Comment",
 		},
 		hover_actions = {
-			auto_focus = false,
 			border = "rounded",
-			width = 60,
+			auto_focus = false,
 		},
 	},
 	server = {
-		on_attach = require("ffl.lsp.handlers").on_attach,
-		capabilities = require("ffl.lsp.handlers").capabilities,
+		on_attach = lsp_handlers.on_attach,
+		capabilities = lsp_handlers.capabilities,
 		settings = {
 			["rust-analyzer"] = {
 				imports = {

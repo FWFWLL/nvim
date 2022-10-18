@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd({"FileType"}, {
 -- Fixes Autocomment and `number.nvim` relative numbering
 vim.api.nvim_create_autocmd({"BufWinEnter"}, {
 	callback = function()
-		vim.opt_local.relativenumber = true
+		-- vim.opt_local.relativenumber = true
 		vim.cmd "set formatoptions-=cro"
 	end,
 })
