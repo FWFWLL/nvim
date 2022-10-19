@@ -158,6 +158,7 @@ return packer.startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- Treesitter context aware commenting
 	use("nacro90/numb.nvim") -- Peek lines in a non-obtrusive way
 	use("gbprod/stay-in-place.nvim") -- Prevent cursor from moving when using shift and filter actions
+	use("sQVe/sort.nvim") -- Sorting plugin
 
 	-- Session
 	use("olimorris/persisted.nvim") -- Simple sessions manager
