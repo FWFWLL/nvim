@@ -222,7 +222,7 @@ lualine.setup {
 	sections = {
 		lualine_a = {"mode", diagnostics},
 		lualine_b = {},
-		lualine_c = {branch},
+		lualine_c = {branch, "filename"},
 		lualine_x = {"filetype", language_server},
 		lualine_y = {},
 		lualine_z = {persisted, clock},
