@@ -19,3 +19,6 @@ Error on exit whenever `fidget.nvim` is on screen
 - [ ] Make `alpha` appear after closing every buffer
 - [x] Aggregate common functions into `ffl.functions`
 - [x] Aggregate all colors to `ffl.colors`
+- [ ] Split config into sub-modules (Look at LunarVim)
+	- [ ] util
+	- [ ] ui
