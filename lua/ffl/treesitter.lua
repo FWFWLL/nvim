@@ -26,4 +26,7 @@ ts_configs.setup {
 		enable = true,
 		disable = {},
 	},
+	playground = {
+		enable = true,
+	},
 }

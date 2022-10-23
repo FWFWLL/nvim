@@ -64,7 +64,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-path") -- Nvim-cmp for filesystem paths
 	use("hrsh7th/cmp-nvim-lsp") -- Nvim-cmp source for native LSP
 	use("hrsh7th/cmp-emoji") -- Nvim-cmp source for emoji
-	use("hrsh7th/cmp-nvim-lua") -- Nvim-cmp source for the neovim lua api
+	use("hrsh7th/cmp-nvim-lua") -- Nvim-cmp source for the Neovim lua api
 	use("saadparwaiz1/cmp_luasnip") -- Nvim-cmp source for luasnip completion
 	use("david-kunz/cmp-npm") -- nvim-cmp source for NPM
 
@@ -73,6 +73,7 @@ return packer.startup(function(use)
 
 	-- Syntax
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}) -- Neovim treesitter configuration and abstraction layer
+	use("nvim-treesitter/playground") -- Treesitter playground integrated into Neovim
 	use("kylechui/nvim-surround") -- Add/change/delete surround delimiter pairs
 	use("tikhomirov/vim-glsl") -- Syntax highlighting for GLSL
 	use("beyondmarc/hlsl.vim") -- Syntax highlighting for HLSL
