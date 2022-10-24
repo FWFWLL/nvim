@@ -20,7 +20,7 @@ local servers = {
 	"html",
 	"cssls",
 	"cmake",
-	"tailwindcss",
+	-- "tailwindcss",
 	"hls",
 	"jdtls",
 	"kotlin_language_server",
