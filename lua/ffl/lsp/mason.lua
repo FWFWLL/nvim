@@ -12,7 +12,7 @@ end
 
 -- Ordering matters for language_server component in lualine.nvim
 local servers = {
-	"arduino_language_server",
+	-- "arduino_language_server",
 	"clangd",
 	"volar",
 	"tsserver",
