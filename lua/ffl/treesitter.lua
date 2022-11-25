@@ -6,27 +6,25 @@ end
 ts_configs.setup {
 	ensure_installed = "all",
 	sync_install = false,
-	ignore_install = {},
+	auto_install = true,
 	highlight = {
 		enable = true,
-		disable = {},
+		additional_vim_regex_highlighting = {
+			"html",
+			"vue",
+		},
 	},
 	autopairs = {
 		enable = true,
 	},
 	indent = {
 		enable = true,
-		disable = {},
 	},
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
 	},
 	auto_tag = {
-		enable = true,
-		disable = {},
-	},
-	playground = {
 		enable = true,
 	},
 }

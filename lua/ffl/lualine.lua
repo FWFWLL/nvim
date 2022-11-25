@@ -195,18 +195,7 @@ lualine.setup {
 	options = {
 		icons_enabled = true,
 		globalstatus = true,
-		theme = {
-			normal = {
-				a = {
-					fg = colors.navy,
-					bg = colors.lime,
-				},
-				c = {
-					fg = colors.aquamarine,
-					bg = colors.bg,
-				},
-			},
-		},
+		theme = "catppuccin",
 		component_seperators = {left = "", right = ""},
 		section_separators = {left = "", right = ""},
 		disabled_filetypes = {

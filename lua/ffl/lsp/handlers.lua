@@ -97,6 +97,7 @@ M.on_attach = function(client, bufnr)
 
 	-- jdt.ls
 	if client.name == "jdtls" then
+		---@diagnostic disable-next-line: undefined-global
 		if JAVA_DAP_ACTIVE then
 			require("jdtls").setup_dap({hotcodereplace = "auto"})
 			require("jdtls.dap").setup_dap_main_class_configs()

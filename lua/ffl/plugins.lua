@@ -72,7 +72,7 @@ return packer.startup(function(use)
 
 	-- Syntax
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}) -- Neovim treesitter configuration and abstraction layer
-	use("nvim-treesitter/playground") -- Treesitter playground integrated into Neovim
+	-- use("nvim-treesitter/playground") -- Treesitter playground integrated into Neovim
 	use("kylechui/nvim-surround") -- Add/change/delete surround delimiter pairs
 	use("tikhomirov/vim-glsl") -- Syntax highlighting for GLSL
 	use("beyondmarc/hlsl.vim") -- Syntax highlighting for HLSL
@@ -89,11 +89,12 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-file-browser.nvim") -- File browser extension for telescope.nvim
 
 	-- Color
-	use("xiyaowong/nvim-transparent") -- Transparent background
+	-- use("xiyaowong/nvim-transparent") -- Transparent background
 	use("norcalli/nvim-colorizer.lua") -- Hex-color highlighter
 
 	-- Colorschemes
-	use("tomasr/molokai") -- Molokai theme
+	-- use("tomasr/molokai") -- Molokai theme
+	use({"catppuccin/nvim", as = "catppuccin"}) -- Soothing pastel theme for Neovim
 
 	-- Utility
 	use("famiu/bufdelete.nvim") -- Delete Neovim buffers without losing your window layout.

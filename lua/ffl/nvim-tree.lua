@@ -3,33 +3,77 @@ if not status_ok then
 	return
 end
 
-local tree_cb = require("nvim-tree.config").nvim_tree_callback
-
 local icons = require("ffl.icons")
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 nvim_tree.setup {
-	disable_netrw = true,
-	open_on_setup = true,
-	sync_root_with_cwd = true,
-	respect_buf_cwd = true,
+	auto_reload_on_write = true,
 	create_in_closed_folder = true,
-	hijack_directories = {
-		enable = true,
-	},
-	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
-	},
-	filters = {
-		custom = {"^.git$"},
+	disable_netrw = false,
+	hijack_cursor = false,
+	hijack_netrw = true,
+	hijack_unnamed_buffer_when_opening = true,
+	ignore_buffer_on_setup = false,
+	open_on_setup = true,
+	open_on_setup_file = false,
+	sort_by = "name",
+	root_dirs = {},
+	prefer_startup_root = true,
+	sync_root_with_cwd = true,
+	reload_on_bufenter = true,
+	respect_buf_cwd = false,
+	on_attach = "disable",
+	remove_keymaps = false,
+	select_prompts = false,
+	view = {
+		adaptive_size = true,
+		centralize_selection = false,
+		width = 0, -- Always as small as possible
+		hide_root_folder = true,
+		side = "left",
+		preserve_window_proportions = false,
+		number = false,
+		relativenumber = false,
+		signcolumn = "yes",
+		mappings = {
+			custom_only = false,
+			list = {},
+		},
+		float = {
+			enable = false,
+			quit_on_focus_loss = true,
+			open_win_config = {
+				relative = "editor",
+				border = "rounded",
+				width = 30,
+				height = 30,
+				row = 1,
+				col = 1,
+			},
+		},
 	},
 	renderer = {
 		add_trailing = true,
 		group_empty = false,
 		highlight_git = false,
+		full_name = false,
 		highlight_opened_files = "name",
-		root_folder_modifier = ":t",
+		root_folder_modifier = ":~",
+		indent_width = 2,
+		indent_markers = {
+			enable = false,
+			inline_arrows = true,
+			icons = {
+				-- TODO: Aggregate these icons
+				corner = "└",
+				edge = "│",
+				item = "│",
+				bottom = "─",
+				none = " ",
+			},
+		},
 		icons = {
 			webdev_colors = true,
 			git_placement = "before",
@@ -65,10 +109,38 @@ nvim_tree.setup {
 				},
 			},
 		},
+		special_files = {
+			"Cargo.toml",
+			"Makefile",
+			"README.md",
+			"readme.md",
+		},
+		symlink_destination = true,
+	},
+	hijack_directories = {
+		enable = true,
+		auto_open = true,
+	},
+	update_focused_file = {
+		enable = true,
+		update_root = false,
+		ignore_list = {},
+	},
+	ignore_ft_on_setup = {
+		"alpha",
+	},
+	system_open = {
+		cmd = "",
+		args = {},
 	},
 	diagnostics = {
 		enable = true,
 		show_on_dirs = true,
+		debounce_delay = 50,
+		severity = {
+			min = vim.diagnostic.severity.HINT,
+			max = vim.diagnostic.severity.ERROR,
+		},
 		icons = {
 			hint = icons.diagnostics.Hint,
 			info = icons.diagnostics.Information,
@@ -76,42 +148,35 @@ nvim_tree.setup {
 			error = icons.diagnostics.Error,
 		},
 	},
-	update_focused_file = {
+	filters = {
+		dotfiles = false,
+		custom = {"^.git$"},
+		exclude = {},
+	},
+	filesystem_watchers = {
 		enable = true,
-		update_root = false,
-		ignore_list = {},
+		debounce_delay = 50,
+		ignore_dirs = {},
 	},
 	git = {
 		enable = true,
 		ignore = true,
-		timeout = 500,
+		show_on_dirs = true,
+		timeout = 400,
 	},
-	view = {
-		adaptive_size = true,
-		hide_root_folder = true,
-		width = 0, -- Always as small as possible
-		side = "left",
-		signcolumn = "yes",
-		mappings = {
-			custom_only = false,
-			list = {
-				{key = {"l", "<CR>", "o"}, cb = tree_cb("edit")},
-				{key = "h", cb = tree_cb("close_node")},
-				{key = "v", cb = tree_cb("vsplit")},
-			},
+	actions = {
+		use_system_clipboard = true,
+		change_dir = {
+			enable = true,
+			global = false,
+			restrict_above_cwd = false,
 		},
-		number = false,
-		relativenumber = false,
-		float = {
-			enable = false,
-			open_win_config = {
-				relative = "editor",
-				border = "rounded",
-				width = 1,
-				height = vim.o.lines - 5,
-				row = 1,
-				col = 9999,
-			},
+		expand_all = {
+			max_folder_discovery = 300,
+			exclude = {},
 		},
+	},
+	notify = {
+		threshold = vim.log.levels.INFO,
 	},
 }

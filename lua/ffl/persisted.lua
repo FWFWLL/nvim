@@ -3,16 +3,18 @@ if not status_ok then
 	return
 end
 
-vim.o.sessionoptions = "buffers,curdir,folds,winpos,winsize"
+vim.o.sessionoptions = "buffers,curdir,folds,terminal,winpos,winsize"
 
 persisted.setup {
 	save_dir = vim.fn.stdpath("data") .. "/sessions/",
 	command = "VimLeavePre",
+	silent = false,
 	use_git_branch = false,
-	branch_separator = "_",
 	autosave = true,
+	should_autosave = nil,
 	autoload = false,
 	on_autoload_no_session = nil,
+	follow_cwd = true,
 	allowed_dirs = nil,
 	ignored_dirs = nil,
 	before_save = nil,
@@ -37,6 +39,7 @@ persisted.setup {
 				end
 			end, 0)
 		end,
+		reset_prompt_after_deletion = true,
 	},
 }
 

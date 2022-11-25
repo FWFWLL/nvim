@@ -15,8 +15,11 @@ end
 
 local icons = require("ffl.icons")
 
-vim.fn.sign_define("DapBreakpoint", {text = icons.ui.Bug, texthl = "DiagnosticSignError", linehl = "", numhl = ""})
-vim.fn.sign_define("DapStopped", {text = icons.ui.Search, texthl = "DiffAdd", linehl = "", numhl = ""})
+local sign_define = vim.fn.sign_define
+
+sign_define("DapBreakpoint", {text = "●", texthl = "DapBreakpoint", linehl = "", numhl = ""})
+sign_define("DapStopped", {text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = ""})
+sign_define("DapLogPoint", {text = "◆", texthl = "DapLogPoint", linehl = "", numhl = ""})
 
 dapui.setup {
 	icons = {
@@ -36,9 +39,6 @@ dapui.setup {
 		{
 			elements = {
 				{id = "scopes", size = 0.25},
-				-- "breakpoints",
-				-- "stacks",
-				-- "watches",
 				"console",
 			},
 			size = 50,
