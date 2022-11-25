@@ -9,10 +9,7 @@ ts_configs.setup {
 	auto_install = true,
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = {
-			"html",
-			"vue",
-		},
+		additional_vim_regex_highlighting = false,
 	},
 	autopairs = {
 		enable = true,
