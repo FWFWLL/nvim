@@ -1,5 +1,5 @@
-local catppuccin_status_ok, catppuccin = pcall(require, "catppuccin")
-if not catppuccin_status_ok then
+local status_ok, catppuccin = pcall(require, "catppuccin")
+if not status_ok then
 	return
 end
 
@@ -35,37 +35,7 @@ catppuccin.setup {
 	color_overrides = {},
 	custom_highlights = {},
 	integrations = {
-		bufferline = true,
-		fidget = true,
-		gitsigns = true,
-		indent_blankline = true,
-		leap = true,
-		lualine = true,
-		mason = true,
-		cmp = true,
-		dap = {
-			enabled = true,
-			enable_ui = true,
-		},
-		native_lsp = {
-			enabled = true,
-			virtual_text = {
-				errors = {"italic"},
-				hints = {"italic"},
-				warnings = {"italic"},
-				information = {"italic"},
-			},
-			underlines = {
-				errors = {"underline"},
-				hints = {"underline"},
-				warnings = {"underline"},
-				information = {"underline"},
-			},
-		},
-		notify = true,
-		nvimtree = true,
-		treesitter = true,
-		telescope = true,
+
 	},
 }
 
