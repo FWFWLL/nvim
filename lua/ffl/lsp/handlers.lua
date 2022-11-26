@@ -3,7 +3,12 @@ local M = {}
 local function lsp_keymaps(client, bufnr)
 	local function buf_set_keymap(mode, lhs, rhs) vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, {noremap = true, silent = true}) end
 
+	-- Mappings
+	buf_set_keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>")
+	buf_set_keymap("n", "gr", "<CMD>Telescope lsp_references<CR>")
 	buf_set_keymap("n", "K", [[<CMD>lua vim.lsp.buf.hover({border = "rounded"})<CR>]])
+	buf_set_keymap("n", "<M-a>", "<CMD>lua vim.lsp.buf.code_action()<CR>")
+	buf_set_keymap("n", "<M-r>", "<CMD>lua vim.lsp.buf.rename()<CR>")
 	buf_set_keymap("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>")
 	buf_set_keymap("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>")
 
