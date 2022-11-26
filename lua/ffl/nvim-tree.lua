@@ -7,17 +7,12 @@ nvim_tree.setup {
 	disable_netrw = false,
 	hijack_netrw = true,
 	open_on_setup = true,
-	open_on_setup_file = false,
-	ignore_buffer_on_setup = false,
-	ignore_ft_on_setup = {},
 	auto_reload_on_write = true,
 	create_in_closed_folder = false,
 	sort_by = "name",
 	hijack_unnamed_buffer_when_opening = true,
 	hijack_cursor = true,
-	root_dirs = {},
-	prefer_startup_root = false,
-	sync_root_with_cwd = false,
+	sync_root_with_cwd = true,
 	reload_on_bufenter = true,
 	respect_buf_cwd = true,
 	hijack_directories = {
@@ -25,18 +20,14 @@ nvim_tree.setup {
 		auto_open = true,
 	},
 	update_focused_file = {
-		enable = false,
-		update_root = false,
-		ignore_list = {},
-	},
-	system_open = {
-		cmd = "",
-		args = {},
+		enable = true,
+		update_root = true,
 	},
 	diagnostics = {
 		enable = true,
 		debounce_delay = 50, --ms
 		show_on_dirs = true,
+		-- TODO: Aggregate icons
 		icons = {
 			hint = "",
 			info = "",
@@ -72,10 +63,6 @@ nvim_tree.setup {
 		number = false,
 		relativenumber = false,
 		signcolumn = "yes",
-		mappings = {
-			custom_only = false,
-			-- list = {},
-		},
 		float = {
 			enable = false,
 			quit_on_focus_loss = true,
@@ -100,6 +87,7 @@ nvim_tree.setup {
 		indent_markers = {
 			enable = false,
 			inline_arrows = false,
+			-- TODO: Aggregate icons
 			icons = {
 				corner = "└",
 				edge = "│",
@@ -112,6 +100,7 @@ nvim_tree.setup {
 			webdev_colors = true,
 			git_placement = "before",
 			padding = " ",
+			-- TODO: Aggregate icon
 			symlink_arrow = " ➛ ",
 			show = {
 				file = true,
@@ -119,6 +108,7 @@ nvim_tree.setup {
 				folder_arrow = true,
 				git = true,
 			},
+			-- TODO: Aggregate icons
 			glyphs = {
 				default = "",
 				symlink = "",

@@ -35,7 +35,7 @@ catppuccin.setup {
 	color_overrides = {},
 	custom_highlights = {},
 	integrations = {
-
+		nvimtree = true,
 	},
 }
 
