@@ -31,5 +31,10 @@ keymap("s", "<Tab>", "<DEL>i")
 -- Enter normal mode in terminal
 keymap("t", "<ESC><ESC>", [[<C-\><C-n>]])
 
+-- Telescope
+keymap("n", "<leader>ff", "<CMD>Telescope find_files<CR>")
+keymap("n", "<leader>fg", "<CMD>Telescope live_grep<CR>")
+keymap("n", "<leader>fb", "<CMD>Telescope buffers<CR>")
+
 -- Nvim-tree
 keymap("n", "<leader>e", "<CMD>NvimTreeToggle<CR>")

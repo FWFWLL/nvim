@@ -5,5 +5,8 @@ return {
 		Information = "",
 		Question = "",
 		Hint = "",
-	}
+	},
+	ui = {
+		ChevronRight = ""
+	},
 }
