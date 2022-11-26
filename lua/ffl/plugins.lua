@@ -1,3 +1,4 @@
+-- Reload Neovim whenver plugins.lua is saved
 vim.cmd [[
 	augroup packer_user_config
 		autocmd!
@@ -26,4 +27,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use({"catppuccin/nvim", as = "catppuccin"}) -- Soothing pastel theme for Neovim
+
+	-- Syntax
+	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}) -- Neovim Treesitter configurations and abstraction layer
 end)
