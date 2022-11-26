@@ -1,6 +1,7 @@
 require("ffl.options")
+require("ffl.keymaps")
 require("ffl.plugins")
 require("ffl.catppuccin")
 require("ffl.treesitter")
+require("ffl.lsp")
 require("ffl.nvim-tree")
-require("ffl.keymaps")

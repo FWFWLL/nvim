@@ -22,7 +22,7 @@ keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
 -- Keep original yank after paste
-keymap("v", "p", "\"_dP")
+keymap("v", "p", [["_dP]])
 
 -- Super-tab fixes
 keymap("s", "p", "p")
