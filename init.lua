@@ -1,6 +1,7 @@
 require("ffl.options")
 require("ffl.keymaps")
 require("ffl.plugins")
+require("ffl.autocommands")
 require("ffl.catppuccin")
 require("ffl.treesitter")
 require("ffl.telescope")
