@@ -55,12 +55,15 @@ return packer.startup(function(use)
 	-- Terminal Integration
 	use({"akinsho/toggleterm.nvim", tag = "*"})
 
-	-- Neovim Lua Development
-	use("folke/neodev.nvim") -- Neovim Lua API development environment
-
 	-- Fuzzy Finder
 	use({"nvim-telescope/telescope.nvim", tag = "0.1.0", requires = {"nvim-lua/plenary.nvim"}}) -- Highly extendable fuzzy finder
 
 	-- File Exlorer
 	use({"nvim-tree/nvim-tree.lua", requires = {"nvim-tree/nvim-web-devicons"}}) -- Simple and fast file explorer tree
+
+	-- Neovim Lua Development
+	use("folke/neodev.nvim") -- Neovim Lua API development environment
+
+	-- Comment
+	use("numToStr/Comment.nvim") -- Smart and Powerful comment plugin
 end)
