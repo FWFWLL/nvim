@@ -14,12 +14,7 @@ custom_catppuccin.normal.c.bg = mocha.base
 local diagnostics = {
 	"diagnostics",
 	sources = {"nvim_diagnostic"},
-	sections = {
-		"error",
-		"warn",
-		"info",
-		"hint",
-	},
+	sections = {"error", "warn", "info", "hint"},
 	symbols = {
 		error = icons.diagnostics.Error .. " ",
 		warn = icons.diagnostics.Warning .. " ",
@@ -29,6 +24,29 @@ local diagnostics = {
 	colored = true,
 	update_in_insert = true,
 	always_visible = false,
+}
+
+-- Active LSP component
+local language_servers = {
+	function()
+		local msg = ""
+
+		local buf_clients = vim.lsp.get_active_clients({bufnr = vim.api.nvim_get_current_buf()})
+		if next(buf_clients) == nil then
+			return msg
+		end
+
+		local buf_client_names = {}
+		for _, client in pairs(buf_clients) do
+			if client.name ~= "null-ls" then
+				table.insert(buf_client_names, client.name)
+			end
+		end
+
+		local unique_client_names = vim.fn.uniq(buf_client_names)
+
+		return table.concat(unique_client_names, ", ")
+	end,
 }
 
 -- Trailing whitespaces component
@@ -79,6 +97,20 @@ local clock = {
 	end
 }
 
+-- Custom NvimTree extension
+local nvim_tree = {
+	sections = {
+		lualine_a = {"vim.bo.filetype"},
+		lualine_c = {
+			function()
+				return vim.fn.fnamemodify(vim.fn.getcwd(), ":~") .. "/"
+			end
+		},
+		lualine_z = {clock}
+	},
+	filetypes = {"NvimTree"}
+}
+
 lualine.setup {
 	options = {
 		icons_enabled = true,
@@ -93,11 +125,11 @@ lualine.setup {
 		lualine_a = {"mode"},
 		lualine_b = {"branch", "diff", diagnostics},
 		lualine_c = {"filename"},
-		lualine_x = {"filetype", },
-		lualine_y = {mixed_indentation, trailing_whitespaces},
+		lualine_x = {"filetype"},
+		lualine_y = {trailing_whitespaces, mixed_indentation, language_servers},
 		lualine_z = {clock},
 	},
 	extensions = {
-		"nvim-tree",
+		nvim_tree,
 	},
 }
