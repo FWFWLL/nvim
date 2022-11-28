@@ -64,6 +64,9 @@ return packer.startup(function(use)
 	-- Neovim Lua Development
 	use("folke/neodev.nvim") -- Neovim Lua API development environment
 
+	-- Editing Support
+	use("windwp/nvim-autopairs") -- A minimalist autopairs for Neovim
+
 	-- Comment
 	use("numToStr/Comment.nvim") -- Smart and Powerful comment plugin
 end)
