@@ -64,6 +64,9 @@ return packer.startup(function(use)
 	-- Neovim Lua Development
 	use("folke/neodev.nvim") -- Neovim Lua API development environment
 
+	-- Git
+	use("lewis6991/gitsigns.nvim") -- Git integration: signs, hunk actions, blame, etc.
+
 	-- Editing Support
 	use("windwp/nvim-autopairs") -- A minimalist autopairs for Neovim
 

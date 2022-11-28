@@ -41,6 +41,9 @@ catppuccin.setup {
 	end,
 	integrations = {
 		cmp = true,
+		gitsigns = true,
+		markdown = true,
+		mason = true,
 		native_lsp = {
 			enabled = true,
 			virtual_text = {
