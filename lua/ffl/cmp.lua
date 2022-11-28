@@ -9,7 +9,6 @@ local icons = require("ffl.icons")
 local sources = {
 	nvim_lsp = "[LSP]",
 	nvim_lua = "[LUA]",
-	luasnip = "[SNIP]",
 	buffer = "[FILE]",
 	path = "[PATH]",
 }
@@ -70,7 +69,6 @@ cmp.setup({
 	sources = {
 		{name = "nvim_lsp"},
 		{name = "nvim_lua"},
-		{name = "luasnip"},
 		{name = "buffer"},
 		{name = "path"},
 	},
