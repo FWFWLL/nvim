@@ -1,15 +1,18 @@
--- Reload Neovim whenver plugins.lua is saved
-vim.cmd [[
-	augroup packer_user_config
-		autocmd!
-		autocmd BufWritePost plugins.lua source <afile> | PackerSync
-	augroup end
-]]
-
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
 	return
 end
+
+-- Reload Neovim whenver plugins.lua is saved
+vim.api.nvim_create_augroup("packer_user_config", {})
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = {"plugins.lua"},
+	callback = function()
+		vim.api.nvim_command("source <afile>")
+		packer.sync()
+	end,
+	group = "packer_user_config"
+})
 
 -- Have packer use a popup window
 packer.init {
@@ -48,6 +51,9 @@ return packer.startup(function(use)
 
 	-- Statusline
 	use({"nvim-lualine/lualine.nvim", require = {"nvim-tree/nvim-web-devicons", opt = true}}) -- A blazing fast and easy to configure Neovim statusline
+
+	-- Terminal Integration
+	use({"akinsho/toggleterm.nvim", tag = "*"})
 
 	-- Neovim Lua Development
 	use("folke/neodev.nvim") -- Neovim Lua API development environment
