@@ -27,9 +27,7 @@ M.server_capabilities = function()
 	end)
 end
 
-require("ffl.lsp.lsp-signature")
 require("ffl.lsp.mason")
 require("ffl.lsp.handlers").setup()
-require("ffl.lsp.null-ls")
 
 return M

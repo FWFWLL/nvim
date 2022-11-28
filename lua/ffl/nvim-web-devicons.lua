@@ -3,11 +3,7 @@ if not status_ok then
 	return
 end
 
-nvim_web_devicons.setup {
+nvim_web_devicons = {
 	default = true,
-	override = {
-		["hpp"] = {
-			icon = "",
-		}
-	}
+	color_icons = true,
 }

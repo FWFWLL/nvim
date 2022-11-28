@@ -3,229 +3,101 @@ if not status_ok then
 	return
 end
 
-local colors = require("ffl.colors")
 local icons = require("ffl.icons")
 
-local hide_in_width_55 = function()
-	return vim.o.columns > 55
-end
+-- Custom theme
+local mocha = require("catppuccin.palettes").get_palette("mocha")
+local custom_catppuccin = require("lualine.themes.catppuccin")
+custom_catppuccin.normal.c.bg = mocha.base
 
-local hide_in_width_60 = function()
-	return vim.o.columns > 60
-end
-
-local hide_in_width_80 = function()
-	return vim.o.columns > 80
-end
-
--- Show diagnostics count
+-- Diagnostics count component
 local diagnostics = {
 	"diagnostics",
 	sources = {"nvim_diagnostic"},
-	sections = {"error", "warn", "hint"},
+	sections = {
+		"error",
+		"warn",
+		"info",
+		"hint",
+	},
 	symbols = {
 		error = icons.diagnostics.Error .. " ",
 		warn = icons.diagnostics.Warning .. " ",
+		info = icons.diagnostics.Information .. " ",
 		hint = icons.diagnostics.Hint .. " ",
 	},
-	colored = false,
+	colored = true,
 	update_in_insert = true,
-	always_visible = true,
-	padding = 1,
-	cond = function()
-		local ui_filetypes = {
-			"help",
-			"checkhealth",
-			"packer",
-			"NvimTree",
-			"toggleterm",
-			"DressingSelect",
-			"TelescopePrompt",
-			"lspinfo",
-			"mason",
-			"",
-		}
-
-		if vim.tbl_contains(ui_filetypes, vim.bo.filetype) then
-			return false
-		end
-
-		return hide_in_width_55()
-	end,
+	always_visible = false,
 }
 
--- Show current Git branch
-local branch = {
-	"branch",
-	cond = function()
-		local ui_filetypes = {
-			"help",
-			"checkhealth",
-			"packer",
-			"NvimTree",
-			"toggleterm",
-			"DressingSelect",
-			"TelescopePrompt",
-			"lspinfo",
-			"mason",
-			"",
-		}
-
-		if vim.tbl_contains(ui_filetypes, vim.bo.filetype) then
-			return false
-		end
-
-		return hide_in_width_60()
-	end,
-}
-
--- Display active LSP
-local language_server = {
+-- Trailing whitespaces component
+local trailing_whitespaces = {
 	function()
-		local msg = "Inactive"
+		local space = vim.fn.search([[\s\+$]], "nwc")
 
-		local ui_filetypes = {
-			"help",
-			"checkhealth",
-			"packer",
-			"NvimTree",
-			"toggleterm",
-			"DressingSelect",
-			"TelescopePrompt",
-			"lspinfo",
-			"mason",
-			"",
-		}
-
-		if vim.tbl_contains(ui_filetypes, vim.bo.filetype) then
-			return ""
-		end
-
-		local buf_clients = vim.lsp.get_active_clients({bufnr = vim.api.nvim_get_current_buf()})
-		if next(buf_clients) == nil then
-			return msg
-		end
-
-		local buf_client_names = {}
-		for _, client in pairs(buf_clients) do
-			if client.name ~= "null-ls" then
-				table.insert(buf_client_names, client.name)
-			end
-		end
-
-		---@diagnostic disable-next-line: missing-parameter
-		local unique_client_names = vim.fn.uniq(buf_client_names)
-		return table.concat(unique_client_names, ", ")
-	end,
-	icon = icons.ui.Gears,
-	cond = hide_in_width_80,
+		return space ~= 0 and "TW: " .. space or ""
+	end
 }
 
--- Show `persisted.nvim` status
-local persisted = {
+-- Mixed indentation component
+local mixed_indentation = {
 	function()
-		if vim.g.persisting then
-			return ""
+		local space_pat = [[\v^ +]]
+		local tab_pat = [[\v^\t+]]
+		local space_indent = vim.fn.search(space_pat, "nwc")
+		local tab_indent = vim.fn.search(tab_pat, "nwc")
+		local mixed = (space_indent > 0 and tab_indent > 0)
+
+		local mixed_same_line
+		if not mixed then
+			mixed_same_line = vim.fn.search([[\v^(\t+ | +\t)]], "nwc")
+			mixed = mixed_same_line > 0
+		end
+
+		if not mixed then return "" end
+
+		if mixed_same_line ~= nil and mixed_same_line > 0 then
+			return "MI: " .. mixed_same_line
+		end
+
+		local space_indent_cnt = vim.fn.searchcount({pattern = space_pat, max_count = 1e3}).total
+		local tab_indent_cnt = vim.fn.searchcount({pattern = tab_pat, max_count = 1e3}).total
+
+		if space_indent_cnt > tab_indent_cnt then
+			return "MI: " .. tab_indent .. " [TAB]"
 		else
-			return ""
+			return "MI: " .. space_indent .. " [SPACE]"
 		end
 	end
 }
 
--- Show local time
+-- Local time component
 local clock = {
 	function()
 		return os.date("%H") .. ":" .. os.date("%M")
-	end,
-}
-
--- Custom nvim-dap-ui extension
-local nvim_dap_ui = {
-	sections = {
-		lualine_a = {{"filename", file_status = false}},
-		lualine_z = {clock},
-	},
-	filetypes = {
-		"dap-repl",
-		"dapui_console",
-		"dapui_scopes",
-		"dapui_breakpoints",
-		"dapui_stacks",
-		"dapui_watches",
-	},
-}
-
--- Custom ToggleTerm extension
-local toggleterm = {
-	sections = {
-		lualine_a = {
-			function()
-				return "ToggleTerm #" .. vim.b.toggle_number
-			end,
-		},
-		lualine_z = {clock},
-	},
-	filetypes = {"toggleterm"},
-}
-
--- Custom Trouble extension
-local trouble = {
-	sections = {
-		lualine_a = {"vim.bo.filetype"},
-		lualine_z = {clock},
-	},
-	filetypes = {"Trouble"},
-}
-
--- Custom NvimTree extension
-local nvim_tree = {
-	sections = {
-		lualine_a = {"vim.bo.filetype"},
-		lualine_c = {
-			function ()
-				return vim.fn.fnamemodify(vim.fn.getcwd(), ":~") .. "/"
-			end,
-		},
-		lualine_z = {clock},
-	},
-	filetypes = {"NvimTree"},
+	end
 }
 
 lualine.setup {
 	options = {
 		icons_enabled = true,
-		globalstatus = true,
-		theme = "catppuccin",
-		component_seperators = {left = "", right = ""},
-		section_separators = {left = "", right = ""},
-		disabled_filetypes = {
-			"alpha",
-		},
+		theme = custom_catppuccin,
 		always_divide_middle = true,
+		globalstatus = true,
 		refresh = {
 			statusline = 1000,
-			tabline = 1000,
-			winbar = 1000,
 		},
 	},
 	sections = {
-		lualine_a = {"mode", diagnostics},
-		lualine_b = {},
-		lualine_c = {branch, "filename"},
-		lualine_x = {"filetype", language_server},
-		lualine_y = {},
-		lualine_z = {persisted, clock},
-	},
-	inactive_sections = {
-		lualine_a = {"filename"},
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {"filetype"},
-		lualine_y = {},
+		lualine_a = {"mode"},
+		lualine_b = {"branch", "diff", diagnostics},
+		lualine_c = {"filename"},
+		lualine_x = {"filetype", },
+		lualine_y = {mixed_indentation, trailing_whitespaces},
 		lualine_z = {clock},
 	},
-	tabline = {},
-	winbar = {},
-	inactive_winbar = {},
-	extensions = {nvim_dap_ui, toggleterm, trouble, nvim_tree},
+	extensions = {
+		"nvim-tree",
+	},
 }

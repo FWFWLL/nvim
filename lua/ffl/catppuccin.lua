@@ -1,5 +1,5 @@
-local catppuccin_status_ok, catppuccin = pcall(require, "catppuccin")
-if not catppuccin_status_ok then
+local status_ok, catppuccin = pcall(require, "catppuccin")
+if not status_ok then
 	return
 end
 
@@ -10,7 +10,7 @@ catppuccin.setup {
 		dark = "mocha",
 	},
 	transparent_background = true,
-	term_colors = false,
+	term_colors = true,
 	dim_inactive = {
 		enabled = false,
 		shade = "dark",
@@ -33,20 +33,12 @@ catppuccin.setup {
 		operators = {},
 	},
 	color_overrides = {},
-	custom_highlights = {},
+	custom_highlights = function(colors)
+		return {
+			CursorLine = {bg = colors.base},
+		}
+	end,
 	integrations = {
-		bufferline = true,
-		fidget = true,
-		gitsigns = true,
-		indent_blankline = true,
-		leap = true,
-		lualine = true,
-		mason = true,
-		cmp = true,
-		dap = {
-			enabled = true,
-			enable_ui = true,
-		},
 		native_lsp = {
 			enabled = true,
 			virtual_text = {
@@ -62,12 +54,11 @@ catppuccin.setup {
 				information = {"underline"},
 			},
 		},
-		notify = true,
 		nvimtree = true,
-		treesitter = true,
-		telescope = true,
 	},
 }
 
 -- Setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
+
+-- Custom highlighting

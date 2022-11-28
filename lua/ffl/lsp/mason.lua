@@ -1,5 +1,3 @@
----@diagnostic disable: need-check-nil, cast-local-type
-
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
 	return
@@ -10,29 +8,12 @@ if not mason_lspconfig_status_ok then
 	return
 end
 
--- Ordering matters for language_server component in lualine.nvim
+-- Ordering matters for display
 local servers = {
-	-- "arduino_language_server",
-	"clangd",
-	"volar",
-	"tsserver",
-	"jsonls",
-	"html",
-	"cssls",
-	"cmake",
-	-- "tailwindcss",
-	"hls",
-	"jdtls",
-	"kotlin_language_server",
-	"omnisharp",
-	"pyright",
-	"rust_analyzer",
-	"taplo",
 	"sumneko_lua",
-	"vimls",
 }
 
-local settings = {
+mason.setup {
 	ui = {
 		border = "rounded",
 		icons = {
@@ -45,7 +26,6 @@ local settings = {
 	max_concurrent_installers = 4,
 }
 
-mason.setup(settings)
 mason_lspconfig.setup {
 	ensure_installed = servers,
 	automatic_installation = true,
@@ -62,63 +42,34 @@ for _, server in pairs(servers) do
 		capabilities = require("ffl.lsp.handlers").capabilities
 	}
 
-	server = vim.split(server, "@")[1]
-
-	if server == "arduino_language_server" then
-		local arduino_language_server_opts = require("ffl.lsp.settings.arduino_language_server")
-		opts = vim.tbl_deep_extend("force", arduino_language_server_opts, opts)
-	end
-
-	if server == "jdtls" then
-		goto continue
-	end
-
-	if server == "jsonls" then
-		local jsonls_opts = require("ffl.lsp.settings.jsonls")
-		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-	end
-
-	if server == "pyright" then
-		local pyright_opts = require("ffl.lsp.settings.pyright")
-		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-	end
-
-	if server == "rust-analyzer" then
-		local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
-		if not rust_tools_status_ok then
-			return
-		end
-
-		local rust_opts = require("ffl.lsp.settings.rust-tools")
-
-		rust_tools.setup(rust_opts)
-
-		goto continue
-	end
+	server = vim.split(server, "@", {})[1]
 
 	if server == "sumneko_lua" then
-		local lua_dev_status_ok, lua_dev = pcall(require, "lua-dev")
-		if not lua_dev_status_ok then
+		local neodev_status_ok, neodev = pcall(require, "neodev")
+		if not neodev_status_ok then
 			return
 		end
 
-		local lua_opts = lua_dev.setup {
-			lspconfig = {
-				on_attach = opts.on_attach,
-				capabilities = opts.capabilities,
-			}
+		neodev.setup {
+			library = {
+				enabled = true,
+				runtime = true,
+				types = true,
+				plugins = true,
+			},
+			lspconfig = true,
 		}
 
-		lspconfig.sumneko_lua.setup(lua_opts)
+		lspconfig.sumneko_lua.setup {
+			on_attach = opts.on_attach,
+			capabilities = opts.capabilities,
+			settings = require("ffl.lsp.settings.sumneko_lua")
+		}
 
 		goto continue
-	end
-
-	if server == "tsserver" then
-		local tsserver_opts = require("ffl.lsp.settings.tsserver")
-		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
 	end
 
 	lspconfig[server].setup(opts)
+
 	::continue::
 end

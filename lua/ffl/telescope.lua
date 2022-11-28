@@ -4,12 +4,11 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
-
 local icons = require("ffl.icons")
 
 telescope.setup {
 	defaults = {
-		prompt_prefix = icons.ui.ChevronRight .. "  ",
+		prompt_prefix = icons.ui.ChevronRight .. " ",
 		selection_caret = icons.ui.ChevronRight .. " ",
 		path_display = {"smart"},
 		file_ignore_patterns = {
@@ -67,100 +66,11 @@ telescope.setup {
 		},
 		mappings = {
 			i = {
-				["<C-Down>"] = actions.cycle_history_next,
-				["<C-Up>"] = actions.cycle_history_prev,
-
-				["<PageUp>"] = actions.results_scrolling_up,
-				["<PageDown>"] = actions.results_scrolling_down,
-
-				["<Down>"] = actions.move_selection_next,
-				["<Up>"] = actions.move_selection_previous,
-
-				["<CR>"] = actions.select_default,
-				["<C-s>"] = actions.select_horizontal,
-				["<C-x>"] = actions.select_vertical,
-
 				["<ESC>"] = actions.close,
-				["<C-c>"] = actions.close,
-				["<Tab>"] = actions.close,
-				["<S-Tab>"] = actions.close,
-
-				["<C-l>"] = actions.complete_tag,
-
-				["<C-h>"] = actions.which_key,
 			},
 			n = {
-				["<PageUp>"] = actions.results_scrolling_up,
-				["<PageDown>"] = actions.results_scrolling_down,
-
-				["<Down>"] = actions.move_selection_next,
-				["<Up>"] = actions.move_selection_previous,
-
-				["<CR>"] = actions.select_default,
-				["<C-s>"] = actions.select_horizontal,
-				["<C-x>"] = actions.select_vertical,
-
-				["<C-u>"] = actions.preview_scrolling_up,
-				["<C-d>"] = actions.preview_scrolling_down,
-
-				["q"] = actions.close,
 				["<ESC>"] = actions.close,
-				["<C-c>"] = actions.close,
-				["<Tab>"] = actions.close,
-				["<S-Tab>"] = actions.close,
-
-				["?"] = actions.which_key,
 			},
-		},
-	},
-	pickers = {
-		live_grep = {
-			theme = "dropdown",
-		},
-		grep_string = {
-			theme = "dropdown",
-		},
-		find_files = {
-			theme = "dropdown",
-		},
-		buffers = {
-			theme = "dropdown",
-			initial_mode = "normal",
-			ignore_current_buffer = true,
-			sort_lastused = true,
-			sort_mru = true,
-		},
-		planets = {
-			show_pluto = true,
-			show_moon = true,
-		},
-		colorscheme = {
-			enable_preview = true,
-		},
-		lsp_references = {
-			theme = "dropdown",
-			initial_mode = "normal",
-		},
-		lsp_definitions = {
-			theme = "dropdown",
-			initial_mode = "normal",
-		},
-		lsp_declarations = {
-			theme = "dropdown",
-			initial_mode = "normal",
-		},
-		lsp_implementations = {
-			theme = "dropdown",
-			initial_mode = "normal",
-		},
-	},
-	extensions = {
-		file_browser = {
-			theme = "dropdown",
-			hijack_netrw = false,
 		},
 	},
 }
-
-local file_browser = telescope.load_extension("file_browser")
-require("telescope.builtin").file_browser = file_browser.file_browser
