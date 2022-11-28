@@ -3,6 +3,9 @@ if not status_ok then
 	return
 end
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 nvim_tree.setup {
 	disable_netrw = false,
 	hijack_netrw = true,

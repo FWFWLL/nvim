@@ -48,6 +48,3 @@ vim.opt.fillchars = vim.opt.fillchars + "eob: "
 vim.opt.fillchars:append {
 	stl = " ",
 }
-
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1

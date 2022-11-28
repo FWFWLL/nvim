@@ -10,7 +10,7 @@ catppuccin.setup {
 		dark = "mocha",
 	},
 	transparent_background = true,
-	term_colors = false,
+	term_colors = true,
 	dim_inactive = {
 		enabled = false,
 		shade = "dark",
@@ -33,7 +33,11 @@ catppuccin.setup {
 		operators = {},
 	},
 	color_overrides = {},
-	custom_highlights = {},
+	custom_highlights = function(colors)
+		return {
+			CursorLine = {bg = colors.base},
+		}
+	end,
 	integrations = {
 		native_lsp = {
 			enabled = true,
@@ -56,3 +60,5 @@ catppuccin.setup {
 
 -- Setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
+
+-- Custom highlighting
