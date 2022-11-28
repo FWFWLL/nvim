@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
--- Ordering matters for display
+-- NOTE: Ordering matters for display
 local servers = {
 	"sumneko_lua",
 }

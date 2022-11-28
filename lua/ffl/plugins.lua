@@ -32,13 +32,19 @@ return packer.startup(function(use)
 
 	-- Completion
 	use("hrsh7th/nvim-cmp") -- Completion engine
+	use("hrsh7th/cmp-buffer") -- Nvim-cmp source for buffer words
+	use("hrsh7th/cmp-path") -- Nvim-cmp source for filesystem paths
 	use("hrsh7th/cmp-nvim-lsp") -- Nvim-cmp source for native LSP
+	use("hrsh7th/cmp-nvim-lua") -- Nvim-cmp source for Neovim lua API
 
 	-- Colorschemes
 	use({"catppuccin/nvim", as = "catppuccin"}) -- Soothing pastel theme for Neovim
 
 	-- Syntax
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}) -- Neovim Treesitter configurations and abstraction layer
+
+	-- Snippets
+	use({"L3MON4D3/LuaSnip", tag = "v1.*"}) -- Snippet engine written in Lua
 
 	-- Statusline
 	use({"nvim-lualine/lualine.nvim", require = {"nvim-tree/nvim-web-devicons", opt = true}}) -- A blazing fast and easy to configure Neovim statusline
