@@ -104,14 +104,42 @@ local nvim_tree = {
 		lualine_c = {
 			function()
 				return vim.fn.fnamemodify(vim.fn.getcwd(), ":~") .. "/"
-			end
+			end,
 		},
 		lualine_z = {clock}
 	},
 	filetypes = {"NvimTree"}
 }
 
-lualine.setup {
+-- Custom ToggleTerm extension
+local toggleterm = {
+	sections = {
+		lualine_a = {
+			function()
+				return "ToggleTerm"
+			end
+		},
+		lualine_c = {
+			function()
+				---@diagnostic disable-next-line: undefined-field
+				local toggle_number = vim.b.toggle_number
+
+				if toggle_number == 1 then
+					return "zsh"
+				elseif toggle_number == 2 then
+					return "pwsh"
+				end
+
+				---@diagnostic disable-next-line: undefined-field
+				return "ToggleTerm #" .. vim.b.toggle_number
+			end,
+		},
+		lualine_z = {clock}
+	},
+	filetypes = {"toggleterm"}
+}
+
+lualine.setup({
 	options = {
 		icons_enabled = true,
 		theme = custom_catppuccin,
@@ -131,5 +159,6 @@ lualine.setup {
 	},
 	extensions = {
 		nvim_tree,
+		toggleterm,
 	},
-}
+})
