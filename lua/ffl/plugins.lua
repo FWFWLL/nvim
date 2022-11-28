@@ -40,6 +40,9 @@ return packer.startup(function(use)
 	-- Syntax
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}) -- Neovim Treesitter configurations and abstraction layer
 
+	-- Statusline
+	use({"nvim-lualine/lualine.nvim", require = {"nvim-tree/nvim-web-devicons", opt = true}}) -- A blazing fast and easy to configure Neovim statusline
+
 	-- Neovim Lua Development
 	use("folke/neodev.nvim") -- Neovim Lua API development environment
 
