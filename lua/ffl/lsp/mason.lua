@@ -3,12 +3,7 @@ if not status_ok then
 	return
 end
 
-local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status_ok then
-	return
-end
-
--- Ordering matters for display
+-- NOTE: Ordering matters for display
 local servers = {
 	"sumneko_lua",
 }
@@ -26,6 +21,11 @@ mason.setup {
 	max_concurrent_installers = 4,
 }
 
+local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status_ok then
+	return
+end
+
 mason_lspconfig.setup {
 	ensure_installed = servers,
 	automatic_installation = true,
@@ -36,15 +36,17 @@ if not lspconfig_status_ok then
 	return
 end
 
-for _, server in pairs(servers) do
-	local opts = {
-		on_attach = require("ffl.lsp.handlers").on_attach,
-		capabilities = require("ffl.lsp.handlers").capabilities
-	}
+local on_attach = require("ffl.lsp.handlers").on_attach
+local capabilities = require("ffl.lsp.handlers").capabilities
 
-	server = vim.split(server, "@", {})[1]
-
-	if server == "sumneko_lua" then
+mason_lspconfig.setup_handlers {
+	function(server_name)
+		lspconfig[server_name].setup {
+			on_attach = on_attach,
+			capabilities = capabilities,
+		}
+	end,
+	["sumneko_lua"] = function()
 		local neodev_status_ok, neodev = pcall(require, "neodev")
 		if not neodev_status_ok then
 			return
@@ -61,15 +63,9 @@ for _, server in pairs(servers) do
 		}
 
 		lspconfig.sumneko_lua.setup {
-			on_attach = opts.on_attach,
-			capabilities = opts.capabilities,
+			on_attach = on_attach,
+			capabilities = capabilities,
 			settings = require("ffl.lsp.settings.sumneko_lua")
 		}
-
-		goto continue
 	end
-
-	lspconfig[server].setup(opts)
-
-	::continue::
-end
+}

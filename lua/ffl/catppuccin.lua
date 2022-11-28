@@ -36,9 +36,11 @@ catppuccin.setup {
 	custom_highlights = function(colors)
 		return {
 			CursorLine = {bg = colors.base},
+			CmpItemMenu = {fg = colors.surface2},
 		}
 	end,
 	integrations = {
+		cmp = true,
 		native_lsp = {
 			enabled = true,
 			virtual_text = {
