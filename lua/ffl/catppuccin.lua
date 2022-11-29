@@ -42,6 +42,10 @@ catppuccin.setup {
 	integrations = {
 		cmp = true,
 		gitsigns = true,
+		indent_blankline = {
+			enabled = true,
+			colored_indent_levels = false,
+		},
 		markdown = true,
 		mason = true,
 		native_lsp = {

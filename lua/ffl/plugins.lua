@@ -70,6 +70,9 @@ return packer.startup(function(use)
 	-- Editing Support
 	use("windwp/nvim-autopairs") -- A minimalist autopairs for Neovim
 
+	-- Indent
+	use("lukas-reineke/indent-blankline.nvim") -- IndentLine replacement in Lua with more features and treesitter support
+
 	-- Comment
 	use("numToStr/Comment.nvim") -- Smart and Powerful comment plugin
 end)
