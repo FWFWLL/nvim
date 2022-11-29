@@ -35,7 +35,27 @@ return {
 		Hint = "",
 	},
 	ui = {
-		ChevronRight = ""
+		ChevronRight = "",
+		SymlinkArrow = "➛",
+		DefaultFile = "",
+		SymlinkFile = "",
+		ArrowClosed = "",
+		ArrowOpen = "",
+		Folder = "",
+		FolderOpen = "",
+		EmptyFolder = "",
+		EmptyFolderOpen = "",
+		SymlinkFolder = "",
+		SymlinkFolderOpen = "",
+	},
+	git = {
+		Unstaged = "",
+		Staged = "",
+		Unmerged = "",
+		Renamed = "➜",
+		Untracked = "",
+		Deleted = "",
+		Ignored = "◌",
 	},
 	gitsigns = {
 		Add = "▎",
