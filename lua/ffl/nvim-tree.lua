@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+local icons = require("ffl.icons")
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -30,12 +32,11 @@ nvim_tree.setup {
 		enable = true,
 		debounce_delay = 50, --ms
 		show_on_dirs = true,
-		-- TODO: Aggregate icons
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
+			hint = icons.diagnostics.Hint,
+			info = icons.diagnostics.Information,
+			warning = icons.diagnostics.Warning,
+			error = icons.diagnostics.Error,
 		},
 		severity = {
 			min = vim.diagnostic.severity.HINT,
@@ -89,50 +90,39 @@ nvim_tree.setup {
 		indent_width = 2,
 		indent_markers = {
 			enable = false,
-			inline_arrows = false,
-			-- TODO: Aggregate icons
-			icons = {
-				corner = "└",
-				edge = "│",
-				item = "│",
-				bottom = "─",
-				none = " ",
-			},
 		},
 		icons = {
 			webdev_colors = true,
 			git_placement = "before",
 			padding = " ",
-			-- TODO: Aggregate icon
-			symlink_arrow = " ➛ ",
+			symlink_arrow = " " .. icons.ui.SymlinkArrow .. " ",
 			show = {
 				file = true,
 				folder = true,
 				folder_arrow = true,
 				git = true,
 			},
-			-- TODO: Aggregate icons
 			glyphs = {
-				default = "",
-				symlink = "",
+				default = icons.ui.DefaultFile,
+				symlink = icons.ui.SymlinkFile,
 				folder = {
-					arrow_closed = "",
-					arrow_open = "",
-					default = "",
-					open = "",
-					empty = "",
-					empty_open = "",
-					symlink = "",
-					symlink_open = "",
+					arrow_closed = icons.ui.ArrowClosed,
+					arrow_open = icons.ui.ArrowOpen,
+					default = icons.ui.Folder,
+					open = icons.ui.FolderOpen,
+					empty = icons.ui.EmptyFolder,
+					empty_open = icons.ui.EmptyFolderOpen,
+					symlink = icons.ui.SymlinkFolder,
+					symlink_open = icons.ui.SymlinkFolderOpen,
 				},
 				git = {
-					unstaged = "✗",
-					staged = "✓",
-					unmerged = "",
-					renamed = "➜",
-					untracked = "★",
-					deleted = "",
-					ignored = "◌",
+					unstaged = icons.git.Unstaged,
+					staged = icons.git.Staged,
+					unmerged = icons.git.Unmerged,
+					renamed = icons.git.Renamed,
+					untracked = icons.git.Untracked,
+					deleted = icons.git.Deleted,
+					ignored = icons.git.Ignored,
 				},
 			},
 		},
