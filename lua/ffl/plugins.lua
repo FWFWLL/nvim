@@ -52,6 +52,9 @@ return packer.startup(function(use)
 	-- Statusline
 	use({"nvim-lualine/lualine.nvim", require = {"nvim-tree/nvim-web-devicons", opt = true}}) -- A blazing fast and easy to configure Neovim statusline
 
+	-- Cursorline
+	use("RRethy/vim-illuminate") -- Highlight the word under the cursor
+
 	-- Terminal Integration
 	use({"akinsho/toggleterm.nvim", tag = "*"})
 
@@ -71,7 +74,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- A minimalist autopairs for Neovim
 
 	-- Indent
-	use("lukas-reineke/indent-blankline.nvim") -- IndentLine replacement in Lua with more features and treesitter support
+	use("lukas-reineke/indent-blankline.nvim") -- Whitespace guides/Indent lines
 
 	-- Comment
 	use("numToStr/Comment.nvim") -- Smart and Powerful comment plugin
