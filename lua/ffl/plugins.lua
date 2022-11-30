@@ -41,9 +41,6 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp") -- Nvim-cmp source for native LSP
 	use("hrsh7th/cmp-nvim-lua") -- Nvim-cmp source for Neovim lua API
 
-	-- Colorschemes
-	use({"catppuccin/nvim", as = "catppuccin"}) -- Soothing pastel theme for Neovim
-
 	-- Syntax
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}) -- Neovim Treesitter configurations and abstraction layer
 
@@ -64,6 +61,12 @@ return packer.startup(function(use)
 
 	-- File Exlorer
 	use({"nvim-tree/nvim-tree.lua", requires = {"nvim-tree/nvim-web-devicons"}}) -- Simple and fast file explorer tree
+
+	-- Project
+	use("ahmedkhalf/project.nvim") -- All in one Neovim plugin that provides superior project management
+
+	-- Colorschemes
+	use({"catppuccin/nvim", as = "catppuccin"}) -- Soothing pastel theme for Neovim
 
 	-- Neovim Lua Development
 	use("folke/neodev.nvim") -- Neovim Lua API development environment
