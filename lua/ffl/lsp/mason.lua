@@ -5,7 +5,10 @@ end
 
 -- NOTE: Ordering matters for display
 local servers = {
+	"clangd",
 	"sumneko_lua",
+	"tsserver",
+	"jsonls",
 }
 
 mason.setup {
@@ -39,12 +42,12 @@ end
 local on_attach = require("ffl.lsp.handlers").on_attach
 local capabilities = require("ffl.lsp.handlers").capabilities
 
-mason_lspconfig.setup_handlers {
+mason_lspconfig.setup_handlers({
 	function(server_name)
-		lspconfig[server_name].setup {
+		lspconfig[server_name].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
-		}
+		})
 	end,
 	["sumneko_lua"] = function()
 		local neodev_status_ok, neodev = pcall(require, "neodev")
@@ -52,7 +55,7 @@ mason_lspconfig.setup_handlers {
 			return
 		end
 
-		neodev.setup {
+		neodev.setup({
 			library = {
 				enabled = true,
 				runtime = true,
@@ -60,12 +63,27 @@ mason_lspconfig.setup_handlers {
 				plugins = true,
 			},
 			lspconfig = true,
-		}
+		})
 
-		lspconfig.sumneko_lua.setup {
+		lspconfig.sumneko_lua.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
 			settings = require("ffl.lsp.settings.sumneko_lua")
-		}
-	end
-}
+		})
+	end,
+	["jsonls"] = function()
+		local schemastore_status_ok, schemastore = pcall(require, "schemastore")
+		if not schemastore_status_ok then
+			return
+		end
+
+		lspconfig.jsonls.setup({
+			settings = {
+				json = {
+					schemas = schemastore.json.schemas(),
+					validate = {enable = true},
+				},
+			},
+		})
+	end,
+})
