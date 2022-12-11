@@ -36,7 +36,7 @@ return {
 	},
 	ui = {
 		ChevronRight = "",
-		SymlinkArrow = "➛",
+		SymlinkArrow = "->",
 		DefaultFile = "",
 		SymlinkFile = "",
 		ArrowClosed = "",

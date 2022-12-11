@@ -5,6 +5,7 @@ end
 
 -- NOTE: Ordering matters for display
 local servers = {
+	"rust_analyzer",
 	"clangd",
 	"sumneko_lua",
 	"tsserver",
@@ -47,6 +48,30 @@ mason_lspconfig.setup_handlers({
 		lspconfig[server_name].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
+		})
+	end,
+	["rust_analyzer"] = function()
+		local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
+		if not rust_tools_status_ok then
+			return
+		end
+
+		rust_tools.setup({
+			tools = {
+				reload_workspace_from_cargo_toml = true,
+				inlay_hints = {
+					auto = true,
+					show_parameter_hints = false,
+					highlight = "Comment",
+				}
+			},
+			hover_actions = {
+				border = "rounded",
+			},
+			server = {
+				on_attach = on_attach,
+				capabilities = capabilities,
+			},
 		})
 	end,
 	["sumneko_lua"] = function()
