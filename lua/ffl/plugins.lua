@@ -35,6 +35,7 @@ return packer.startup(function(use)
 	use("b0o/SchemaStore.nvim") -- Provide access to the SchemaStore catalog
 	use("simrat39/rust-tools.nvim") -- Tools for better development in Rust
 	use("ray-x/lsp_signature.nvim") -- LSP signature hint when you type
+	use("j-hui/fidget.nvim") -- Standalone UI for LSP progress
 
 	-- Completion
 	use("hrsh7th/nvim-cmp") -- Completion engine
