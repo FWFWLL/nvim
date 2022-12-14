@@ -49,6 +49,8 @@ return {
 		SymlinkFolderOpen = "",
 		IndentChar = "⁞",
 		Code = "",
+		Pencil = "",
+		Bug = "",
 	},
 	git = {
 		Unstaged = "",

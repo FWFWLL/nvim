@@ -41,6 +41,7 @@ catppuccin.setup {
 	end,
 	integrations = {
 		cmp = true,
+		fidget = true,
 		gitsigns = true,
 		indent_blankline = {
 			enabled = true,
@@ -63,6 +64,7 @@ catppuccin.setup {
 				information = {"underline"},
 			},
 		},
+		notify = true,
 		nvimtree = true,
 	},
 }
