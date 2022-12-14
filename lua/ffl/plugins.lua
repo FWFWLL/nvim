@@ -33,7 +33,8 @@ return packer.startup(function(use)
 	use("williamboman/mason.nvim") -- Easily install and manage LSP servers, DAP servers, linters, and formatters
 	use("williamboman/mason-lspconfig.nvim") -- Bridge between mason.nvim and nvim-lspconfig
 	use("b0o/SchemaStore.nvim") -- Provide access to the SchemaStore catalog
-	use("simrat39/rust-tools.nvim")
+	use("simrat39/rust-tools.nvim") -- Tools for better development in Rust
+	use("ray-x/lsp_signature.nvim") -- LSP signature hint when you type
 
 	-- Completion
 	use("hrsh7th/nvim-cmp") -- Completion engine
