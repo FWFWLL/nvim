@@ -63,6 +63,7 @@ catppuccin.setup {
 				information = {"underline"},
 			},
 		},
+		notify = true,
 		nvimtree = true,
 	},
 }

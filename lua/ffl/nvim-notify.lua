@@ -18,7 +18,7 @@ nvim_notify.setup({
 	level = vim.log.levels.TRACE,
 	minimum_width = 0,
 	render = "minimal",
-	stages = "fade",
+	stages = "slide",
 	timeout = 2000,
 	top_down = true,
 })
