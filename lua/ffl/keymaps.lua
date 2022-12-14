@@ -17,6 +17,10 @@ keymap("n", "<C-Down>", "<CMD>resize +2<CR>")
 keymap("n", "<C-Left>", "<CMD>vertical resize -2<CR>")
 keymap("n", "<C-Right>", "<CMD>vertical resize +2<CR>")
 
+-- Buffer navigation
+keymap("n", "<C-S-Left>", "<CMD>bNext<CR>")
+keymap("n", "<C-S-Right>", "<CMD>bnext<CR>")
+
 -- Stay in indent mode
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
