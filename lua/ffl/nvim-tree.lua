@@ -13,7 +13,6 @@ nvim_tree.setup {
 	hijack_netrw = true,
 	open_on_setup = true,
 	auto_reload_on_write = true,
-	create_in_closed_folder = false,
 	sort_by = "name",
 	hijack_unnamed_buffer_when_opening = true,
 	hijack_cursor = true,
