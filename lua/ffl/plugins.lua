@@ -57,6 +57,7 @@ return packer.startup(function(use)
 
 	-- Utility
 	use("saifulapm/chartoggle.nvim") -- Toggles any character at the end of line
+	use("stevearc/dressing.nvim") -- Improve the built-in vim.ui interfaces
 
 	-- Terminal Integration
 	use({"akinsho/toggleterm.nvim", tag = "*"}) -- Neovim plugin to help easily manage multiple terminal windows
