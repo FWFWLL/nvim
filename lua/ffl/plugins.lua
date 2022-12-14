@@ -55,8 +55,11 @@ return packer.startup(function(use)
 	-- Cursorline
 	use("RRethy/vim-illuminate") -- Highlight the word under the cursor
 
+	-- Utility
+	use("saifulapm/chartoggle.nvim") -- Toggles any character at the end of line
+
 	-- Terminal Integration
-	use({"akinsho/toggleterm.nvim", tag = "*"})
+	use({"akinsho/toggleterm.nvim", tag = "*"}) -- Neovim plugin to help easily manage multiple terminal windows
 
 	-- Fuzzy Finder
 	use({"nvim-telescope/telescope.nvim", tag = "0.1.0", requires = {"nvim-lua/plenary.nvim"}}) -- Highly extendable fuzzy finder
