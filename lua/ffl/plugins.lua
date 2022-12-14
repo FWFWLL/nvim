@@ -36,6 +36,7 @@ return packer.startup(function(use)
 	use("simrat39/rust-tools.nvim") -- Tools for better development in Rust
 	use("ray-x/lsp_signature.nvim") -- LSP signature hint when you type
 	use("j-hui/fidget.nvim") -- Standalone UI for LSP progress
+	use("mfussenegger/nvim-jdtls") -- Extension for the built-in LSP support for eclipse.jdt.ls
 
 	-- Completion
 	use("hrsh7th/nvim-cmp") -- Completion engine
