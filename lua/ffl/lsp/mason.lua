@@ -57,23 +57,14 @@ mason_lspconfig.setup_handlers({
 			return
 		end
 
-		rust_tools.setup({
-			tools = {
-				reload_workspace_from_cargo_toml = true,
-				inlay_hints = {
-					auto = true,
-					show_parameter_hints = false,
-					highlight = "Comment",
-				}
-			},
-			hover_actions = {
-				border = "rounded",
-			},
-			server = {
-				on_attach = on_attach,
-				capabilities = capabilities,
-			},
-		})
+		local rust_tools_cfg = require("ffl.lsp.settings.rust_tools")
+
+		rust_tools_cfg.settings = {
+			on_attach = on_attach,
+			capabilities = capabilities,
+		}
+
+		rust_tools.setup(rust_tools_cfg)
 	end,
 	["sumneko_lua"] = function()
 		local neodev_status_ok, neodev = pcall(require, "neodev")
