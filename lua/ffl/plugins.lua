@@ -11,18 +11,18 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		vim.api.nvim_command("source <afile>")
 		packer.sync()
 	end,
-	group = "packer_user_config"
+	group = "packer_user_config",
 })
 
 -- Have packer use a popup window
-packer.init {
+packer.init({
 	display = {
 		open_fn = function()
 			return require("packer.util").float {border = "rounded"}
 		end,
-		prompt_border = "rounded"
+		prompt_border = "rounded",
 	},
-}
+})
 
 return packer.startup(function(use)
 	-- Plugin Manager

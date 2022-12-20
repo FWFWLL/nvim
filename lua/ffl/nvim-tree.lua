@@ -8,7 +8,7 @@ local icons = require("ffl.icons")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-nvim_tree.setup {
+nvim_tree.setup({
 	disable_netrw = false,
 	hijack_netrw = true,
 	open_on_setup = true,
@@ -142,4 +142,4 @@ nvim_tree.setup {
 			quit_on_open = true,
 		},
 	},
-}
+})
