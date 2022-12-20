@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-ts_configs.setup {
+ts_configs.setup({
 	ensure_installed = "all",
 	sync_install = false,
 	auto_install = true,
@@ -25,4 +25,4 @@ ts_configs.setup {
 	indent = {
 		enable = false,
 	},
-}
+})

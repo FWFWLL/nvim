@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-catppuccin.setup {
+catppuccin.setup({
 	flavour = "mocha",
 	background = {
 		light = "latte",
@@ -34,10 +34,10 @@ catppuccin.setup {
 	},
 	color_overrides = {},
 	custom_highlights = function(colors)
-		return {
+		return({
 			CursorLine = {bg = colors.base},
 			CmpItemMenu = {fg = colors.surface2},
-		}
+		})
 	end,
 	integrations = {
 		cmp = true,
@@ -67,9 +67,7 @@ catppuccin.setup {
 		notify = true,
 		nvimtree = true,
 	},
-}
+})
 
 -- Setup must be called before loading
-vim.cmd.colorscheme "catppuccin"
-
--- Custom highlighting
+vim.cmd.colorscheme("catppuccin")

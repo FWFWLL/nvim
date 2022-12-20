@@ -6,7 +6,7 @@ end
 local actions = require("telescope.actions")
 local icons = require("ffl.icons")
 
-telescope.setup {
+telescope.setup({
 	defaults = {
 		prompt_prefix = icons.ui.ChevronRight .. " ",
 		selection_caret = icons.ui.ChevronRight .. " ",
@@ -73,4 +73,4 @@ telescope.setup {
 			},
 		},
 	},
-}
+})

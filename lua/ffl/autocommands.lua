@@ -1,10 +1,10 @@
 -- Highlight yanked text
 vim.api.nvim_create_autocmd({"TextYankPost"}, {
 	callback = function()
-		vim.highlight.on_yank {
+		vim.highlight.on_yank({
 			higroup = "Visual",
 			timeout = "100",
-		}
+		})
 	end,
 })
 

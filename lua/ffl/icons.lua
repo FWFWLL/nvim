@@ -1,4 +1,4 @@
-return {
+return({
 	kind = {
 		Text = "",
 		Method = "",
@@ -69,4 +69,4 @@ return {
 		ChangeDelete = "契",
 		Untracked = "┆",
 	},
-}
+})
