@@ -48,6 +48,7 @@ return packer.startup(function(use)
 	-- Syntax
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}) -- Neovim Treesitter configurations and abstraction layer
 	use("beyondmarc/hlsl.vim") -- HLSL Syntax Highlighting
+	use({"kylechui/nvim-surround", tag = "*"}) -- Plugin for adding/changing/deleting surrounding delimiter pairs
 
 	-- Snippets
 	use({"L3MON4D3/LuaSnip", tag = "v1.*"}) -- Snippet engine written in Lua
