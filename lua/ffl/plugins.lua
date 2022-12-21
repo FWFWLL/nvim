@@ -93,4 +93,7 @@ return packer.startup(function(use)
 
 	-- Comment
 	use("numToStr/Comment.nvim") -- Smart and Powerful comment plugin
+
+	-- Startup
+	use("lewis6991/impatient.nvim")
 end)
