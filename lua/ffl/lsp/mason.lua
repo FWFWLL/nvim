@@ -59,7 +59,7 @@ mason_lspconfig.setup_handlers({
 
 		local rust_tools_cfg = require("ffl.lsp.settings.rust_tools")
 
-		rust_tools_cfg.settings = {
+		rust_tools_cfg.server = {
 			on_attach = on_attach,
 			capabilities = capabilities,
 		}
