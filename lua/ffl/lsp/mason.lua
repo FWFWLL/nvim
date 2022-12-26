@@ -90,10 +90,10 @@ mason_lspconfig.setup_handlers({
 		})
 	end,
 	["jdtls"] = function()
-		local nvim_jdtls_status_ok, nvim_jdtls = pcall(require, "jdtls")
-		if not nvim_jdtls_status_ok then
-			return
-		end
+		-- local nvim_jdtls_status_ok, nvim_jdtls = pcall(require, "jdtls")
+		-- if not nvim_jdtls_status_ok then
+		-- 	return
+		-- end
 
 		lspconfig.jdtls.setup({
 			on_attach = on_attach,
