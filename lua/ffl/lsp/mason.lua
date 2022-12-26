@@ -79,6 +79,7 @@ mason_lspconfig.setup_handlers({
 				types = true,
 				plugins = true,
 			},
+			setup_jsonls = true,
 			lspconfig = true,
 		})
 
