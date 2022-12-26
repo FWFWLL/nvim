@@ -52,6 +52,7 @@ return packer.startup(function(use)
 
 	-- Snippets
 	use({"L3MON4D3/LuaSnip", tag = "v1.*"}) -- Snippet engine written in Lua
+	use("rafamadriz/friendly-snippets") -- Set of preconfigured snippets for different languages
 
 	-- Statusline
 	use({"nvim-lualine/lualine.nvim", require = {"nvim-tree/nvim-web-devicons", opt = true}}) -- A blazing fast and easy to configure Neovim statusline
