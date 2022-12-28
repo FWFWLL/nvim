@@ -2,8 +2,6 @@ local M = {}
 
 -- Shortened pcall -> require -> notify
 function M.preq(module_name)
-	vim.notify("Loading " .. module_name .. "...")
-
 	local status_ok, module = pcall(require, module_name)
 	if not status_ok then
 		vim.notify("require(" .. module_name .. ") FAILED", vim.log.levels.WARN)

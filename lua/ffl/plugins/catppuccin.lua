@@ -23,10 +23,10 @@ function M.config()
 			-- cmp = true,
 			-- fidget = true,
 			-- gitsigns = true,
-			-- indent_blankline = {
-				-- enabled = true,
-				-- colored_indent_levels = false,
-			-- },
+			indent_blankline = {
+				enabled = true,
+				colored_indent_levels = false,
+			},
 			-- markdown = true,
 			-- mason = true,
 			-- native_lsp = {

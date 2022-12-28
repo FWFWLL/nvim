@@ -1,2 +1,5 @@
 return {
+	ui = {
+		IndentChar = "⁞",
+	},
 }
