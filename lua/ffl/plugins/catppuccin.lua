@@ -1,8 +1,6 @@
 local M = {"catppuccin/nvim"}
 
 M.name = "catppuccin"
-M.lazy = false
-M.priority = 999
 
 function M.config()
 	local f = require("ffl.functions")
