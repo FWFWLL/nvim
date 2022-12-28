@@ -11,8 +11,7 @@ function M.config()
 	end
 
 	nvim_tree.setup({
-		disable_netrw = false,
-		hijack_netrw = true,
+		disable_netrw = true,
 		open_on_setup = true,
 		auto_reload_on_write = true,
 		hijack_unnamed_buffer_when_opening = true,

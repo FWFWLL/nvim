@@ -1,7 +1,7 @@
 local M = {"nvim-treesitter/nvim-treesitter"}
 
 M.build = ":TSUpdate"
-M.event = "VeryLazy"
+M.event = "BufReadPre"
 
 function M.config()
 	local f = require("ffl.functions")

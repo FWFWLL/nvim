@@ -3,15 +3,13 @@ local M = {"rcarriga/nvim-notify"}
 M.priority = 1000
 
 function M.config()
-	local f = require("ffl.functions")
-
-	local status_ok, notify = f.preq("notify")
+	local status_ok, notify = pcall(require, "notify")
 	if not status_ok then
 		return
 	end
 
 	notify.setup({
-		fps = 30,
+		fps = 24,
 		icons = {
 			-- TRACE = icons.ui.Pencil,
 			-- DEBUG = icons.ui.Bug,
