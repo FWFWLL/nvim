@@ -20,7 +20,7 @@ function M.config()
 		integrations = {
 			-- cmp = true,
 			-- fidget = true,
-			-- gitsigns = true,
+			gitsigns = true,
 			indent_blankline = {
 				enabled = true,
 				colored_indent_levels = false,
