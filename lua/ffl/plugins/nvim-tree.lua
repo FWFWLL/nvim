@@ -88,6 +88,11 @@ function M.config()
 		filters = {
 			custom = {"^.git$"},
 		},
+		actions = {
+			open_file = {
+				quit_on_open = true,
+			},
+		},
 	})
 
 	f.keymap("n", "<Leader>e", "<CMD>NvimTreeToggle<CR>")
