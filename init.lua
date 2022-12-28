@@ -1,25 +1,19 @@
-require("ffl.options")
-require("ffl.keymaps")
-require("ffl.plugins")
-require("ffl.autocommands")
-require("ffl.functions")
-require("ffl.catppuccin")
-require("ffl.impatient")
-require("ffl.telescope")
-require("ffl.nvim-notify")
-require("ffl.dressing")
-require("ffl.treesitter")
-require("ffl.cmp")
-require("ffl.lsp")
-require("ffl.fidget")
-require("ffl.nvim-surround")
-require("ffl.nvim-autopairs")
-require("ffl.chartoggle")
-require("ffl.comment")
-require("ffl.gitsigns")
-require("ffl.indent-blankline")
-require("ffl.illuminate")
-require("ffl.project")
-require("ffl.lualine")
-require("ffl.nvim-tree")
-require("ffl.toggleterm")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"--single-branch",
+		"https://github.com/folke/lazy.nvim.git",
+		lazypath,
+	})
+end
+
+vim.opt.runtimepath:prepend(lazypath)
+
+local status_ok, lazy = pcall(require, "lazy")
+if not status_ok then
+	vim.notify([[require("lazy") FAILED]], vim.log.levels.WARN)
+	return
+end
