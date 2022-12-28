@@ -14,7 +14,7 @@ function M.config()
 
 	indent_blankline.setup({
 		use_treesitter = true,
-		show_first_indent_level = true,
+		show_first_indent_level = false,
 		show_trailing_blankline_indent = false,
 		show_current_context = true,
 		filetype_exclude = {

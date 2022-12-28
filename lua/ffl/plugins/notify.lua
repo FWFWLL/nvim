@@ -1,7 +1,5 @@
 local M = {"rcarriga/nvim-notify"}
 
-M.priority = 1000
-
 function M.config()
 	local status_ok, notify = pcall(require, "notify")
 	if not status_ok then

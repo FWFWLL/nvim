@@ -1,8 +1,6 @@
 local M = {"catppuccin/nvim"}
 
 M.name = "catppuccin"
-M.lazy = false
-M.priority = 999
 
 function M.config()
 	local f = require("ffl.functions")
@@ -22,7 +20,7 @@ function M.config()
 		integrations = {
 			-- cmp = true,
 			-- fidget = true,
-			-- gitsigns = true,
+			gitsigns = true,
 			indent_blankline = {
 				enabled = true,
 				colored_indent_levels = false,
