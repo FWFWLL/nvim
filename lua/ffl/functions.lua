@@ -1,17 +1,18 @@
 local M = {}
 
-function _G.ReloadConfig()
-	for name, _ in pairs(package.loaded) do
-		if name:match("^ffl") then
-			package.loaded[name] = nil
-		end
+-- Shortened pcall -> require -> notify
+function M.preq(module_name)
+	local status_ok, module = pcall(require, module_name)
+	if not status_ok then
+		vim.notify("require(" .. module_name .. ") FAILED", vim.log.levels.WARN)
 	end
 
-	dofile(vim.env.MYVIMRC)
+	return status_ok, module
+end
 
-	---@diagnostic disable-next-line: param-type-mismatch
-	local plugins_count = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
-	vim.notify("Reloaded " .. plugins_count .. " plugins from " .. vim.fn.fnamemodify(vim.env.MYVIMRC, ":~"), vim.log.levels.INFO)
+-- Shortened vim.keymap.set
+function M.keymap(mode, lhs, rhs)
+	vim.keymap.set(mode, lhs, rhs, {noremap = true, silent = true})
 end
 
 return M

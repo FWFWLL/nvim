@@ -1,45 +1,17 @@
-local function keymap(mode, lhs, rhs) vim.keymap.set(mode, lhs, rhs, {noremap = true, silent = true}) end
+vim.keymap.set("n", "<Space>", "")
 
--- Remap space as leader key
-keymap("n", "<Space>", "")
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h")
-keymap("n", "<C-j>", "<C-w>j")
-keymap("n", "<C-k>", "<C-w>k")
-keymap("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-S-Left>", "<CMD>bNext<CR>")
+vim.keymap.set("n", "<C-S-Right>", "<CMD>bnext<CR>")
 
--- Resize with arrows
-keymap("n", "<C-Up>", "<CMD>resize -2<CR>")
-keymap("n", "<C-Down>", "<CMD>resize +2<CR>")
-keymap("n", "<C-Left>", "<CMD>vertical resize -2<CR>")
-keymap("n", "<C-Right>", "<CMD>vertical resize +2<CR>")
+-- NOTE: Can be replaced with a plugin later
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
--- Buffer navigation
-keymap("n", "<C-S-Left>", "<CMD>bNext<CR>")
-keymap("n", "<C-S-Right>", "<CMD>bnext<CR>")
+vim.keymap.set("v", "p", [["_dP]])
 
--- Stay in indent mode
-keymap("v", "<", "<gv")
-keymap("v", ">", ">gv")
-
--- Keep original yank after paste
-keymap("v", "p", [["_dP]])
-
--- Super-tab fixes
-keymap("s", "p", "p")
-keymap("s", "<Tab>", "<DEL>i")
-
--- Enter normal mode in terminal
-keymap("t", "<ESC><ESC>", [[<C-\><C-n>]])
-
--- Telescope
-keymap("n", "<leader>ff", "<CMD>Telescope find_files<CR>")
-keymap("n", "<leader>fg", "<CMD>Telescope live_grep<CR>")
-keymap("n", "<leader>fb", "<CMD>Telescope buffers<CR>")
-keymap("n", "<leader>fp", "<CMD>Telescope projects<CR>")
-
--- Nvim-tree
-keymap("n", "<leader>e", "<CMD>NvimTreeToggle<CR>")
+vim.keymap.set("t", "<ESC><ESC>", [[<C-\><C-n>]])

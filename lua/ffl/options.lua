@@ -8,6 +8,7 @@ local options = {
 	hlsearch = false,
 	ignorecase = true,
 	mouse = "a",
+	mousemodel = "",
 	pumheight = 10,
 	showmode = false,
 	showtabline = 0,
@@ -38,13 +39,14 @@ local options = {
 	title = true,
 }
 
-for k, v in pairs(options) do
-	vim.opt[k] = v
+for option, value in pairs(options) do
+	vim.opt[option] = value
 end
 
-vim.cmd [[set iskeyword+=-]]
-
 vim.opt.fillchars = vim.opt.fillchars + "eob: "
-vim.opt.fillchars:append({
-	stl = " ",
-})
+vim.opt.fillchars:append({stl = " "})
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.cmd [[set iskeyword+=-]]
