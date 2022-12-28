@@ -23,13 +23,20 @@ lazy.setup("ffl.plugins", {
 		lazy = false,
 	},
 	install = {
-		colorscheme = {
-			"catppuccin",
+		missing = true,
+		colorscheme = {"catppuccin"},
+	},
+	ui = {
+		border = "rounded",
+		icons = {},
+	},
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"netrwPlugin",
+			},
 		},
-	},
-	rtp = {
-		"netrwPlugin",
-	},
+	}
 })
 
 vim.keymap.set("n", "<Leader>l", "<CMD>Lazy<CR>")
