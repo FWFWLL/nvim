@@ -1,5 +1,6 @@
 return {
-	ui = {
-		IndentChar = "⁞",
-	},
+	diagnostics = {},
+	git = {},
+	kind = {},
+	ui = {},
 }
