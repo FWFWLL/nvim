@@ -35,6 +35,7 @@ function M.config()
 			notify = true,
 			nvimtree = true,
 			treesitter = true,
+			telescope = true,
 		},
 	})
 
