@@ -1,5 +1,11 @@
 return {
-	diagnostics = {},
+	diagnostics = {
+		Error = "",
+		Warning = "",
+		Information = "",
+		Question = "",
+		Hint = "",
+	},
 	git = {},
 	gitsigns = {
 		Add = "▎",
@@ -37,5 +43,8 @@ return {
 		Operator = "",
 		TypeParameter = "",
 	},
-	ui = {},
+	ui = {
+		Pencil = "",
+		Bug = "",
+	},
 }

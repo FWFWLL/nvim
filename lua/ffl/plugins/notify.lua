@@ -1,6 +1,8 @@
 local M = {"rcarriga/nvim-notify"}
 
 function M.config()
+	local icons = require("ffl.icons")
+
 	local status_ok, notify = pcall(require, "notify")
 	if not status_ok then
 		return
@@ -9,11 +11,11 @@ function M.config()
 	notify.setup({
 		fps = 24,
 		icons = {
-			-- TRACE = icons.ui.Pencil,
-			-- DEBUG = icons.ui.Bug,
-			-- INFO = icons.diagnostics.Information,
-			-- WARN = icons.diagnostics.Warning,
-			-- ERROR = icons.diagnostics.Error,
+			TRACE = icons.ui.Pencil,
+			DEBUG = icons.ui.Bug,
+			INFO = icons.diagnostics.Information,
+			WARN = icons.diagnostics.Warning,
+			ERROR = icons.diagnostics.Error,
 		},
 		level = vim.log.levels.TRACE,
 		max_height = function()
