@@ -4,9 +4,9 @@ M.build = ":TSUpdate"
 M.event = "VeryLazy"
 
 function M.config()
-	local f = require("ffl.functions")
+	local preq = require("ffl.functions").preq
 
-	local status_ok, ts_configs = f.preq("nvim-treesitter.configs")
+	local status_ok, ts_configs = preq("nvim-treesitter.configs")
 	if not status_ok then
 		return
 	end

@@ -3,9 +3,9 @@ local M = {"williamboman/mason.nvim"}
 M.event = "VeryLazy"
 
 function M.config()
-	local f = require("ffl.functions")
+	local preq = require("ffl.functions").preq
 
-	local mason_status_ok, mason = f.preq("mason")
+	local mason_status_ok, mason = preq("mason")
 	if not mason_status_ok then
 		return
 	end

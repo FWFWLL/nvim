@@ -10,10 +10,10 @@ M.dependencies = {
 }
 
 function M.config()
-	local f = require("ffl.functions")
+	local preq = require("ffl.functions").preq
 	local icons = require("ffl.icons")
 
-	local cmp_status_ok, cmp = f.preq("cmp")
+	local cmp_status_ok, cmp = preq("cmp")
 	if not cmp_status_ok then
 		return
 	end
@@ -26,7 +26,7 @@ function M.config()
 		path = "[PATH]",
 	}
 
-	local luasnip_status_ok, luasnip = f.preq("luasnip")
+	local luasnip_status_ok, luasnip = preq("luasnip")
 	if not luasnip_status_ok then
 		return
 	end

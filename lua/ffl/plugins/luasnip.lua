@@ -6,9 +6,9 @@ M.dependencies = {
 }
 
 function M.config()
-	local f = require("ffl.functions")
+	local preq = require("ffl.functions").preq
 
-	local status_ok, luasnip = f.preq("luasnip")
+	local status_ok, luasnip = preq("luasnip")
 	if not status_ok then
 		return
 	end

@@ -24,9 +24,9 @@ M.on_attach = function(client, bufnr)
 	client.server_capabilities.documentFormattingProvider = false
 end
 
-local f = require("ffl.functions")
+local preq = require("ffl.functions").preq
 
-local status_ok, cmp_nvim_lsp = f.preq("cmp_nvim_lsp")
+local status_ok, cmp_nvim_lsp = preq("cmp_nvim_lsp")
 if not status_ok then
 	return
 end

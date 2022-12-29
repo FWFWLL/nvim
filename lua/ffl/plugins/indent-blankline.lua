@@ -3,9 +3,9 @@ local M = {"lukas-reineke/indent-blankline.nvim"}
 M.event = "BufReadPost"
 
 function M.config()
-	local f = require("ffl.functions")
+	local preq = require("ffl.functions").preq
 
-	local status_ok, indent_blankline = f.preq("indent_blankline")
+	local status_ok, indent_blankline = preq("indent_blankline")
 	if not status_ok then
 		return
 	end

@@ -26,9 +26,9 @@ M.keys = {
 }
 
 function M.config()
-	local f = require("ffl.functions")
+	local preq = require("ffl.functions").preq
 
-	local status_ok, telescope = f.preq("telescope")
+	local status_ok, telescope = preq("telescope")
 	if not status_ok then
 		return
 	end

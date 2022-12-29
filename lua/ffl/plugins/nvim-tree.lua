@@ -4,9 +4,10 @@ M.event = "VeryLazy"
 M.dependencies = {"nvim-tree/nvim-web-devicons"}
 
 function M.config()
-	local f = require("ffl.functions")
+	local preq = require("ffl.functions").preq
+	local keymap = require("ffl.functions").keymap
 
-	local status_ok, nvim_tree = f.preq("nvim-tree")
+	local status_ok, nvim_tree = preq("nvim-tree")
 	if not status_ok then
 		return
 	end
@@ -96,7 +97,7 @@ function M.config()
 		},
 	})
 
-	f.keymap("n", "<Leader>e", "<CMD>NvimTreeToggle<CR>")
+	keymap("n", "<Leader>e", "<CMD>NvimTreeToggle<CR>")
 end
 
 return M

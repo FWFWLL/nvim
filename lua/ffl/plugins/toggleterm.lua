@@ -7,9 +7,9 @@ M.keys = {
 }
 
 function M.config()
-	local f = require("ffl.functions")
+	local preq = require("ffl.functions").preq
 
-	local status_ok, toggleterm = f.preq("toggleterm")
+	local status_ok, toggleterm = preq("toggleterm")
 	if not status_ok then
 		return
 	end

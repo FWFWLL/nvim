@@ -3,9 +3,9 @@ local M = {"numToStr/Comment.nvim"}
 M.event = "VeryLazy"
 
 function M.config()
-	local f = require("ffl.functions")
+	local preq = require("ffl.functions").preq
 
-	local status_ok, comment = f.preq("Comment")
+	local status_ok, comment = preq("Comment")
 	if not status_ok then
 		return
 	end

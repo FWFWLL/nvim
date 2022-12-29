@@ -3,9 +3,9 @@ local M = {"catppuccin/nvim"}
 M.name = "catppuccin"
 
 function M.config()
-	local f = require("ffl.functions")
+	local preq = require("ffl.functions").preq
 
-	local status_ok, catppuccin = f.preq("catppuccin")
+	local status_ok, catppuccin = preq("catppuccin")
 	if not status_ok then
 		return
 	end
