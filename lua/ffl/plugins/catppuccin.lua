@@ -17,6 +17,12 @@ function M.config()
 		dim_inactive = {
 			enabled = false,
 		},
+		custom_highlights = function(colors)
+			return({
+				CursorLine = {bg = colors.base},
+				CmpItemMenu = {fg = colors.surface2},
+			})
+		end,
 		integrations = {
 			cmp = true,
 			-- fidget = true,
