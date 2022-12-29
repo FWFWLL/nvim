@@ -2,7 +2,6 @@ local M = {"hrsh7th/nvim-cmp"}
 
 M.event = "InsertEnter"
 M.dependencies = {
-	"L3MON4D3/LuaSnip",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
@@ -21,7 +20,7 @@ function M.config()
 	-- NOTE: Ordering matters
 	local sources = {
 		nvim_lsp = "[LSP]",
-		nvim_lua = "[SNIP]",
+		luasnip = "[SNIP]",
 		buffer = "[FILE]",
 		path = "[PATH]",
 	}

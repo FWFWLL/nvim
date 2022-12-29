@@ -10,7 +10,7 @@ function M.preq(module_name)
 	return status_ok, module
 end
 
--- Shortened vim.keymap.set
+-- Shortened vim.keymap.set with default opts
 function M.keymap(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, {noremap = true, silent = true})
 end
