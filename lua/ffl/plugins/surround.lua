@@ -3,7 +3,7 @@ local M = {"kylechui/nvim-surround"}
 M.version = "*"
 M.event = "VeryLazy"
 
-function M.config()
+M.config = function()
 	local preq = require("ffl.functions").preq
 
 	local status_ok, surround = preq("nvim-surround")

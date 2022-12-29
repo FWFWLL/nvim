@@ -7,7 +7,7 @@ M.dependencies = {
 	"folke/neodev.nvim",
 }
 
-function M.config()
+M.config = function()
 	local preq = require("ffl.functions").preq
 
 	local status_ok, _ = preq("lspconfig")

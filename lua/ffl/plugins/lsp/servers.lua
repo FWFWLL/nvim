@@ -9,7 +9,7 @@ local servers = {
 	"jsonls",
 }
 
-function M.setup()
+M.setup = function()
 	local preq = require("ffl.functions").preq
 
 	local mason_lspconfig_status_ok, mason_lspconfig = preq("mason-lspconfig")

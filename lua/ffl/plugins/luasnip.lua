@@ -5,7 +5,7 @@ M.dependencies = {
 	"rafamadriz/friendly-snippets",
 }
 
-function M.config()
+M.config = function()
 	local preq = require("ffl.functions").preq
 
 	local status_ok, luasnip = preq("luasnip")

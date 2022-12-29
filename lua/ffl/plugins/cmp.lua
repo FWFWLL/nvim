@@ -9,7 +9,7 @@ M.dependencies = {
 	{"saadparwaiz1/cmp_luasnip", name = "cmp-luasnip"},
 }
 
-function M.config()
+M.config = function()
 	local preq = require("ffl.functions").preq
 	local icons = require("ffl.icons")
 

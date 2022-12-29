@@ -2,7 +2,7 @@ local M = {"rcarriga/nvim-notify"}
 
 M.event = "VeryLazy"
 
-function M.config()
+M.config = function()
 	local icons = require("ffl.icons")
 
 	local status_ok, notify = pcall(require, "notify")

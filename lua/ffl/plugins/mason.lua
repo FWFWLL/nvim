@@ -2,7 +2,7 @@ local M = {"williamboman/mason.nvim"}
 
 M.event = "VeryLazy"
 
-function M.config()
+M.config = function()
 	local preq = require("ffl.functions").preq
 
 	local mason_status_ok, mason = preq("mason")

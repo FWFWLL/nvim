@@ -2,7 +2,7 @@ local M = {"lewis6991/gitsigns.nvim"}
 
 M.event = "BufReadPost"
 
-function M.config()
+M.config = function()
 	local preq = require("ffl.functions").preq
 
 	local status_ok, gitsigns = preq("gitsigns")

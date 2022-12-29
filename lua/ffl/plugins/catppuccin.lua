@@ -2,7 +2,7 @@ local M = {"catppuccin/nvim"}
 
 M.name = "catppuccin"
 
-function M.config()
+M.config = function()
 	local preq = require("ffl.functions").preq
 
 	local status_ok, catppuccin = preq("catppuccin")

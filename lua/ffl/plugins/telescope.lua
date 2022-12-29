@@ -25,7 +25,7 @@ M.keys = {
 	{"<Leader>fg", "<CMD>Telescope live_grep<CR>"}
 }
 
-function M.config()
+M.config = function()
 	local preq = require("ffl.functions").preq
 
 	local status_ok, telescope = preq("telescope")

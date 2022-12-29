@@ -2,7 +2,7 @@ local M = {"numToStr/Comment.nvim"}
 
 M.event = "VeryLazy"
 
-function M.config()
+M.config = function()
 	local preq = require("ffl.functions").preq
 
 	local status_ok, comment = preq("Comment")
