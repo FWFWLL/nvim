@@ -35,14 +35,16 @@ M.config = function()
 
 	local actions = require("telescope.actions")
 
+	local icons = require("ffl.icons")
+
 	telescope.setup({
 		defaults = {
 			layout_strategy = "horizontal",
 			layout_config = {
 				prompt_position = "top",
 			},
-			-- prompt_prefix = icons.ui.ChevronRight .. " ",
-			-- selection_caret = icons.ui.ChevronRight .. " ",
+			prompt_prefix = icons.ui.ChevronRight .. " ",
+			selection_caret = icons.ui.ChevronRight .. " ",
 			path_display = {"tail"},
 			mappings = {
 				n = {

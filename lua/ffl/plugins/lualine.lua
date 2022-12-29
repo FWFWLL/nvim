@@ -1,6 +1,9 @@
 local M = {"nvim-lualine/lualine.nvim"}
 
 M.event = "VeryLazy"
+M.dependencies = {
+	"nvim-tree/nvim-web-devicons",
+}
 
 M.config = function()
 	local status_ok, lualine = pcall(require, "lualine")

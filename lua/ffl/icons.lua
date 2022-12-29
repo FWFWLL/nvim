@@ -43,7 +43,14 @@ return {
 		Operator = "",
 		TypeParameter = "",
 	},
+	mason = {
+		Installed = "✓",
+		Pending = "➜",
+		Uninstalled = "✗",
+	},
 	ui = {
+		ChevronRight = "",
+		SymlinkArrow = "->",
 		Pencil = "",
 		Bug = "",
 	},
