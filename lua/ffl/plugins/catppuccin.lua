@@ -18,7 +18,7 @@ function M.config()
 			enabled = false,
 		},
 		integrations = {
-			-- cmp = true,
+			cmp = true,
 			-- fidget = true,
 			gitsigns = true,
 			indent_blankline = {
