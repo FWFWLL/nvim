@@ -1,6 +1,6 @@
 local M = {"lukas-reineke/indent-blankline.nvim"}
 
-M.event = "BufReadPre"
+M.event = "BufReadPost"
 
 function M.config()
 	local f = require("ffl.functions")
@@ -9,8 +9,6 @@ function M.config()
 	if not status_ok then
 		return
 	end
-	
-	local icons = require("ffl.icons")
 
 	indent_blankline.setup({
 		use_treesitter = true,

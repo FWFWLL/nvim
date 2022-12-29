@@ -25,11 +25,11 @@ function M.config()
 				enabled = true,
 				colored_indent_levels = false,
 			},
-			-- markdown = true,
-			-- mason = true,
-			-- native_lsp = {
-				-- enabled = true,
-			-- },
+			markdown = true,
+			mason = true,
+			native_lsp = {
+				enabled = true,
+			},
 			notify = true,
 			nvimtree = true,
 			treesitter = true,
