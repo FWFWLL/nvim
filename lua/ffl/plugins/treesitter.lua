@@ -1,12 +1,12 @@
 local M = {"nvim-treesitter/nvim-treesitter"}
 
 M.build = ":TSUpdate"
-M.event = "BufReadPre"
+M.event = "VeryLazy"
 
-function M.config()
-	local f = require("ffl.functions")
+M.config = function()
+	local preq = require("ffl.functions").preq
 
-	local status_ok, ts_configs = f.preq("nvim-treesitter.configs")
+	local status_ok, ts_configs = preq("nvim-treesitter.configs")
 	if not status_ok then
 		return
 	end

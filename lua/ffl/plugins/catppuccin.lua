@@ -2,10 +2,10 @@ local M = {"catppuccin/nvim"}
 
 M.name = "catppuccin"
 
-function M.config()
-	local f = require("ffl.functions")
+M.config = function()
+	local preq = require("ffl.functions").preq
 
-	local status_ok, catppuccin = f.preq("catppuccin")
+	local status_ok, catppuccin = preq("catppuccin")
 	if not status_ok then
 		return
 	end
@@ -17,19 +17,25 @@ function M.config()
 		dim_inactive = {
 			enabled = false,
 		},
+		custom_highlights = function(colors)
+			return({
+				CursorLine = {bg = colors.base},
+				CmpItemMenu = {fg = colors.surface2},
+			})
+		end,
 		integrations = {
-			-- cmp = true,
+			cmp = true,
 			-- fidget = true,
 			gitsigns = true,
 			indent_blankline = {
 				enabled = true,
 				colored_indent_levels = false,
 			},
-			-- markdown = true,
-			-- mason = true,
-			-- native_lsp = {
-				-- enabled = true,
-			-- },
+			markdown = true,
+			mason = true,
+			native_lsp = {
+				enabled = true,
+			},
 			notify = true,
 			nvimtree = true,
 			treesitter = true,

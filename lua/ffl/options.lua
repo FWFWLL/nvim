@@ -2,7 +2,7 @@ local options = {
 	backup = false,
 	clipboard = "unnamedplus",
 	cmdheight = 1,
-	completeopt = {"menuone", "noselect"},
+	completeopt = {"menu", "menuone", "noselect"},
 	conceallevel = 0,
 	fileencoding = "utf-8",
 	hlsearch = false,
@@ -50,3 +50,4 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.cmd [[set iskeyword+=-]]
+vim.cmd [[set formatoptions-=cro]]

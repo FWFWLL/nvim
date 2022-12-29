@@ -1,17 +1,19 @@
-vim.keymap.set("n", "<Space>", "")
+local keymap = require("ffl.functions").keymap
 
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+keymap("n", "<Space>", "")
 
-vim.keymap.set("n", "<C-S-Left>", "<CMD>bNext<CR>")
-vim.keymap.set("n", "<C-S-Right>", "<CMD>bnext<CR>")
+keymap("n", "<C-h>", "<C-w>h")
+keymap("n", "<C-j>", "<C-w>j")
+keymap("n", "<C-k>", "<C-w>k")
+keymap("n", "<C-l>", "<C-w>l")
+
+keymap("n", "<C-S-Left>", "<CMD>bNext<CR>")
+keymap("n", "<C-S-Right>", "<CMD>bnext<CR>")
 
 -- NOTE: Can be replaced with a plugin later
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
+keymap("v", "<", "<gv")
+keymap("v", ">", ">gv")
 
-vim.keymap.set("v", "p", [["_dP]])
+keymap("v", "p", [["_dP]])
 
-vim.keymap.set("t", "<ESC><ESC>", [[<C-\><C-n>]])
+keymap("t", "<ESC><ESC>", [[<C-\><C-n>]])

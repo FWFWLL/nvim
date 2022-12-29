@@ -2,10 +2,10 @@ local M = {"windwp/nvim-autopairs"}
 
 M.event = "InsertEnter"
 
-function M.config()
-	local f = require("ffl.functions")
+M.config = function()
+	local preq = require("ffl.functions").preq
 
-	local status_ok, autopairs = f.preq("nvim-autopairs")
+	local status_ok, autopairs = preq("nvim-autopairs")
 	if not status_ok then
 		return
 	end

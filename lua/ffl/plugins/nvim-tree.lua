@@ -1,14 +1,22 @@
 local M = {"nvim-tree/nvim-tree.lua"}
 
-M.dependencies = {"nvim-tree/nvim-web-devicons"}
+M.event = "VeryLazy"
+M.dependencies = {
+	"nvim-tree/nvim-web-devicons",
+}
+M.keys = {
+	{"<Leader>e", "<CMD>NvimTreeToggle<CR>"},
+}
 
-function M.config()
-	local f = require("ffl.functions")
+M.config = function()
+	local preq = require("ffl.functions").preq
 
-	local status_ok, nvim_tree = f.preq("nvim-tree")
+	local status_ok, nvim_tree = preq("nvim-tree")
 	if not status_ok then
 		return
 	end
+
+	local icons = require("ffl.icons")
 
 	nvim_tree.setup({
 		disable_netrw = true,
@@ -24,12 +32,12 @@ function M.config()
 			enable = true,
 			debounce_delay = 50, -- ms
 			show_on_dirs = true,
-			-- icons = {
-			-- 	hint = icons.diagnostics.Hint,
-			-- 	info = icons.diagnostics.Information,
-			-- 	warning = icons.diagnostics.Warning,
-			-- 	error = icons.diagnostics.Error,
-			-- },
+			icons = {
+				hint = icons.diagnostics.Hint,
+				info = icons.diagnostics.Information,
+				warning = icons.diagnostics.Warning,
+				error = icons.diagnostics.Error,
+			},
 			severity = {
 				min = vim.diagnostic.severity.HINT,
 				max = vim.diagnostic.severity.ERROR,
@@ -70,7 +78,7 @@ function M.config()
 				webdev_colors = true,
 				git_placement = "before",
 				padding = " ",
-				-- symlink_arrow = " " .. icons.ui.SymlinkArrow .. " ",
+				symlink_arrow = " " .. icons.ui.SymlinkArrow .. " ",
 				show = {
 					file = true,
 					folder = true,
@@ -94,8 +102,6 @@ function M.config()
 			},
 		},
 	})
-
-	f.keymap("n", "<Leader>e", "<CMD>NvimTreeToggle<CR>")
 end
 
 return M

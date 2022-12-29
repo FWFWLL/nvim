@@ -25,15 +25,17 @@ M.keys = {
 	{"<Leader>fg", "<CMD>Telescope live_grep<CR>"}
 }
 
-function M.config()
-	local f = require("ffl.functions")
+M.config = function()
+	local preq = require("ffl.functions").preq
 
-	local status_ok, telescope = f.preq("telescope")
+	local status_ok, telescope = preq("telescope")
 	if not status_ok then
 		return
 	end
 
 	local actions = require("telescope.actions")
+
+	local icons = require("ffl.icons")
 
 	telescope.setup({
 		defaults = {
@@ -41,8 +43,8 @@ function M.config()
 			layout_config = {
 				prompt_position = "top",
 			},
-			-- prompt_prefix = icons.ui.ChevronRight .. " ",
-			-- selection_caret = icons.ui.ChevronRight .. " ",
+			prompt_prefix = icons.ui.ChevronRight .. " ",
+			selection_caret = icons.ui.ChevronRight .. " ",
 			path_display = {"tail"},
 			mappings = {
 				n = {

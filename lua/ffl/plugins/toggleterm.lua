@@ -6,10 +6,10 @@ M.keys = {
 	{[[<C-]>]], "<CMD>lua _PWSH_TOGGLE()<CR>"},
 }
 
-function M.config()
-	local f = require("ffl.functions")
+M.config = function()
+	local preq = require("ffl.functions").preq
 
-	local status_ok, toggleterm = f.preq("toggleterm")
+	local status_ok, toggleterm = preq("toggleterm")
 	if not status_ok then
 		return
 	end
