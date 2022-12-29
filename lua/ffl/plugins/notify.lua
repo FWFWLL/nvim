@@ -1,5 +1,7 @@
 local M = {"rcarriga/nvim-notify"}
 
+M.event = "VeryLazy"
+
 function M.config()
 	local icons = require("ffl.icons")
 

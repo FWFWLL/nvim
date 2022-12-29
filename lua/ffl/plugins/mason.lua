@@ -1,5 +1,7 @@
 local M = {"williamboman/mason.nvim"}
 
+M.event = "VeryLazy"
+
 function M.config()
 	local f = require("ffl.functions")
 
