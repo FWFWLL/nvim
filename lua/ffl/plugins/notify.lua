@@ -21,7 +21,7 @@ function M.config()
 		end,
 		max_width = function()
 			return math.floor(vim.o.columns * 0.75)
-		end
+		end,
 		render = "minimal",
 		stages = "slide",
 		timeout = 2000, -- ms
