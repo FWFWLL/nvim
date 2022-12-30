@@ -17,3 +17,7 @@ keymap("v", ">", ">gv")
 keymap("v", "p", [["_dP]])
 
 keymap("t", "<ESC><ESC>", [[<C-\><C-n>]])
+
+-- Super-tab fixes
+keymap("s", "p", "p")
+keymap("s", "<Tab>", "<DEL>i")

@@ -37,6 +37,21 @@ M.setup = function()
 				capabilities = capabilities,
 			})
 		end,
+		["rust_analyzer"] = function()
+			local rust_tools_status_ok, rust_tools = preq("rust-tools")
+			if not rust_tools_status_ok then
+				return
+			end
+
+			local rust_tools_cfg = require("ffl.plugins.lsp.settings.rust-tools")
+
+			rust_tools_cfg.server = {
+				on_attach = on_attach,
+				capabilities = capabilities,
+			}
+
+			rust_tools.setup(rust_tools_cfg)
+		end,
 		["sumneko_lua"] = function()
 			local neodev_status_ok, neodev = preq("neodev")
 			if not neodev_status_ok then
@@ -58,6 +73,20 @@ M.setup = function()
 				on_attach = on_attach,
 				capabilities = capabilities,
 				settings = require("ffl.plugins.lsp.settings.sumneko_lua"),
+			})
+		end,
+		["jsonls"] = function()
+			local schemastore_status_ok, schemastore = preq("schemastore")
+			if not schemastore_status_ok then
+				return
+			end
+
+			local jsonls_settings = require("ffl.plugins.lsp.settings.jsonls")
+
+			jsonls_settings.json.schemas = schemastore.json.schemas()
+
+			lspconfig.jsonls.setup({
+				settings = require("ffl.plugins.lsp.settings.jsonls"),
 			})
 		end,
 	})
