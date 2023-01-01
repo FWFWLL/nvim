@@ -24,7 +24,6 @@ M.config = function()
 			})
 		end,
 		integrations = {
-			cmp = true,
 			-- fidget = true,
 			gitsigns = true,
 			indent_blankline = {
@@ -33,6 +32,7 @@ M.config = function()
 			},
 			markdown = true,
 			mason = true,
+			cmp = true,
 			native_lsp = {
 				enabled = true,
 			},
