@@ -1,6 +1,6 @@
 local M = {"ahmedkhalf/project.nvim"}
 
-M.event = "BufReadPost"
+M.event = "VeryLazy"
 M.dependencies = {
 	"nvim-telescope/telescope.nvim",
 }
@@ -29,10 +29,7 @@ M.config = function()
 			"Cargo.toml",
 			"package.json",
 		},
-		exclude_dirs = {
-			"~/.config/nvim/lua/",
-			"~/.cargo/"
-		},
+		exclude_dirs = {},
 		show_hidden = false,
 		silent_chdir = true,
 		scope_chdir = "global",
