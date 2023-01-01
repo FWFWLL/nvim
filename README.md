@@ -1,2 +1,2 @@
 # Neovim Configuration
-My personal Neovim configuration. Rewrite in progress...
+My personal Neovim configuration.

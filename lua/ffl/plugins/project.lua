@@ -19,8 +19,8 @@ M.config = function()
 	project.setup({
 		manual_mode = false,
 		detection_methods = {
-			"lsp",
 			"pattern",
+			"lsp",
 		},
 		patterns = {
 			".git",
