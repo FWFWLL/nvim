@@ -6,6 +6,9 @@ return {
 		Question = "",
 		Hint = "",
 	},
+	fidget = {
+		Done = "✓",
+	},
 	git = {
 		Unstaged = "",
 		Staged = "",

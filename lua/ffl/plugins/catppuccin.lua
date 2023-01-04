@@ -24,7 +24,7 @@ M.config = function()
 			})
 		end,
 		integrations = {
-			-- fidget = true,
+			fidget = true,
 			gitsigns = true,
 			indent_blankline = {
 				enabled = true,
