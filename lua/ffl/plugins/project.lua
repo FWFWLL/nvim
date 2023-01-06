@@ -1,6 +1,6 @@
 local M = {"ahmedkhalf/project.nvim"}
 
-M.event = "VeryLazy"
+M.lazy = false
 M.dependencies = {
 	"nvim-telescope/telescope.nvim",
 }
