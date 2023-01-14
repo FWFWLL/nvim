@@ -20,8 +20,8 @@ M.config = function()
 
 	-- NOTE: Ordering matters
 	local sources = {
-		nvim_lsp = "[LSP]",
 		luasnip = "[SNIP]",
+		nvim_lsp = "[LSP]",
 		buffer = "[FILE]",
 		path = "[PATH]",
 	}
@@ -82,8 +82,8 @@ M.config = function()
 			end,
 		},
 		sources = {
-			{name = "nvim_lsp"},
 			{name = "luasnip"},
+			{name = "nvim_lsp"},
 			{name = "buffer"},
 			{name = "path"},
 		},
