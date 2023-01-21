@@ -61,11 +61,13 @@ M.config = function()
 			debounce_delay = 50, -- ms
 		},
 		view = {
-			adaptive_size = true,
 			centralize_selection = false,
 			cursorline = true,
 			hide_root_folder = true,
-			width = 0, -- Always resize to fit content
+			width = {
+				min = 0,
+				max = nil,
+			},
 			side = "left",
 			number = false,
 			relativenumber = false,
