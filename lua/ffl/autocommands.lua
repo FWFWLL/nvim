@@ -20,3 +20,10 @@ vim.api.nvim_create_autocmd({"FileType"}, {
 		vim.api.nvim_buf_set_keymap(0, "n", "<ESC>", "<CMD>q<CR>", {noremap = true, silent = true})
 	end,
 })
+
+-- Disable auto-comment on newline
+vim.api.nvim_create_autocmd({"BufWinEnter"}, {
+	callback = function()
+		vim.cmd("set formatoptions-=cro")
+	end,
+})

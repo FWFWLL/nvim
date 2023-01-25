@@ -49,5 +49,4 @@ vim.opt.fillchars:append({stl = " "})
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]]
+vim.cmd("set iskeyword+=-")
