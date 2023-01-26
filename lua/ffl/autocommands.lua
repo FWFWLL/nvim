@@ -22,6 +22,8 @@ vim.api.nvim_create_autocmd({"FileType"}, {
 })
 
 -- Disable auto-comment on newline
+-- Do it once on startup and again whenever we open a new buffer
+vim.cmd("set formatoptions-=cro")
 vim.api.nvim_create_autocmd({"BufWinEnter"}, {
 	callback = function()
 		vim.cmd("set formatoptions-=cro")
