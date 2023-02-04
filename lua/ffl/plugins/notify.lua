@@ -3,9 +3,10 @@ local M = {"rcarriga/nvim-notify"}
 M.event = "VeryLazy"
 
 M.config = function()
+	local preq = require("ffl.functions").preq
 	local icons = require("ffl.icons")
 
-	local status_ok, notify = pcall(require, "notify")
+	local status_ok, notify = preq("notify")
 	if not status_ok then
 		return
 	end

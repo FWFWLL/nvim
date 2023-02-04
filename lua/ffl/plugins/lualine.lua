@@ -6,7 +6,9 @@ M.dependencies = {
 }
 
 M.config = function()
-	local status_ok, lualine = pcall(require, "lualine")
+	local preq = require("ffl.functions").preq
+
+	local status_ok, lualine = preq("lualine")
 	if not status_ok then
 		return
 	end
@@ -63,7 +65,7 @@ M.config = function()
 			local space = vim.fn.search([[\s\+$]], "nwc")
 
 			return space ~= 0 and "TW: " .. space or ""
-		end
+		end,
 	}
 
 	-- Mixed indentation component
@@ -95,14 +97,14 @@ M.config = function()
 			else
 				return "MI: " .. space_indent .. " [SPACE]"
 			end
-		end
+		end,
 	}
 
 	-- Local time component
 	local clock = {
 		function()
 			return os.date("%H") .. ":" .. os.date("%M")
-		end
+		end,
 	}
 
 	-- Custom NvimTree extension
@@ -114,9 +116,9 @@ M.config = function()
 					return vim.fn.fnamemodify(vim.fn.getcwd(), ":~") .. "/"
 				end,
 			},
-			lualine_z = {clock}
+			lualine_z = {clock},
 		},
-		filetypes = {"NvimTree"}
+		filetypes = {"NvimTree"},
 	}
 
 	-- Custom ToggleTerm extension
@@ -125,7 +127,7 @@ M.config = function()
 			lualine_a = {
 				function()
 					return "ToggleTerm"
-				end
+				end,
 			},
 			lualine_c = {
 				function()
@@ -142,9 +144,46 @@ M.config = function()
 					return "ToggleTerm #" .. vim.b.toggle_number
 				end,
 			},
-			lualine_z = {clock}
+			lualine_z = {clock},
 		},
-		filetypes = {"toggleterm"}
+		filetypes = {"toggleterm"},
+	}
+
+	-- Custom lazy.nvim extension
+	local lazy = {
+		sections = {
+			lualine_a = {
+				function()
+					return "Lazy.nvim"
+				end,
+			},
+			lualine_b = {
+				function()
+					local lazy_status_ok, lazy = preq("lazy")
+					if not lazy_status_ok then
+						return
+					end
+
+					local stats = lazy.stats()
+
+					return stats.loaded .. " Loaded / " .. stats.count .. " Plugins"
+				end,
+			},
+			lualine_y = {
+				function()
+					local lazy_status_ok, lazy = preq("lazy")
+					if not lazy_status_ok then
+						return
+					end
+
+					local stats = lazy.stats()
+
+					return stats.startuptime .. "ms"
+				end,
+			},
+			lualine_z = {clock},
+		},
+		filetypes = {"lazy"},
 	}
 
 	lualine.setup({
@@ -168,6 +207,7 @@ M.config = function()
 		extensions = {
 			nvim_tree,
 			toggleterm,
+			lazy,
 		},
 	})
 end
