@@ -2,7 +2,7 @@ return {
 	tools = {
 		reload_workspace_from_cargo_toml = false,
 		inlay_hints = {
-			auto = false,
+			auto = true,
 			show_parameter_hints = false,
 			highlight = "Comment",
 		}
