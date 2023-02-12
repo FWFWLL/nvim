@@ -3,7 +3,7 @@ local M = {}
 local servers = {
 	"rust_analyzer",
 	"clangd",
-	"sumneko_lua",
+	"lua_ls",
 	"jdtls",
 	"tsserver",
 	"jsonls",
@@ -52,7 +52,7 @@ M.setup = function()
 
 			rust_tools.setup(rust_tools_cfg)
 		end,
-		["sumneko_lua"] = function()
+		["lua_ls"] = function()
 			local neodev_status_ok, neodev = preq("neodev")
 			if not neodev_status_ok then
 				return
@@ -69,10 +69,10 @@ M.setup = function()
 				lspconfig = true,
 			})
 
-			lspconfig.sumneko_lua.setup({
+			lspconfig.lua_ls.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
-				settings = require("ffl.plugins.lsp.settings.sumneko_lua"),
+				settings = require("ffl.plugins.lsp.settings.lua_ls"),
 			})
 		end,
 		["jsonls"] = function()
