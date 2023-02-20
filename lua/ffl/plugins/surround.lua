@@ -11,7 +11,7 @@ M.config = function()
 		return
 	end
 
-	surround.setup({})
+	surround.setup()
 end
 
 return M
