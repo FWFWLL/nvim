@@ -10,6 +10,9 @@ keymap("n", "<C-l>", "<C-w>l")
 keymap("n", "<C-S-Left>", "<CMD>bNext<CR>")
 keymap("n", "<C-S-Right>", "<CMD>bnext<CR>")
 
+-- Close buffer
+keymap("n", "<Leader>bd", "<CMD>bdelete<CR>")
+
 -- NOTE: Can be replaced with a plugin later
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
