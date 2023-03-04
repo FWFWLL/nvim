@@ -7,6 +7,7 @@ local servers = {
 	"jdtls",
 	"tsserver",
 	"jsonls",
+	"cssls",
 }
 
 M.setup = function()
