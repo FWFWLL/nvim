@@ -4,6 +4,7 @@ local servers = {
 	"rust_analyzer",
 	"clangd",
 	"lua_ls",
+	"pyright",
 	"jdtls",
 	"tsserver",
 	"jsonls",
