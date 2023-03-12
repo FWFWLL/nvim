@@ -7,6 +7,7 @@ M.dependencies = {
 	"simrat39/rust-tools.nvim",
 	"folke/neodev.nvim",
 	"b0o/SchemaStore.nvim",
+	"jose-elias-alvarez/null-ls.nvim",
 }
 
 M.config = function()
@@ -21,6 +22,7 @@ M.config = function()
 
 	require("ffl.plugins.lsp.servers").setup()
 	require("ffl.plugins.lsp.diagnostics").setup()
+	require("ffl.plugins.lsp.null_ls").setup()
 end
 
 return M
