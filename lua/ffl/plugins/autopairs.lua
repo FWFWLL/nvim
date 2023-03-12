@@ -16,6 +16,11 @@ M.config = function()
 		},
 		check_ts = true,
 	})
+
+	local _, cmp_autopairs = preq("nvim-autopairs.completion.cmp")
+	local _, cmp = preq("cmp")
+
+	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 end
 
 return M
