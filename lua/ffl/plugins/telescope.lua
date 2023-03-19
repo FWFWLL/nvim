@@ -6,23 +6,31 @@ M.cmd = {"Telescope"}
 local function project_files()
 	local opts = {}
 
+	local preq = require("ffl.functions").preq
+
+	local status_ok, telescope_builtin = preq("telescope.builtin")
+	if not status_ok then
+		return
+	end
+
 	if vim.loop.fs_stat(".git") then
 		opts.show_untracked = true
 
-		require("telescope.builtin").git_files(opts)
+		telescope_builtin.git_files(opts)
 	else
 		local client = vim.lsp.get_active_clients()[1]
 		if client then
 			opts.cwd = client.config.root_dir
 		end
 
-		require("telescope.builtin").find_files(opts)
+		telescope_builtin.find_files(opts)
 	end
 end
 
 M.keys = {
 	{"<Leader>ff", project_files},
-	{"<Leader>fg", "<CMD>Telescope live_grep<CR>"}
+	{"<Leader>fg", "<CMD>Telescope live_grep<CR>"},
+	{"<leader>fb", "<CMD>Telescope buffers<CR>"},
 }
 
 M.config = function()
@@ -49,6 +57,18 @@ M.config = function()
 				},
 				i = {
 					["<ESC>"] = actions.close,
+				},
+			},
+		},
+		pickers = {
+			buffers = {
+				ignore_current_buffer = true,
+				sort_lastused = true,
+				sort_mru = true,
+				mappings = {
+					i = {
+						["<C-d>"] = actions.delete_buffer + actions.move_to_top,
+					},
 				},
 			},
 		},
