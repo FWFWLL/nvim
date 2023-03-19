@@ -20,6 +20,7 @@ if not status_ok then
 	return
 end
 
+-- TODO: Import multiple modules, ex: plugins, plugins.lsp
 lazy.setup("ffl.plugins", {
 	defaults = {
 		lazy = false,
