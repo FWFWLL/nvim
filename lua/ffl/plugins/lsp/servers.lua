@@ -1,14 +1,15 @@
 local M = {}
 
 local servers = {
-	"rust_analyzer",
 	"clangd",
-	"lua_ls",
-	"pyright",
-	"jdtls",
-	"tsserver",
-	"jsonls",
 	"cssls",
+	"jdtls",
+	"jsonls",
+	"lua_ls",
+	"omnisharp",
+	"pyright",
+	"rust_analyzer",
+	"tsserver",
 }
 
 M.setup = function()
