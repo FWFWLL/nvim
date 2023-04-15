@@ -22,7 +22,7 @@ M.config = function()
 
 	require("ffl.plugins.lsp.servers").setup()
 	require("ffl.plugins.lsp.diagnostics").setup()
-	-- require("ffl.plugins.lsp.null_ls").setup()
+	require("ffl.plugins.lsp.null_ls").setup()
 end
 
 return M

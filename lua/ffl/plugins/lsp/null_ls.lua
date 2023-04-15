@@ -12,7 +12,7 @@ M.setup = function()
 
 	null_ls.setup({
 		sources = {
-			diagnostics.flake8,
+			diagnostics.ruff,
 		}
 	})
 end
