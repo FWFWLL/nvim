@@ -1,6 +1,6 @@
 local M = {"williamboman/mason.nvim"}
 
-M.event = "VeryLazy"
+M.lazy = true
 
 M.config = function()
 	local preq = require("ffl.functions").preq
@@ -25,3 +25,4 @@ M.config = function()
 end
 
 return M
+

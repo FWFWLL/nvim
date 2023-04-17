@@ -21,7 +21,11 @@ if not status_ok then
 end
 
 -- TODO: Import multiple modules, ex: plugins, plugins.lsp
-lazy.setup("ffl.plugins", {
+lazy.setup({
+	spec = {
+		{import = "ffl.plugins"},
+		{import = "ffl.lsp"},
+	},
 	defaults = {
 		lazy = false,
 	},
@@ -43,3 +47,4 @@ lazy.setup("ffl.plugins", {
 })
 
 vim.keymap.set("n", "<Leader>l", "<CMD>Lazy<CR>")
+
