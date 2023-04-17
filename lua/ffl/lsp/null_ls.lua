@@ -15,7 +15,9 @@ M.config = function()
 
 	null_ls.setup({
 		sources = {
-			diagnostics.ruff,
+			diagnostics.ruff.with({
+				args = {"--ignore E501", "-n", "-e", "--stdin-filename", "$FILENAME", "-"}
+			}),
 		}
 	})
 end
