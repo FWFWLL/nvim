@@ -16,3 +16,4 @@ M.keymap = function(mode, lhs, rhs)
 end
 
 return M
+

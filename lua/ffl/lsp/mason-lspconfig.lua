@@ -1,4 +1,14 @@
-local M = {}
+local M = {"williamboman/mason-lspconfig.nvim"}
+
+M.event = "BufReadPost"
+M.dependencies = {
+	"williamboman/mason.nvim",
+	"neovim/nvim-lspconfig",
+	"hrsh7th/cmp-nvim-lsp",
+	"simrat39/rust-tools.nvim",
+	"folke/neodev.nvim",
+	"b0o/SchemaStore.nvim",
+}
 
 local servers = {
 	"clangd",
@@ -12,7 +22,7 @@ local servers = {
 	"tsserver",
 }
 
-M.setup = function()
+M.config = function()
 	local preq = require("ffl.functions").preq
 
 	local mason_lspconfig_status_ok, mason_lspconfig = preq("mason-lspconfig")
@@ -30,8 +40,8 @@ M.setup = function()
 		return
 	end
 
-	local on_attach = require("ffl.plugins.lsp.handlers").on_attach
-	local capabilities = require("ffl.plugins.lsp.handlers").capabilities
+	local on_attach = require("ffl.lsp.handlers.on_attach")
+	local capabilities = require("ffl.lsp.handlers.capabilities")
 
 	mason_lspconfig.setup_handlers({
 		function(server_name)
@@ -46,7 +56,7 @@ M.setup = function()
 				return
 			end
 
-			local rust_tools_cfg = require("ffl.plugins.lsp.settings.rust-tools")
+			local rust_tools_cfg = require("ffl.lsp.settings.rust-tools")
 
 			rust_tools_cfg.server = {
 				on_attach = on_attach,
@@ -75,7 +85,7 @@ M.setup = function()
 			lspconfig.lua_ls.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
-				settings = require("ffl.plugins.lsp.settings.lua_ls"),
+				settings = require("ffl.lsp.settings.lua_ls"),
 			})
 		end,
 		["jsonls"] = function()
@@ -84,15 +94,16 @@ M.setup = function()
 				return
 			end
 
-			local jsonls_settings = require("ffl.plugins.lsp.settings.jsonls")
+			local jsonls_settings = require("ffl.lsp.settings.jsonls")
 
 			jsonls_settings.json.schemas = schemastore.json.schemas()
 
 			lspconfig.jsonls.setup({
-				settings = require("ffl.plugins.lsp.settings.jsonls"),
+				settings = require("ffl.lsp.settings.jsonls"),
 			})
 		end,
 	})
 end
 
 return M
+

@@ -1,6 +1,9 @@
-local M = {}
+local M = {"jose-elias-alvarez/null-ls.nvim"}
 
-M.setup = function()
+M.event = "BufReadPost"
+M.dependencies = {"williamboman/mason.nvim"}
+
+M.config = function()
 	local preq = require("ffl.functions").preq
 
 	local status_ok, null_ls = preq("null-ls")
@@ -18,3 +21,4 @@ M.setup = function()
 end
 
 return M
+

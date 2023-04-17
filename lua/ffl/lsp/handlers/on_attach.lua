@@ -1,5 +1,3 @@
-local M = {}
-
 local function lsp_keymaps(client, bufnr)
 	local function buf_set_keymap(mode, lhs, rhs) vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, {noremap = true, silent = true}) end
 
@@ -18,15 +16,13 @@ local function lsp_keymaps(client, bufnr)
 	end
 end
 
-M.on_attach = function(client, bufnr)
+return function(client, bufnr)
 	lsp_keymaps(client, bufnr)
 
 	client.server_capabilities.documentFormattingProvider = false
 
 	if client.name == "omnisharp" then
-		local preq = require("ffl.functions").preq
-
-		local status_ok, omnisharp_settings = preq("ffl.plugins.lsp.settings.omnisharp")
+		local status_ok, omnisharp_settings = require("ffl.lsp.settings.omnisharp")
 		if not status_ok then
 			return
 		end
@@ -34,15 +30,4 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.semanticTokensProvider = omnisharp_settings.semanticTokensProvider
 	end
 end
-
-local preq = require("ffl.functions").preq
-
-local status_ok, cmp_nvim_lsp = preq("cmp_nvim_lsp")
-if not status_ok then
-	return
-end
-
-M.capabilities = cmp_nvim_lsp.default_capabilities()
-
-return M
 
