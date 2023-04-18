@@ -22,10 +22,7 @@ return function(client, bufnr)
 	client.server_capabilities.documentFormattingProvider = false
 
 	if client.name == "omnisharp" then
-		local status_ok, omnisharp_settings = require("ffl.lsp.settings.omnisharp")
-		if not status_ok then
-			return
-		end
+		local omnisharp_settings = require("ffl.lsp.settings.omnisharp")
 
 		client.server_capabilities.semanticTokensProvider = omnisharp_settings.semanticTokensProvider
 	end
