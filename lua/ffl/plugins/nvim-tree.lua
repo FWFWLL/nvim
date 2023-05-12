@@ -65,7 +65,8 @@ M.config = function()
 			cursorline = true,
 			width = {
 				min = 0,
-				max = nil,
+				max = -1,
+				padding = 1,
 			},
 			side = "left",
 			number = false,
