@@ -1,5 +1,6 @@
 local M = {"j-hui/fidget.nvim"}
 
+M.tag = "legacy"
 M.event = "BufReadPost"
 
 M.config = function()
