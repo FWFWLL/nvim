@@ -32,6 +32,7 @@ M.config = function()
 
 	-- ZSH
 	local zsh = Terminal:new({
+		cmd = "pwsh.exe -nologo",
 		direction = "float",
 		on_open = function(term)
 			local function buf_set_keymap(mode, lhs, rhs) vim.api.nvim_buf_set_keymap(term.bufnr, mode, lhs, rhs, {noremap = true, silent = true}) end
