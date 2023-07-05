@@ -1,6 +1,6 @@
 local M = {"nvim-tree/nvim-tree.lua"}
 
-M.lazy = false
+M.event = "VimEnter"
 M.dependencies = {
 	"nvim-tree/nvim-web-devicons",
 }
