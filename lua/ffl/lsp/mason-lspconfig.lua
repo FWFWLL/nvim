@@ -8,6 +8,7 @@ M.dependencies = {
 	"simrat39/rust-tools.nvim",
 	"folke/neodev.nvim",
 	"b0o/SchemaStore.nvim",
+	"mfussenegger/nvim-jdtls",
 }
 
 local servers = {
@@ -101,6 +102,85 @@ M.config = function()
 
 			lspconfig.jsonls.setup({
 				settings = require("ffl.lsp.settings.jsonls"),
+			})
+		end,
+		["jdtls"] = function()
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = {"java"},
+				callback = function()
+					local nvim_jdtls_status_ok, nvim_jdtls = preq("jdtls")
+					if not nvim_jdtls_status_ok then
+						return
+					end
+
+					local function get_jdtls()
+						local mason_registry = require("mason-registry")
+						local jdtls_server = mason_registry.get_package("jdtls")
+						local jdtls_path = jdtls_server:get_install_path()
+
+						local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+						local os_config = jdtls_path .. "/config_linux"
+						local lombok = jdtls_path .. "/lombok.jar"
+
+						return launcher, os_config, lombok
+					end
+
+					local function get_workspace()
+						local home = os.getenv("HOME")
+						local workspace_path = home .. "/.local/share/nde/jdtls-workspace/"
+						local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+						local workspace_dir = workspace_path .. project_name
+
+						return workspace_dir
+					end
+
+					local extendedClientCapabilities = nvim_jdtls.extendedClientCapabilities
+					extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+
+					local launcher, os_config, lombok = get_jdtls()
+					local workspace_dir = get_workspace()
+
+					local settings = require("ffl.lsp.settings.jdtls")
+					settings.init_options = {
+						extendedClientCapabilities = extendedClientCapabilities
+					}
+
+					local config = {
+						cmd = {
+							"java",
+							"-Declipse.application=org.eclipse.jdt.ls.core.id1",
+							"-Dosgi.bundles.defaultStartLevel=4",
+							"-Declipse.product=org.eclipse.jdt.ls.core.product",
+							"-Dlog.protocol=true",
+							"-Dlog.level=ALL",
+							"-Xms1g",
+							"--add-modules=ALL-SYSTEM",
+							"--add-opens",
+							"java.base/java.util=ALL-UNNAMED",
+							"--add-opens",
+							"java.base/java.lang=ALL-UNNAMED",
+							"-javaagent:" .. lombok,
+							"-jar",
+							launcher,
+							"-configuration",
+							os_config,
+							"-data",
+							workspace_dir,
+						},
+						root_dir = require("jdtls.setup").find_root({
+							".git",
+							"mvnw",
+							"gradlew",
+							"pom.xml",
+							"build.gradle",
+						}),
+						capabilities = capabilities,
+						on_attach = on_attach,
+						settings = settings,
+					}
+
+					nvim_jdtls.start_or_attach(config)
+				end,
 			})
 		end,
 	})

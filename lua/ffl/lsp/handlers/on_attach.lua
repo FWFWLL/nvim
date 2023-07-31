@@ -1,4 +1,6 @@
 local function lsp_keymaps(client, bufnr)
+	local preq = require("ffl.functions").preq
+
 	local function buf_set_keymap(mode, lhs, rhs) vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, {noremap = true, silent = true}) end
 
 	-- General
@@ -14,6 +16,14 @@ local function lsp_keymaps(client, bufnr)
 	if client.name == "clangd" then
 		buf_set_keymap("n", "go", "<CMD>ClangdSwitchSourceHeader<CR>")
 	end
+
+	-- -- Jdtls
+	-- if client.name == "jdtls" then
+	-- 	local jdtls_status_ok, jdtls = preq("jdtls")
+	-- 	if not jdtls_status_ok then
+	-- 		return
+	-- 	end
+	-- end
 end
 
 return function(client, bufnr)
