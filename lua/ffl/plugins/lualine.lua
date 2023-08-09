@@ -19,6 +19,7 @@ M.config = function()
 	local mocha = require("catppuccin.palettes").get_palette("mocha")
 	local custom_catppuccin = require("lualine.themes.catppuccin")
 	custom_catppuccin.normal.c.bg = mocha.base
+	custom_catppuccin.normal.b.bg = mocha.surface0
 
 	-- Diagnostics count component
 	local diagnostics = {
