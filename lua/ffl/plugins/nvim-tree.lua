@@ -66,7 +66,6 @@ M.config = function()
 			width = {
 				min = 0,
 				max = -1,
-				padding = 1,
 			},
 			side = "left",
 			number = false,

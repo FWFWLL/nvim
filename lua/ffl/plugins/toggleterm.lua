@@ -49,7 +49,7 @@ M.config = function()
 
 	-- PWSH
 	local pwsh = Terminal:new({
-		cmd = "pwsh.exe -nologo",
+		-- cmd = "pwsh.exe -nologo",
 		direction = "float",
 		close_on_exit = true,
 		on_open = function(term)

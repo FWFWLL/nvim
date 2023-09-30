@@ -16,20 +16,16 @@ local function lsp_keymaps(client, bufnr)
 	if client.name == "clangd" then
 		buf_set_keymap("n", "go", "<CMD>ClangdSwitchSourceHeader<CR>")
 	end
-
-	-- -- Jdtls
-	-- if client.name == "jdtls" then
-	-- 	local jdtls_status_ok, jdtls = preq("jdtls")
-	-- 	if not jdtls_status_ok then
-	-- 		return
-	-- 	end
-	-- end
 end
 
 return function(client, bufnr)
 	lsp_keymaps(client, bufnr)
 
 	client.server_capabilities.documentFormattingProvider = false
+
+	-- if client.name == "clangd" then
+	-- 	client.server_capabilities.signatureHelpProvider = false
+	-- end
 
 	if client.name == "omnisharp" then
 		local omnisharp_settings = require("ffl.lsp.settings.omnisharp")

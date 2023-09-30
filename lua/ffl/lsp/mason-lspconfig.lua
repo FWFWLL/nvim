@@ -22,6 +22,7 @@ local servers = {
 	"rust_analyzer",
 	"tsserver",
 	"volar",
+	"zls",
 }
 
 M.config = function()
@@ -48,6 +49,12 @@ M.config = function()
 	mason_lspconfig.setup_handlers({
 		function(server_name)
 			lspconfig[server_name].setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+		end,
+		["clangd"] = function()
+			lspconfig.clangd.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})

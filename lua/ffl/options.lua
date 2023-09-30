@@ -51,3 +51,5 @@ vim.g.maplocalleader = " "
 
 vim.cmd("set iskeyword+=-")
 
+vim.g.zig_fmt_autosave = 0
+
