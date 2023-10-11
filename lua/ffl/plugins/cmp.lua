@@ -20,10 +20,11 @@ M.config = function()
 
 	-- NOTE: Ordering matters
 	local sources = {
-		luasnip = "[SNIP]",
 		nvim_lsp = "[LSP]",
-		buffer = "[FILE]",
+		luasnip = "[SNIP]",
+		crates = "[CARGO]",
 		path = "[PATH]",
+		buffer = "[FILE]",
 	}
 
 	local luasnip_status_ok, luasnip = preq("luasnip")
@@ -86,6 +87,7 @@ M.config = function()
 			{name = "nvim_lsp"},
 			{name = "buffer"},
 			{name = "path"},
+			{name = "crates"},
 		},
 		experimental = {
 			ghost_text = true,

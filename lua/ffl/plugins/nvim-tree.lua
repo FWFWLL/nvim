@@ -1,9 +1,11 @@
 local M = {"nvim-tree/nvim-tree.lua"}
 
 M.lazy = false
+
 M.dependencies = {
 	"nvim-tree/nvim-web-devicons",
 }
+
 M.keys = {
 	{"<Leader>e", "<CMD>NvimTreeToggle<CR>"},
 }
@@ -19,10 +21,11 @@ M.config = function()
 	local icons = require("ffl.icons")
 
 	nvim_tree.setup({
-		disable_netrw = true,
-		auto_reload_on_write = true,
-		hijack_unnamed_buffer_when_opening = true,
 		hijack_cursor = true,
+		auto_reload_on_write = true,
+		disable_netrw = true,
+		hijack_netrw = true,
+		hijack_unnamed_buffer_when_opening = true,
 		sync_root_with_cwd = true,
 		respect_buf_cwd = true,
 		update_focused_file = {
@@ -32,28 +35,29 @@ M.config = function()
 		},
 		diagnostics = {
 			enable = true,
-			debounce_delay = 50, -- ms
 			show_on_dirs = true,
+			show_on_open_dirs = false,
+			debounce_delay = 50, -- ms
+			severity = {
+				min = vim.diagnostic.severity.HINT,
+				max = vim.diagnostic.severity.ERROR,
+			},
 			icons = {
 				hint = icons.diagnostics.Hint,
 				info = icons.diagnostics.Information,
 				warning = icons.diagnostics.Warning,
 				error = icons.diagnostics.Error,
 			},
-			severity = {
-				min = vim.diagnostic.severity.HINT,
-				max = vim.diagnostic.severity.ERROR,
-			},
 		},
 		modified = {
 			enable = false,
 			show_on_dirs = true,
-			show_on_open_dirs = true,
+			show_on_open_dirs = false,
 		},
 		git = {
 			enable = true,
-			ignore = true,
 			show_on_dirs = true,
+			show_on_open_dirs = false,
 			timeout = 400, -- ms
 		},
 		filesystem_watchers = {
@@ -78,7 +82,6 @@ M.config = function()
 			full_name = false,
 			highlight_git = false,
 			highlight_opened_files = "name",
-			-- root_folder_label = ":~:s?$?/..?",
 			root_folder_label = false,
 			indent_width = 2,
 			indent_markers = {
@@ -131,7 +134,12 @@ M.config = function()
 			},
 		},
 		filters = {
+			git_ignored = true,
 			custom = {"^.git$"},
+		},
+		notify = {
+			threshold = vim.log.levels.INFO,
+			absolute_path = true,
 		},
 		actions = {
 			open_file = {
@@ -166,4 +174,3 @@ M.config = function()
 end
 
 return M
-
