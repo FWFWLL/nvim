@@ -25,3 +25,6 @@ keymap("t", "<ESC><ESC>", [[<C-\><C-n>]])
 keymap("s", "p", "p")
 keymap("s", "<Tab>", "<DEL>i")
 
+-- Misc.
+keymap("n", "D", "^D")
+
