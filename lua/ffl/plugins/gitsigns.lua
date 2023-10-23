@@ -71,6 +71,7 @@ M.config = function()
 			untracked = {text = icons.gitsigns.Untracked},
 		},
 		signcolumn = true,
+		numhl = true,
 		preview_config = {
 			border = "rounded",
 			style = "minimal",

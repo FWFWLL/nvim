@@ -14,6 +14,7 @@ M.dependencies = {
 local servers = {
 	"clangd",
 	"cssls",
+	"hls",
 	"jdtls",
 	"jsonls",
 	"lua_ls",
