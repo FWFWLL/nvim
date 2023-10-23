@@ -26,5 +26,6 @@ keymap("s", "p", "p")
 keymap("s", "<Tab>", "<DEL>i")
 
 -- Misc.
-keymap("n", "D", "^D")
+keymap("n", "<C-D>", "^D")
+keymap("n", "<C-C>", "^C")
 
