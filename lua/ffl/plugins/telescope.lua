@@ -31,6 +31,8 @@ M.keys = {
 	{"<Leader>ff", project_files},
 	{"<Leader>fg", "<CMD>Telescope live_grep<CR>"},
 	{"<leader>fb", "<CMD>Telescope buffers<CR>"},
+	{"<leader>fd", "<CMD>Telescope diagnostics<CR>"},
+	{"<leader>fc", "<CMD>Telescope git_status<CR>"},
 }
 
 M.config = function()

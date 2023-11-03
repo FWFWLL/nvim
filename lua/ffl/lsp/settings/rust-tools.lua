@@ -1,6 +1,6 @@
 return {
 	tools = {
-		reload_workspace_from_cargo_toml = false,
+		reload_workspace_from_cargo_toml = true,
 		inlay_hints = {
 			auto = true,
 			show_parameter_hints = false,
@@ -9,5 +9,8 @@ return {
 	},
 	hover_actions = {
 		border = "rounded",
+	},
+	server = {
+		standalone = false,
 	},
 }
